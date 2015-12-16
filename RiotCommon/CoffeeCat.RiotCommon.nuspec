@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CoffeeCat.RiotCommon</id>
+    <version>1.0.0.7</version>
+    <title>CoffeeCat.RiotCommon</title>
+    <authors>Tony Majestro</authors>
+    <owners>Tony Majestro</owners>
+    <description>Common utilities for Riot API</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="7.0.1" />
+    </dependencies>
+    
+  </metadata>
+  <files>
+      <file src="bin\Debug\CoffeeCat.RiotCommon.pdb" target="lib\net40\" />
+      <file src="bin\Debug\CoffeeCat.RiotCommon.dll" target="lib\net40\" />
+  </files>
+</package>

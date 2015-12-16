@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6522B4C-4028-4FED-9B6D-0A22FF37471F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoffeeCat.RiotCommon</RootNamespace>
+    <AssemblyName>CoffeeCat.RiotCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.6.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.registration" />
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\Frontend\Mastery.cs" />
+    <Compile Include="Contracts\Frontend\Match.cs" />
+    <Compile Include="Contracts\Frontend\Rune.cs" />
+    <Compile Include="Contracts\Uploader\ApiVersion.cs" />
+    <Compile Include="Contracts\Uploader\MatchEntity.cs" />
+    <Compile Include="Contracts\Uploader\MatchInfo.cs" />
+    <Compile Include="Contracts\Uploader\SummonerEntity.cs" />
+    <Compile Include="Dto\Match\BannedChampionDto.cs" />
+    <Compile Include="Dto\Match\EventDto.cs" />
+    <Compile Include="Dto\Match\FrameDto.cs" />
+    <Compile Include="Dto\Match\MasteryDto.cs" />
+    <Compile Include="Dto\Match\MatchDetailDto.cs" />
+    <Compile Include="Dto\Match\MatchListDto.cs" />
+    <Compile Include="Dto\Match\MatchReferenceDto.cs" />
+    <Compile Include="Dto\Match\ParticipantDto.cs" />
+    <Compile Include="Dto\Match\ParticipantFrameDto.cs" />
+    <Compile Include="Dto\Match\ParticipantIdentityDto.cs" />
+    <Compile Include="Dto\Match\ParticipantStatsDto.cs" />
+    <Compile Include="Dto\Match\ParticipantTimelineDataDto.cs" />
+    <Compile Include="Dto\Match\ParticipantTimelineDto.cs" />
+    <Compile Include="Dto\Match\PlayerDto.cs" />
+    <Compile Include="Dto\Match\PositionDto.cs" />
+    <Compile Include="Dto\Match\RuneDto.cs" />
+    <Compile Include="Dto\Match\TeamDto.cs" />
+    <Compile Include="Dto\Match\TimelineDto.cs" />
+    <Compile Include="Dto\StaticData\BasicDataDto.cs" />
+    <Compile Include="Dto\StaticData\BasicDataStatsDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\BlockDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\BlockItemDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\ChampionDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\ChampionListDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\ChampionSpellsDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\InfoDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\LevelTipDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\PassiveDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\RecommendedDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\SkinDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\SpellVarsDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\StatsDto.cs" />
+    <Compile Include="Dto\StaticData\GoldDto.cs" />
+    <Compile Include="Dto\StaticData\ImageDto.cs" />
+    <Compile Include="Dto\StaticData\Item\GroupDto.cs" />
+    <Compile Include="Dto\StaticData\Item\ItemDto.cs" />
+    <Compile Include="Dto\StaticData\Item\ItemListDto.cs" />
+    <Compile Include="Dto\StaticData\Item\ItemTreeDto.cs" />
+    <Compile Include="Dto\StaticData\Mastery\MasteryDto.cs" />
+    <Compile Include="Dto\StaticData\Mastery\MasteryListDto.cs" />
+    <Compile Include="Dto\StaticData\Mastery\MasteryTreeDto.cs" />
+    <Compile Include="Dto\StaticData\Mastery\MasteryTreeItemDto.cs" />
+    <Compile Include="Dto\StaticData\Mastery\MasteryTreeListDto.cs" />
+    <Compile Include="Dto\StaticData\MetaDataDto.cs" />
+    <Compile Include="Dto\StaticData\Rune\RuneDto.cs" />
+    <Compile Include="Dto\StaticData\Rune\RuneListDto.cs" />
+    <Compile Include="Dto\Summoner\MasteryDto.cs" />
+    <Compile Include="Dto\Summoner\MasteryPageDto.cs" />
+    <Compile Include="Dto\Summoner\MasteryPagesDto.cs" />
+    <Compile Include="Dto\Summoner\RunePageDto.cs" />
+    <Compile Include="Dto\Summoner\RunePagesDto.cs" />
+    <Compile Include="Dto\Summoner\RuneSlotDto.cs" />
+    <Compile Include="Dto\Summoner\SummonerDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\IUploaderSettings.cs" />
+    <Compile Include="Settings\UploaderSettings.cs" />
+    <Compile Include="Utils\CloudManager.cs" />
+    <Compile Include="Utils\DateTimeUtils.cs" />
+    <Compile Include="Utils\DtoConverter.cs" />
+    <Compile Include="Utils\ICloudManager.cs" />
+    <Compile Include="Utils\IDtoConverter.cs" />
+    <Compile Include="Utils\IStaticData.cs" />
+    <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Utils\KeyManager.cs" />
+    <Compile Include="Utils\StaticData.cs" />
+    <Compile Include="Utils\Validation.cs" />
+    <Compile Include="Utils\VersionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CoffeeCat.RiotCommon.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

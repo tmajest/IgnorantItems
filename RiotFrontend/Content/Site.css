@@ -1,0 +1,47 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.matchRow .championImage .col-md-1 {
+    padding-right: 0px;
+}
+
+.linebreak {
+    padding-left: 50px;
+}
+.matchRow .proName .col-md-1 {
+    padding-left: 0px;
+    padding-right: 5px;
+}
+
+.recentMatchesHeader {
+    padding-left: 50px;
+}
+
+.recentMatchesHeader h2 {
+    padding-left: 5px;
+}
+
+.runeRow .runeDescription {
+    padding-top: 6px;
+}
+
+.imageItem img {
+    margin: 5px;
+}
+

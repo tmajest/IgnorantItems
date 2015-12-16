@@ -1,0 +1,88 @@
+{
+	"20132258": {
+		"summonerId": 20132258,
+		"pages": [{
+			"id": 34610192,
+			"name": "AD",
+			"current": true,
+			"masteries": [{
+				"id": 6223,
+				"rank": 1
+			}, {
+				"id": 6241,
+				"rank": 1
+			}, {
+				"id": 6131,
+				"rank": 5
+			}, {
+				"id": 6122,
+				"rank": 1
+			}, {
+				"id": 6111,
+				"rank": 5
+			}, {
+				"id": 6141,
+				"rank": 1
+			}, {
+				"id": 6211,
+				"rank": 5
+			}, {
+				"id": 6162,
+				"rank": 1
+			}, {
+				"id": 6232,
+				"rank": 5
+			}, {
+				"id": 6151,
+				"rank": 5
+			}]
+		}, {
+			"id": 34610195,
+			"name": "Ez",
+			"current": false,
+			"masteries": [{
+				"id": 6342,
+				"rank": 1
+			}, {
+				"id": 6241,
+				"rank": 1
+			}, {
+				"id": 6311,
+				"rank": 5
+			}, {
+				"id": 6221,
+				"rank": 1
+			}, {
+				"id": 6322,
+				"rank": 1
+			}, {
+				"id": 6332,
+				"rank": 5
+			}, {
+				"id": 6212,
+				"rank": 5
+			}, {
+				"id": 6232,
+				"rank": 5
+			}, {
+				"id": 6352,
+				"rank": 5
+			}, {
+				"id": 6362,
+				"rank": 1
+			}]
+		}, {
+			"id": 34610196,
+			"name": "Mastery Page 5",
+			"current": false
+		}, {
+			"id": 34610197,
+			"name": "Mastery Page 6",
+			"current": false
+		}, {
+			"id": 34610198,
+			"name": "Jungle",
+			"current": false
+		}]
+	}
+}

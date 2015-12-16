@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotFrontend", "RiotFrontend\RiotFrontend.csproj", "{7BC1CB40-BC7C-4094-A466-E91095D0AA39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{33DC92C3-943F-47E2-ACD9-9A1BBC32F594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uploader", "Uploader", "{AA79C7DA-18CD-4826-9F77-7BAD9726C606}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{7EAAA1BF-27EB-474B-9FC7-1FB3EFDE2DD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotCommon", "RiotCommon\RiotCommon.csproj", "{C6522B4C-4028-4FED-9B6D-0A22FF37471F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotClient", "RiotClient\RiotClient.csproj", "{03B1CA7C-D623-48BD-8229-7D09151ACD10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotClientTests", "RiotClientTests\RiotClientTests.csproj", "{E5E9F219-877C-4484-B038-B5EBC1D7D533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticDataUploader", "StaticDataUploader\StaticDataUploader.csproj", "{13B8B196-01B3-4567-9733-F597F4D0B22B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchUploader", "MatchUploader\MatchUploader.csproj", "{EEF7E988-63CF-4C48-B693-1E417D81CBAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BC1CB40-BC7C-4094-A466-E91095D0AA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC1CB40-BC7C-4094-A466-E91095D0AA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC1CB40-BC7C-4094-A466-E91095D0AA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC1CB40-BC7C-4094-A466-E91095D0AA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6522B4C-4028-4FED-9B6D-0A22FF37471F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6522B4C-4028-4FED-9B6D-0A22FF37471F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6522B4C-4028-4FED-9B6D-0A22FF37471F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6522B4C-4028-4FED-9B6D-0A22FF37471F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B1CA7C-D623-48BD-8229-7D09151ACD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B1CA7C-D623-48BD-8229-7D09151ACD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B1CA7C-D623-48BD-8229-7D09151ACD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B1CA7C-D623-48BD-8229-7D09151ACD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E9F219-877C-4484-B038-B5EBC1D7D533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E9F219-877C-4484-B038-B5EBC1D7D533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E9F219-877C-4484-B038-B5EBC1D7D533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E9F219-877C-4484-B038-B5EBC1D7D533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B8B196-01B3-4567-9733-F597F4D0B22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B8B196-01B3-4567-9733-F597F4D0B22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B8B196-01B3-4567-9733-F597F4D0B22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B8B196-01B3-4567-9733-F597F4D0B22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BC1CB40-BC7C-4094-A466-E91095D0AA39} = {7EAAA1BF-27EB-474B-9FC7-1FB3EFDE2DD7}
+		{C6522B4C-4028-4FED-9B6D-0A22FF37471F} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{03B1CA7C-D623-48BD-8229-7D09151ACD10} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{E5E9F219-877C-4484-B038-B5EBC1D7D533} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{13B8B196-01B3-4567-9733-F597F4D0B22B} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
+		{EEF7E988-63CF-4C48-B693-1E417D81CBAD} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
+	EndGlobalSection
+EndGlobal

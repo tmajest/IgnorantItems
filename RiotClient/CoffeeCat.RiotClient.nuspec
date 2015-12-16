@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CoffeeCat.RiotClient</id>
+    <version>1.0.0.8</version>
+    <title>CoffeeCat.RiotClient</title>
+    <authors>Tony Majestro</authors>
+    <owners>Tony Majestro</owners>
+    <description>Client utilities for Riot API</description>
+    <copyright>Copyright 2015</copyright>
+      <dependencies>
+          <dependency id="CoffeeCat.RiotCommon" version="1.0.0.7" />
+          <dependency id="Newtonsoft.Json" version="7.0.1" />
+      </dependencies>
+  </metadata>
+  <files>
+      <file src="bin\Debug\CoffeeCat.RiotClient.pdb" target="lib\net40\" />
+      <file src="bin\Debug\CoffeeCat.RiotClient.dll" target="lib\net40\" />
+  </files>
+</package>
