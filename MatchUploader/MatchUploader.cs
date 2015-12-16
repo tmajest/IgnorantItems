@@ -54,6 +54,7 @@ namespace CoffeeCat.MatchUploader
 
         private async Task UploadMatchHistory(SummonerEntity summoner, ApiVersion versions)
         {
+            Trace.WriteLine("Getting match history for summoner " + summoner.ProName + "...");
             var beginTime = summoner.LastUpdated;
             var endTime = DateTime.UtcNow;
             if (beginTime > endTime || beginTime == DateTime.MinValue)
@@ -64,10 +65,10 @@ namespace CoffeeCat.MatchUploader
             var matches = await GetMatchList(summoner, versions, beginTime, endTime);
             if (matches == null)
             {
+                Trace.TraceInformation("Finished getting {0} match history", summoner.ProName);
                 return;
             }
 
-            Trace.WriteLine("Getting match history for summoner " + summoner.ProName + "...");
             foreach (var match in matches)
             {
                 var matchDetails = await GetMatchDetail(match, versions);
@@ -79,7 +80,7 @@ namespace CoffeeCat.MatchUploader
             }
 
             // Update the summoner's last updated time
-            summoner.LastUpdated = beginTime;
+            summoner.LastUpdated = endTime;
             await this.cloudManager.InsertOrReplace(summoner, this.settings.SummonersTableName);
 
             Trace.TraceInformation("Finished getting {0} match history", summoner.ProName);
