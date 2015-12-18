@@ -266,6 +266,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Static\riot.txt" />
     <Content Include="Scripts\Apps\homeController.js" />
     <Content Include="Scripts\Apps\matchController.js" />
     <Content Include="Scripts\Share\angular-mocks.js" />

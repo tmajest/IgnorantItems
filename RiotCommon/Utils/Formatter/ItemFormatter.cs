@@ -22,6 +22,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
             {
                 Description = itemDto.Description,
                 Id = itemDto.Id,
+                Image = itemDto.Image,
                 Name = itemDto.Name,
                 SanitizedDescription = itemDto.SanitizedDescription
             };
