@@ -156,6 +156,13 @@
     <Compile Include="Utils\CloudManager.cs" />
     <Compile Include="Utils\DateTimeUtils.cs" />
     <Compile Include="Utils\DtoConverter.cs" />
+    <Compile Include="Utils\Formatter\BaseFormatter.cs" />
+    <Compile Include="Utils\Formatter\ChampionFormatter.cs" />
+    <Compile Include="Utils\Formatter\FormatType.cs" />
+    <Compile Include="Utils\Formatter\ItemFormatter.cs" />
+    <Compile Include="Utils\Formatter\MasteryFormatter.cs" />
+    <Compile Include="Utils\Formatter\MatchFormatter.cs" />
+    <Compile Include="Utils\Formatter\RuneFormatter.cs" />
     <Compile Include="Utils\ICloudManager.cs" />
     <Compile Include="Utils\IDtoConverter.cs" />
     <Compile Include="Utils\IStaticData.cs" />

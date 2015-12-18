@@ -2,18 +2,24 @@
 angular.module("IgnorantItems", [])
     .controller("matchController", function($scope, $http) {
         var matchId = window.backendParams.matchId;
-        var durationInSeconds = window.backendParams.seconds;
 
+        var pad = function(num, size) {
+            var s = num + "";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
 
         var getDuration = function(durationInSeconds) {
             var total = durationInSeconds;
-            var hours = total / 3600;
+            var hours = parseInt(total / 3600, 10);
             total -= (hours * 3600);
-            var minutes = total / 60;
+            var minutes = parseInt(total / 60, 10);
             total -= (minutes * 60);
-            var seconds = total;
+            var seconds = parseInt(total, 10);
             
-            $scope.durationText = (hours > 0) ? [hours, minutes, seconds].join("/") : minutes + "/" + seconds;
+            return hours > 0
+                ? [pad(hours, 2), pad(minutes, 2), pad(seconds, 2)].join(":")
+                : pad(minutes, 2) + ":" + pad(seconds, 2);
         }
 
         var getTitle = function(match) {
@@ -34,5 +40,6 @@ angular.module("IgnorantItems", [])
             $scope.kills = data.Kills;
             $scope.deaths = data.Deaths;
             $scope.assists = data.Assists;
+            $scope.durationText = getDuration(data.MatchDuration);
         });
     });

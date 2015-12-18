@@ -43,9 +43,13 @@ namespace RiotFrontend.Providers
             var query = new TableQuery<MatchEntity>().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, matchId));
             var matchEntity = matchTable.ExecuteQuery(query).FirstOrDefault();
 
-            return matchEntity == null 
-                ? null 
-                : dtoConverter.GetMatchContract(JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match));
+            if (matchEntity == null)
+            {
+                return null;
+            }
+
+            var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
+            return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
         }
 
         public List<Match> GetMatches()
@@ -64,7 +68,7 @@ namespace RiotFrontend.Providers
             var query = new TableQuery<MatchEntity>().Where(filter);
             var matches = matchTable.ExecuteQuery(query).OrderByDescending(match => match.MatchCreationTime).Take(count);
             var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
-            return matchesInfo.Select(dtoConverter.GetMatchContract).ToList();
+            return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
         }
     }
 }

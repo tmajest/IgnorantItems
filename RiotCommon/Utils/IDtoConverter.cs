@@ -13,7 +13,7 @@ namespace CoffeeCat.RiotCommon.Utils
     [InheritedExport(typeof(IDtoConverter))]
     public interface IDtoConverter
     {
-        Match GetMatchContract(MatchInfo matchInfo);
+        Match GetMatchContract(MatchInfo matchInfo, FormatType type);
 
         Rune GetRuneContract(MatchContracts.RuneDto runeDto);
 
