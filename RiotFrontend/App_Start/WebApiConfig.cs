@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.Owin.Security.OAuth;
+using CoffeeCat.RiotCommon.Settings;
+using CoffeeCat.RiotCommon.Utils;
+using Microsoft.Practices.Unity;
 using Newtonsoft.Json.Serialization;
+using RiotFrontend.App_Start;
+using RiotFrontend.Providers;
 
 namespace RiotFrontend
 {
@@ -14,17 +19,46 @@ namespace RiotFrontend
         {
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            var container = new UnityContainer();
+            var settings = GetUploaderSettings();
+
+            container
+                .RegisterInstance(settings)
+                .RegisterType<ICloudManager, CloudManager>(new InjectionConstructor(settings.AzureStorageConnectionString))
+                .RegisterType<IStaticData, StaticData>(new ContainerControlledLifetimeManager())
+                .RegisterType<IDtoConverter, DtoConverter>(new ContainerControlledLifetimeManager())
+                .RegisterType<IMatchProvider, MatchProvider>();
+
+            config.DependencyResolver = new UnityResolver(container);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+                //name: "DefaultApi",
+                //routeTemplate: "api/{controller}/{id}",
+                //defaults: new { id = RouteParameter.Optional }
+            //);
+        }
+
+        private static IUploaderSettings GetUploaderSettings()
+        {
+            var appSettings = ConfigurationManager.AppSettings;
+            return new UploaderSettings
+            {
+                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
+                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
+                DataContainerName = appSettings["DataContainerName"],
+                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
+                RunesBlobPath = appSettings["RunesBlobPath"],
+                ChampionsBlobPath = appSettings["ChampionsBlobPath"],
+                ItemsBlobPath = appSettings["ItemsBlobPath"],
+                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
+                SummonersTableName = appSettings["SummonersTableName"],
+                MatchListTableName = appSettings["MatchListTableName"],
+            };
         }
     }
 }

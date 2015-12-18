@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Composition;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
@@ -10,7 +9,6 @@ using Newtonsoft.Json;
 
 namespace CoffeeCat.RiotCommon.Utils
 {
-    [PartCreationPolicy(CreationPolicy.Shared)]
     public class StaticData : IStaticData
     {
         public RuneListDto RuneList { get; }
@@ -18,8 +16,7 @@ namespace CoffeeCat.RiotCommon.Utils
         public ChampionListDto ChampionList { get; }
         public ItemListDto ItemList { get; }
 
-        [ImportingConstructor]
-        public StaticData(ICloudManager cloudManager, [Import("Settings")] IUploaderSettings settings)
+        public StaticData(ICloudManager cloudManager, IUploaderSettings settings)
         {
             var runeTask = cloudManager.DownloadTextAsync(
                 settings.DataContainerName,

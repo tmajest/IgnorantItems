@@ -5,7 +5,6 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace CoffeeCat.RiotCommon.Utils
 {
-    [InheritedExport(typeof(ICloudManager))]
     public interface ICloudManager
     {
         /// <summary>
