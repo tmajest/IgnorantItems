@@ -1,10 +1,12 @@
 ﻿using System.Web.Http;
 using CoffeeCat.RiotCommon.Utils;
 using RiotFrontend.Providers;
+using System.Net;
+using System.Net.Http;
 
 namespace RiotFrontend.Controllers.WebApi
 {
-    [Route("matches")]
+    [RoutePrefix("matches")]
     public class MatchController : ApiController
     {
         private IMatchProvider matchProvider;
@@ -16,29 +18,29 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("")]
-        public IHttpActionResult GetMatches()
+        public HttpResponseMessage GetMatches()
         {
             var matches = this.matchProvider.GetMatches();
             if (matches == null || matches.Count == 0)
             {
-                return this.NotFound();
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
 
-            return this.Ok(matches);
+            return Request.CreateResponse(HttpStatusCode.OK, matches);
         }
 
         [HttpGet]
         [Route("{matchId}")]
-        public IHttpActionResult GetMatch(string matchId)
+        public HttpResponseMessage GetMatch(string matchId)
         {
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
             var match = this.matchProvider.GetMatch(matchId);
             if (match == null)
             {
-                return this.NotFound();
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
 
-            return this.Ok(match);
+            return Request.CreateResponse(match);
         }
     }
 }

@@ -13,6 +13,6 @@
         };
 
         $scope.getMatchResultColor = function(match) {
-            return match.Won ? "{'color': '#00b300'" : "{'color': '#cc0000'}";
+            return match.Won ? "{'color': '#00b300'}" : "{'color': '#cc0000'}";
         };
     });

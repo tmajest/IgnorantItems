@@ -19,6 +19,8 @@ namespace RiotFrontend.Providers
 {
     public class MatchProvider : IMatchProvider
     {
+        private static readonly int DefaultMatchCount = 15;
+
         private ICloudManager cloudManager;
         private IUploaderSettings settings;
         private IDtoConverter dtoConverter;
@@ -48,14 +50,19 @@ namespace RiotFrontend.Providers
 
         public List<Match> GetMatches()
         {
+            return this.GetMatches(DefaultMatchCount);
+        }
+
+        public List<Match> GetMatches(int count)
+        {
             var matchTable = this.cloudManager.GetCloudTable(settings.MatchListTableName);
             var filter = TableQuery.GenerateFilterConditionForDate(
                 "MatchCreationTime",
                 QueryComparisons.GreaterThan,
-                DateTimeOffset.UtcNow.Subtract(TimeSpan.FromDays(1)));
+                DateTimeOffset.UtcNow.Subtract(TimeSpan.FromHours(12)));
 
             var query = new TableQuery<MatchEntity>().Where(filter);
-            var matches = matchTable.ExecuteQuery(query).OrderByDescending(match => match.MatchCreationTime).Take(40);
+            var matches = matchTable.ExecuteQuery(query).OrderByDescending(match => match.MatchCreationTime).Take(count);
             var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
             return matchesInfo.Select(dtoConverter.GetMatchContract).ToList();
         }

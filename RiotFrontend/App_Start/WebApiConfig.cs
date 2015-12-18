@@ -10,6 +10,8 @@ using Microsoft.Practices.Unity;
 using Newtonsoft.Json.Serialization;
 using RiotFrontend.App_Start;
 using RiotFrontend.Providers;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace RiotFrontend
 {
@@ -20,6 +22,8 @@ namespace RiotFrontend
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate };
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             var container = new UnityContainer();
             var settings = GetUploaderSettings();
@@ -36,11 +40,11 @@ namespace RiotFrontend
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            //config.Routes.MapHttpRoute(
-                //name: "DefaultApi",
-                //routeTemplate: "api/{controller}/{id}",
-                //defaults: new { id = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
 
         private static IUploaderSettings GetUploaderSettings()
