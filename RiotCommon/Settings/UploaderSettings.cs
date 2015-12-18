@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 
 namespace CoffeeCat.RiotCommon.Settings
 {
     public class UploaderSettings : IUploaderSettings
     {
-        [ImportingConstructor]
-        public UploaderSettings()
-        {
-        }
-
         public string AzureStorageConnectionString { get; set; }
 
         public List<string> RiotApiKeys { get; set; }

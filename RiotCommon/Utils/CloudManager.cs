@@ -18,8 +18,7 @@ namespace CoffeeCat.RiotCommon.Utils
         /// Creates a new CloudManager with the given connection string.
         /// </summary>
         /// <param name="connectionString">The Azure storage connection string</param>
-        [ImportingConstructor]
-        public CloudManager([Import("ConnectionString")] string connectionString)
+        public CloudManager(string connectionString)
         {
             Validation.ValidateNotNullOrWhitespace(connectionString, nameof(connectionString));
             this.connectionString = connectionString;

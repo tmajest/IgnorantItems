@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.ComponentModel.Composition;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +23,10 @@ namespace RiotFrontend.Providers
         private IUploaderSettings settings;
         private IDtoConverter dtoConverter;
 
-        [ImportingConstructor]
         public MatchProvider(
             ICloudManager cloudManager, 
             IDtoConverter dtoConverter,
-            [Import("Settings")] IUploaderSettings settings)
+            IUploaderSettings settings)
         {
             this.cloudManager = cloudManager;
             this.dtoConverter = dtoConverter;

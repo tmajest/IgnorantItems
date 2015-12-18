@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +14,10 @@ using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
 
 namespace CoffeeCat.RiotCommon.Utils
 {
-    [PartCreationPolicy(CreationPolicy.Shared)]
     public class DtoConverter : IDtoConverter
     {
         private readonly IStaticData staticData;
 
-        [ImportingConstructor]
         public DtoConverter(IStaticData staticData)
         {
             Validation.ValidateNotNull(staticData, nameof(staticData));

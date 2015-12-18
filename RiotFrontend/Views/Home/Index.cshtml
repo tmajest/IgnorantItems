@@ -1,54 +1,40 @@
 ﻿
-@{ 
-    var winColor = "#00b300";
-    var lossColor = "#cc0000";
-}
 
-<div class="jumbotron">
-    <h1>Ignorant Items</h1>
-    <p class="lead">View all of the pro's champion builds, items, and masteries.</p>
-</div>
-<div class="row">
-    <div class="recentMatchesHeader">
-        <h2>Recent Matches</h2>
-    </div>
-    @foreach (var match in ViewBag.matches)
-    {
-        <div class="matchRow">
+<div id="baseContainer" ng-app="IgnorantItems">
+    <div id="homeContainer" ng-controller="homeController">
+        <div class="row">
+            <div class="recentMatchesHeader">
+                <h2>{{title}}</h2>
+            </div>
+        </div>
+        <div class="matchRow" ng-repeat="match in allMatches">
             <div class="linebreak">
                 <div class="row">
-                    <div class="col-md-8">
-                        <hr />
-                    </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-xs-8"><hr /></div>
+                    <div class="col-xs-4"></div>
                 </div>
             </div>
             <div class="matchContainer">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                        <a href="/Match?matchId=@(match.MatchId)">
+                    <div class="col-xs-1"></div>
+                        <a ng-href="/matches/{{match.MatchId}}">
                             <div class="championImage">
-                                <div class="col-md-1">
-                                    <img src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/@match.Champion.Image.Full" width="30" height="30"/>
+                                <div class="col-xs-1">
+                                    <img src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{match.Champion.Image.Full}}" width="30" height="30"/>
                                 </div>
                             </div>
-                            <div class="proName"><div class="col-md-2">@match.ProName</div></div>
-                            <div class="championName"><div class="col-md-2">@match.Champion.Name</div></div>
-                                @{
-                                    if (match.Won)
-                                    {
-                                        @:<div class="col-md-1"><span style="color: @(winColor)">Win</span></div>
-                                    }
-                                    else {
-                                        @:<div class="col-md-1"><span style="color: @(lossColor)">Loss</span></div>
-                                    }
-                                }
-                            <div class="col-md-1"></div>
+                            <div class="proName"><div class="col-xs-2">{{match.ProName}}</div></div>
+                            <div class="championName"><div class="col-xs-2">{{match.Champion.Name}}</div></div>
+                            <div class="col-xs-1"><span ng-style="getMatchResultColor(match)">{{getMatchResultText(match)}}</span></div>
+                            <div class="col-xs-1"></div>
                         </a>
                     </div>
             </div>
-            <div class="col-md-1"></div>
-            <div class="clearfix"></div>
         </div>
-    }
+    </div>
 </div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Share/angular.min.js")
+    @Scripts.Render("~/Scripts/Apps/homeController.js")
+}
