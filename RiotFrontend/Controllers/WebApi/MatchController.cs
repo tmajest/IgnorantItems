@@ -6,7 +6,7 @@ using System.Net.Http;
 
 namespace RiotFrontend.Controllers.WebApi
 {
-    [RoutePrefix("matches")]
+    [RoutePrefix("api/matches")]
     public class MatchController : ApiController
     {
         private IMatchProvider matchProvider;

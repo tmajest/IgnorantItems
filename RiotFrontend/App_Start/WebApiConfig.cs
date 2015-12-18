@@ -11,6 +11,7 @@ using Newtonsoft.Json.Serialization;
 using RiotFrontend.App_Start;
 using RiotFrontend.Providers;
 using System.Net.Http.Headers;
+using CacheCow.Server;
 using Newtonsoft.Json;
 
 namespace RiotFrontend
@@ -19,6 +20,11 @@ namespace RiotFrontend
     {
         public static void Register(HttpConfiguration config)
         {
+
+            // Set caching
+            // Enable for production
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new CachingHandler(config));  
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

@@ -4,7 +4,7 @@
 
         $scope.title = "Recent Matches";
 
-        $http.get("/matches").success(function(data) {
+        $http.get("/api/matches").success(function(data) {
             $scope.allMatches = data;
          });
 
@@ -13,6 +13,6 @@
         };
 
         $scope.getMatchResultColor = function(match) {
-            return match.Won ? "{'color': '#00b300'}" : "{'color': '#cc0000'}";
+            return match.Won ? {"color": "#00b300"} : {"color": "#cc0000"};
         };
     });
