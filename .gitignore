@@ -13,3 +13,5 @@ packages
 **/TestResults
 
 MatchUploader\Properties
+
+**/PublishProfiles

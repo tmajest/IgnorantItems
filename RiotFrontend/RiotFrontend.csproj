@@ -266,7 +266,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Static\riot.txt" />
+    <Content Include="riot.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\Apps\homeController.js" />
     <Content Include="Scripts\Apps\matchController.js" />
     <Content Include="Scripts\Share\angular-mocks.js" />
@@ -298,6 +300,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy.pubxml" />
     <Content Include="Scripts\Share\angular.min.js.map" />
     <None Include="Scripts\Share\jquery-1.10.2.intellisense.js" />
