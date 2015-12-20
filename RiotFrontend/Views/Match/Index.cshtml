@@ -41,9 +41,14 @@
         <hr />
         <div class="summonerSpellsContainer">
             <h3>Summoner Spells</h3>
-            <div class="summonerSpell" ng-repeat="summonerSpell in match.SummonerSpells">
+            <div class="summonerSpell">
                 <div class="row">
-                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[summonerSpell.Id].Image.Full}}" />
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell1Id].Image.Full}}" />
+                </div>
+            </div>
+            <div class="summonerSpell">
+                <div class="row">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell2Id].Image.Full}}" />
                 </div>
             </div>
         </div>
