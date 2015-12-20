@@ -1,4 +1,9 @@
-﻿<div id="homeContainer" ng-app="IgnorantItems" ng-controller="homeController">
+﻿@section scripts {
+    @Scripts.Render("~/Scripts/Share/angular.min.js")
+    @Scripts.Render("~/Scripts/Apps/homeController.js")
+}
+
+<div id="homeContainer" ng-app="IgnorantItems" ng-controller="homeController">
     <div class="row">
         <div class="recentMatchesHeader">
             <h2>{{title}}</h2>
@@ -28,8 +33,3 @@
         </div>
     </div>
 </div>
-
-@section scripts {
-    @Scripts.Render("~/Scripts/Share/angular.min.js")
-    @Scripts.Render("~/Scripts/Apps/homeController.js")
-}

@@ -1,5 +1,5 @@
 ﻿
-angular.module("IgnorantItems", [])
+angular.module("IgnorantItems", ['ui.bootstrap'])
     .controller("matchController", function($scope, $http) {
         var matchId = window.backendParams.matchId;
 
@@ -41,6 +41,8 @@ angular.module("IgnorantItems", [])
                     continue;
                 }
 
+                $scope.masteryDescription[mastery.Data.Id] = mastery.Data.SanitizedDescription[mastery.Rank - 1];
+
                 image.css("-webkit-filter", "none");
                 image.css("border", "2px solid #FFF5A6");
 
@@ -63,5 +65,13 @@ angular.module("IgnorantItems", [])
 
         $http.get("/api/static/masteries").success(function(data) {
             $scope.masteries = data;
+            $scope.masteryDescription = {};
+            var len = data.length;
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var mastery = data[key];
+                    $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
+                }
+            }
         });
     });

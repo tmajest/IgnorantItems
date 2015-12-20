@@ -99,14 +99,14 @@ footer {
 }
 
 .proName {
-    width: 140px;
+    width: 160px;
     padding-left: 30px;
     float: left;
     font-size: 14px;
 }
 
 .championName {
-    width: 120px;
+    width: 130px;
     padding-left: 10px;
     float: left;
 }
@@ -207,8 +207,14 @@ footer {
     width: 200px;
 }
 
-.masteryRow div {
+.masteryImageContainer {
     position: relative;
+}
+
+.masteriesContainer .popover {
+    max-width: 600px;
+    width: 200px;
+    font-size: 12px;
 }
 
 .masteryRank {
@@ -482,6 +488,10 @@ footer {
 .runesContainer {
     padding-top: 10px;
     padding-bottom: 30px
+}
+
+.runesContainer .row {
+
 }
 
 .runesContainer h3 {

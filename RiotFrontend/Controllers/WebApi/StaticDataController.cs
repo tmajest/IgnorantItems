@@ -23,7 +23,7 @@ namespace RiotFrontend.Controllers.WebApi
         [Route("masteries")]
         public HttpResponseMessage GetMasteries()
         {
-            var masteries = this.staticData.RuneList.Data;
+            var masteries = this.staticData.MasteryList.Data;
             return Request.CreateResponse(HttpStatusCode.OK, masteries);
         }
 

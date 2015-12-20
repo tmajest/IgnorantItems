@@ -264,12 +264,17 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="riot.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\Share\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\Share\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\Share\ui-bootstrap.js" />
+    <Content Include="Scripts\Share\ui-bootstrap.min.js" />
     <Content Include="Scripts\Apps\homeController.js" />
     <Content Include="Scripts\Apps\matchController.js" />
     <Content Include="Scripts\Share\angular-mocks.js" />

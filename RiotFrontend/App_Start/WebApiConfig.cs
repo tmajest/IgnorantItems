@@ -21,9 +21,10 @@ namespace RiotFrontend
         public static void Register(HttpConfiguration config)
         {
 
-            // Set caching
+#if (!DEBUG)
             // Enable for production
-            //GlobalConfiguration.Configuration.MessageHandlers.Add(new CachingHandler(config));
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new CachingHandler(config));
+#endif
 
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
