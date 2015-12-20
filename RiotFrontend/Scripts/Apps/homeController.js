@@ -6,10 +6,6 @@
 
         $http.get("/api/matches").success(function(data) {
             $scope.allMatches = data;
-            var len = data.length;
-            for (var i = 0; i < len; i++) {
-                setMatchColor(data[i]);
-            }
          });
 
         $scope.getMatchResultText = function(match) {
