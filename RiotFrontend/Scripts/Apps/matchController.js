@@ -60,18 +60,20 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             $scope.deaths = data.Deaths;
             $scope.assists = data.Assists;
             $scope.durationText = getDuration(data.MatchDuration);
-            setMasteries();
+
+            $http.get("/api/static/masteries").success(function(data) {
+                $scope.masteries = data;
+                $scope.masteryDescription = {};
+                var len = data.length;
+                for (var key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        var mastery = data[key];
+                        $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
+                    }
+                }
+
+                setMasteries();
+            });
         });
 
-        $http.get("/api/static/masteries").success(function(data) {
-            $scope.masteries = data;
-            $scope.masteryDescription = {};
-            var len = data.length;
-            for (var key in data) {
-                if (data.hasOwnProperty(key)) {
-                    var mastery = data[key];
-                    $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
-                }
-            }
-        });
     });
