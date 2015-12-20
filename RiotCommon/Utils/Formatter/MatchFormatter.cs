@@ -54,6 +54,8 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Kills = matchInfo.Kills,
                 Deaths = matchInfo.Deaths,
                 Assists = matchInfo.Assists,
+                Spell1Id = matchInfo.Spell1Id,
+                Spell2Id = matchInfo.Spell2Id,
                 EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
                 TeamBannedChampions = matchInfo.TeamBannedChampions
@@ -77,6 +79,8 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Kills = matchInfo.Kills,
                 Deaths = matchInfo.Deaths,
                 Assists = matchInfo.Assists,
+                Spell1Id = matchInfo.Spell1Id,
+                Spell2Id = matchInfo.Spell2Id,
             };
         }
     }

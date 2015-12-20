@@ -60,6 +60,8 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             $scope.deaths = data.Deaths;
             $scope.assists = data.Assists;
             $scope.durationText = getDuration(data.MatchDuration);
+            $scope.spell1Id = data.Spell1Id;
+            $scope.spell2Id = data.Spell2Id;
 
             $http.get("/api/static/masteries").success(function(data) {
                 $scope.masteries = data;
@@ -73,6 +75,14 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                 }
 
                 setMasteries();
+            });
+
+            $http.get("/api/static/summonerSpells").success(function (data) {
+                $scope.summonerSpells = {};
+
+                for (var el in data) {
+                    $scope.summonerSpells[data[el].Id] = data[el];
+                }
             });
         });
     });

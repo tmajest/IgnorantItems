@@ -40,7 +40,9 @@ namespace CoffeeCat.MatchUploader.Converters
                 Assists = participant.Stats.Assists,
                 TeamBannedChampions = team.Bans,
                 EnemyTeamBannedChampions = otherTeam.Bans,
-                ItemsBought = ItemListConverter.GetSummonerItems(matchDetails, participant)
+                ItemsBought = ItemListConverter.GetSummonerItems(matchDetails, participant),
+                Spell1Id = participant.Spell1Id,
+                Spell2Id = participant.Spell2Id
             };
 
             var matchJson = JsonConvert.SerializeObject(matchInfo);
