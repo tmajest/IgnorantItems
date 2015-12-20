@@ -12,15 +12,15 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
     {
         private readonly MasteryFormatter masteryFormatter;
         private readonly RuneFormatter runeFormatter;
-        private readonly ChampionFormatter championFormatter;
-        private readonly ItemFormatter itemFormatter;
+        private readonly ChampionDtoFormatter championFormatter;
+        private readonly ItemDtoFormatter itemFormatter;
 
         public MatchFormatter(
             IStaticData staticData,
             MasteryFormatter masteryFormatter,
             RuneFormatter runeFormatter,
-            ChampionFormatter championFormatter,
-            ItemFormatter itemFormatter) 
+            ChampionDtoFormatter championFormatter,
+            ItemDtoFormatter itemFormatter) 
             : base(staticData)
         {
             this.masteryFormatter = masteryFormatter;

@@ -7,9 +7,9 @@ using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 
 namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
-    internal class ItemFormatter : BaseFormatter
+    internal class ItemDtoFormatter : BaseFormatter
     {
-        public ItemFormatter(IStaticData staticData) : base(staticData)
+        public ItemDtoFormatter(IStaticData staticData) : base(staticData)
         {
         }
 

@@ -19,8 +19,8 @@ namespace CoffeeCat.RiotCommon.Utils
     {
         private readonly MasteryFormatter masteryFormatter;
         private readonly RuneFormatter runeFormatter;
-        private readonly ChampionFormatter championFormatter;
-        private readonly ItemFormatter itemFormatter;
+        private readonly ChampionDtoFormatter championFormatter;
+        private readonly ItemDtoFormatter itemFormatter;
         private readonly MatchFormatter matchFormatter;
 
         public DtoConverter(IStaticData staticData)
@@ -28,8 +28,8 @@ namespace CoffeeCat.RiotCommon.Utils
             Validation.ValidateNotNull(staticData, nameof(staticData));
             this.masteryFormatter = new MasteryFormatter(staticData);
             this.runeFormatter = new RuneFormatter(staticData);
-            this.championFormatter = new ChampionFormatter(staticData);
-            this.itemFormatter = new ItemFormatter(staticData);
+            this.championFormatter = new ChampionDtoFormatter(staticData);
+            this.itemFormatter = new ItemDtoFormatter(staticData);
             this.matchFormatter = new MatchFormatter(
                 staticData,
                 this.masteryFormatter,
