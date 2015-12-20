@@ -26,8 +26,12 @@ footer {
 .baseContainer {
     padding-top: 30px;
     width: 60%;
-    height: 1500px;
     float: left;
+}
+
+#matchContainer {
+    height: 1200px;
+    padding-top: 30px;
 }
 
 .sideGutter {
@@ -102,12 +106,36 @@ footer {
     padding-top: 6px;
 }
 
-.imageItem img {
-    margin: 5px;
+.items {
+    width: 100%;
+}
+
+.item {
+    float: left;
+    height: 80px;
+}
+
+.imageItem {
+    text-align: center;
+    width: 70px;
+    padding: 5px;
+    float: left;
+}
+
+.imageItem {
+}
+
+.itemDescription {
+    font-size: 9px;
 }
 
 .masteryGutter {
     height: 10px;
+}
+
+.itemArrow {
+    float: left;
+    padding-top: 15px
 }
 
 .masteries {
