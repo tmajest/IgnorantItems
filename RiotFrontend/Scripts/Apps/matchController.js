@@ -75,16 +75,4 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                 setMasteries();
             });
         });
-
-        $http.get("/api/static/summonerSpells").success(function (data) {
-            var summonerSpells = {};
-            for (var key in data) {
-                if (data.hasOwnProperty(key)) {
-                    var summonerSpell = data[key];
-                    summonerSpells[summonerSpell.Id] = summonerSpell;
-                }
-            }
-
-            $scope.summonerSpells = summonerSpells;
-        });
     });
