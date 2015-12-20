@@ -3,12 +3,6 @@ angular.module("IgnorantItems", [])
     .controller("matchController", function($scope, $http) {
         var matchId = window.backendParams.matchId;
 
-        var pad = function(num, size) {
-            var s = num + "";
-            while (s.length < size) s = "0" + s;
-            return s;
-        }
-
         var getDuration = function(durationInSeconds) {
             var total = durationInSeconds;
             var hours = parseInt(total / 3600, 10);
@@ -18,8 +12,8 @@ angular.module("IgnorantItems", [])
             var seconds = parseInt(total, 10);
             
             return hours > 0
-                ? [pad(hours, 2), pad(minutes, 2), pad(seconds, 2)].join(":")
-                : pad(minutes, 2) + ":" + pad(seconds, 2);
+                ? hours + "h " + minutes + "m " + seconds + "s"
+                : minutes + "m " + seconds + "s";
         }
 
         var getTitle = function(match) {

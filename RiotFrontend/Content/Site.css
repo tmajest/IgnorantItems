@@ -29,15 +29,38 @@ footer {
     float: left;
 }
 
+.kills {
+    color: #138801;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.deaths {
+    color: #BD1313;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.assists {
+    color: #0B64F3;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 #matchContainer {
-    height: 1200px;
+    height: 1600px;
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .sideGutter {
     height: 1500px;
     width: 20%;
     float: left;
+}
+
+#matchInfoHeader {
+    padding-bottom: 30px;
 }
 
 .recentMatchesHeader h2 {
@@ -107,26 +130,25 @@ footer {
 }
 
 .items {
+    padding-top: 10px;
     width: 100%;
 }
 
 .item {
     float: left;
-    height: 80px;
+    height: 90px;
+    padd
 }
 
 .imageItem {
     text-align: center;
     width: 70px;
-    padding: 5px;
     float: left;
 }
 
-.imageItem {
-}
-
 .itemDescription {
-    font-size: 9px;
+    padding-top: 3px;
+    font-size: 10px;
 }
 
 .masteryGutter {
@@ -446,4 +468,35 @@ footer {
     padding-left: 10px;
     padding-top: 14px;
     float: left;
+}
+
+.matchInfoContainer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.matchInfoContainer h3 {
+    padding-bottom: 10px;
+}
+
+.runesContainer {
+    padding-top: 10px;
+    padding-bottom: 30px
+}
+
+.runesContainer h3 {
+    padding-bottom: 10px
+}
+
+.masteriesContainer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.masteriesContainer h3 {
+    padding-bottom: 10px;
+}
+
+.items h3 {
+    padding-bottom: 10px;
 }
