@@ -28,6 +28,7 @@ namespace CoffeeCat.MatchUploader.Converters
                 SummonerName = participantInfo.Player.SummonerName.ToLowerInvariant(),
                 SummonerId = participantInfo.Player.SummonerId.ToString(),
                 ProName = summoner.ProName,
+                Participants = matchDetails.Participants,
                 ChampionId = participant.ChampionId.ToString(),
                 Region = matchDetails.Region,
                 Masteries = participant.Masteries,

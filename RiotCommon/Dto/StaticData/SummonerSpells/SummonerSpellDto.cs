@@ -17,6 +17,9 @@ namespace CoffeeCat.RiotCommon.Dto.StaticData.SummonerSpells
         public string Description { get; set; }
 
         [JsonProperty]
+        public string Name { get; set; }
+
+        [JsonProperty]
         public ImageDto Image { get; set; }
 
         [JsonProperty]

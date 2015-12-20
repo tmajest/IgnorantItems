@@ -27,5 +27,12 @@ namespace RiotFrontend.Controllers.WebApi
             return Request.CreateResponse(HttpStatusCode.OK, masteries);
         }
 
+        [HttpGet]
+        [Route("summonerSpells")]
+        public HttpResponseMessage GetSummonerSpells()
+        {
+            var summonerSpells = this.staticData.SummonerSpellList.Data;
+            return Request.CreateResponse(HttpStatusCode.OK, summonerSpells);
+        }
     }
 }

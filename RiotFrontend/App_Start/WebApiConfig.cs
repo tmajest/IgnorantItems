@@ -66,6 +66,7 @@ namespace RiotFrontend
                 RunesBlobPath = appSettings["RunesBlobPath"],
                 ChampionsBlobPath = appSettings["ChampionsBlobPath"],
                 ItemsBlobPath = appSettings["ItemsBlobPath"],
+                SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
                 ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
                 SummonersTableName = appSettings["SummonersTableName"],
                 MatchListTableName = appSettings["MatchListTableName"],

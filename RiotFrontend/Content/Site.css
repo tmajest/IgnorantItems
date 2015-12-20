@@ -490,8 +490,13 @@ footer {
     padding-bottom: 30px
 }
 
-.runesContainer .row {
+.summonerSpellsContainer {
+    padding-top: 10px;
+    padding-bottom: 30px
+}
 
+.summonerSpellsContainer h3 {
+    padding-bottom: 10px;
 }
 
 .runesContainer h3 {

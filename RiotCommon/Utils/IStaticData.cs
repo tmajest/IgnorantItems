@@ -2,6 +2,7 @@
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
 using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
+using CoffeeCat.RiotCommon.Dto.StaticData.SummonerSpells;
 
 namespace CoffeeCat.RiotCommon.Utils
 {
@@ -14,5 +15,7 @@ namespace CoffeeCat.RiotCommon.Utils
         ChampionListDto ChampionList { get; }
 
         ItemListDto ItemList { get; }
+
+        SummonerSpellListDto SummonerSpellList { get; }
     }
 }

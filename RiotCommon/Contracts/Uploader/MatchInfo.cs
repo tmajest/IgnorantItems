@@ -28,6 +28,9 @@ namespace CoffeeCat.RiotCommon.Contracts.Uploader
 
         [JsonProperty]
         public string Region { get; set; }
+
+        [JsonProperty]
+        public List<ParticipantDto> Participants { get; set; }
         
         [JsonProperty]
         public List<MasteryDto> Masteries { get; set; }

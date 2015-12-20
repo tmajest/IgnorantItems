@@ -3,6 +3,7 @@ using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
 using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
+using CoffeeCat.RiotCommon.Dto.StaticData.SummonerSpells;
 using CoffeeCat.RiotCommon.Settings;
 using Microsoft.WindowsAzure.Storage;
 using Newtonsoft.Json;
@@ -15,6 +16,7 @@ namespace CoffeeCat.RiotCommon.Utils
         public MasteryListDto MasteryList { get; }
         public ChampionListDto ChampionList { get; }
         public ItemListDto ItemList { get; }
+        public SummonerSpellListDto SummonerSpellList { get; }
 
         public StaticData(ICloudManager cloudManager, IUploaderSettings settings)
         {
@@ -34,12 +36,17 @@ namespace CoffeeCat.RiotCommon.Utils
                 settings.DataContainerName,
                 settings.ItemsBlobPath);
 
-            Task.WaitAll(runeTask, masteryTask, championTask, itemTask);
+            var summonerSpellsTask = cloudManager.DownloadTextAsync(
+                settings.DataContainerName,
+                settings.SummonerSpellsBlobPath);
+
+            Task.WaitAll(runeTask, masteryTask, championTask, itemTask, summonerSpellsTask);
 
             this.RuneList = GetList<RuneListDto>(runeTask);
             this.MasteryList = GetList<MasteryListDto>(masteryTask);
             this.ChampionList = GetList<ChampionListDto>(championTask);
             this.ItemList = GetList<ItemListDto>(itemTask);
+            this.SummonerSpellList = GetList<SummonerSpellListDto>(summonerSpellsTask);
         }
 
         private static T GetList<T>(Task<string> downloadTask)
