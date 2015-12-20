@@ -27,6 +27,7 @@ namespace CoffeeCat.StaticDataUploader
                 RunesBlobPath = appSettings["RunesBlobPath"],
                 ChampionsBlobPath = appSettings["ChampionsBlobPath"],
                 ItemsBlobPath = appSettings["ItemsBlobPath"],
+                SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
                 ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
                 Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"]))
             };

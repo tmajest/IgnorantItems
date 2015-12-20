@@ -66,6 +66,7 @@
     <Compile Include="Endpoints\StaticData\ItemsEndpoint.cs" />
     <Compile Include="Endpoints\StaticData\MasteriesEndpoint.cs" />
     <Compile Include="Endpoints\StaticData\RunesEndpoint.cs" />
+    <Compile Include="Endpoints\StaticData\SummonerSpellsEndpoint.cs" />
     <Compile Include="Endpoints\Summoner\SummonerByIdEndpoint.cs" />
     <Compile Include="Endpoints\Summoner\SummonerByNameEndpoint.cs" />
     <Compile Include="Endpoints\Summoner\SummonerMasteriesEndpoint.cs" />

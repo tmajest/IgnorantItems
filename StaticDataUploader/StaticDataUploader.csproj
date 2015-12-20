@@ -79,6 +79,7 @@
     <Compile Include="Tasks\ItemsUploadTask.cs" />
     <Compile Include="Tasks\MasteriesUploadTask.cs" />
     <Compile Include="Tasks\RunesUploadTask.cs" />
+    <Compile Include="Tasks\SummonerSpellsTask.cs" />
     <Compile Include="Tasks\UploadTask.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,8 @@ namespace CoffeeCat.RiotCommon.Settings
 
         public string ItemsBlobPath { get; set; }
 
+        public string SummonerSpellsBlobPath { get; set; }
+
         public int Retries { get; set; }
 
         public TimeSpan Timeout { get; set; } 

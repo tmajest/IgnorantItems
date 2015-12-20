@@ -61,6 +61,11 @@ namespace CoffeeCat.RiotClient.Endpoints
             return new ItemsEndpoint(this.Region, version, this.ApiKey).GetUri();
         }
 
+        public Uri GetSummonerSpellsUri(string version)
+        {
+            return new SummonerSpellsEndpoint(this.Region, version, this.ApiKey).GetUri();
+        }
+
         public Uri GetMatchListUri(string version, string summonerId)
         {
             return new MatchListEndpoint(this.Region, version, this.ApiKey, summonerId).GetUri();

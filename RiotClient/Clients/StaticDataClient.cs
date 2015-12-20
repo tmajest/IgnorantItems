@@ -2,6 +2,7 @@
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
 using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
+using CoffeeCat.RiotCommon.Dto.StaticData.SummonerSpells;
 using CoffeeCat.RiotCommon.Utils;
 using System;
 using System.Net.Http;
@@ -49,6 +50,12 @@ namespace CoffeeCat.RiotClient.Clients
         {
             var uri = this.EndpointFactory.GetItemsUri(this.Version);
             return this.DownloadRiotData<ItemListDto>(uri);
+        }
+
+        public Task<SummonerSpellListDto> GetSummonerSpells()
+        {
+            var uri = this.EndpointFactory.GetSummonerSpellsUri(this.Version);
+            return this.DownloadRiotData<SummonerSpellListDto>(uri);
         }
     }
 }

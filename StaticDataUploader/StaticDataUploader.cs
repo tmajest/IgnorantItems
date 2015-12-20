@@ -46,8 +46,14 @@ namespace CoffeeCat.StaticDataUploader
             var uploadRunesTask = UploadRunes();
             var uploadChampionsTask = UploadChampions();
             var uploadItemsTask = UploadItems();
+            var uploadSummonerSpellsTask = UploadSummonerSpells();
 
-            return Task.WhenAll(uploadMasteriesTask, uploadRunesTask, uploadChampionsTask, uploadItemsTask);
+            return Task.WhenAll(
+                uploadMasteriesTask, 
+                uploadRunesTask, 
+                uploadChampionsTask, 
+                uploadItemsTask,
+                uploadSummonerSpellsTask);
         }
 
         private async Task UploadMasteries()
@@ -96,6 +102,18 @@ namespace CoffeeCat.StaticDataUploader
             }
 
             Trace.WriteLine("Completed uploading items.");
+        }
+
+        private async Task UploadSummonerSpells()
+        {
+            Trace.WriteLine("Begin uploading summoner spells");
+
+            using (var summonerSpellsTask = new SummonerSpellsTask(this.versionManager.Versions, this.keyManager, this.settings))
+            {
+                await summonerSpellsTask.UploadData();
+            }
+
+            Trace.WriteLine("Completed uploading summoner spells.");
         }
     }
 }

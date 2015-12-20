@@ -93,6 +93,7 @@
     <Compile Include="Contracts\Frontend\Mastery.cs" />
     <Compile Include="Contracts\Frontend\Match.cs" />
     <Compile Include="Contracts\Frontend\Rune.cs" />
+    <Compile Include="Contracts\Frontend\SummonerSpells.cs" />
     <Compile Include="Contracts\Uploader\ApiVersion.cs" />
     <Compile Include="Contracts\Uploader\MatchEntity.cs" />
     <Compile Include="Contracts\Uploader\MatchInfo.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="Dto\StaticData\MetaDataDto.cs" />
     <Compile Include="Dto\StaticData\Rune\RuneDto.cs" />
     <Compile Include="Dto\StaticData\Rune\RuneListDto.cs" />
+    <Compile Include="Dto\StaticData\SummonerSpells\SummonerSpellDto.cs" />
+    <Compile Include="Dto\StaticData\SummonerSpells\SummonerSpellListDto.cs" />
     <Compile Include="Dto\Summoner\MasteryDto.cs" />
     <Compile Include="Dto\Summoner\MasteryPageDto.cs" />
     <Compile Include="Dto\Summoner\MasteryPagesDto.cs" />
