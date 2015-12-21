@@ -43,12 +43,12 @@
             <h3>Summoner Spells</h3>
             <div class="summonerSpell">
                 <div class="row">
-                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell1Id].Image.Full}}" />
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell1Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell1Id].Name}}" uib-popover="{{summonerSpells[spell1Id].Description}}" popover-trigger="mouseenter" />
                 </div>
             </div>
             <div class="summonerSpell">
                 <div class="row">
-                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell2Id].Image.Full}}" />
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell2Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell2Id].Name}}" uib-popover="{{summonerSpells[spell2Id].Description}}" popover-trigger="mouseenter" />
                 </div>
             </div>
         </div>
@@ -265,6 +265,7 @@
                     <div class="glyphicon glyphicon-arrow-right"></div>
                 </div>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
