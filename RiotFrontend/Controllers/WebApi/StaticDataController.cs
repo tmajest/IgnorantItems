@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using WebApi.OutputCache.V2;
 
 namespace RiotFrontend.Controllers.WebApi
 {
@@ -21,6 +22,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("masteries")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+#endif
         public HttpResponseMessage GetMasteries()
         {
             var masteries = this.staticData.MasteryList.Data;
@@ -29,6 +33,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("summonerSpells")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+#endif
         public HttpResponseMessage GetSummonerSpells()
         {
             var summonerSpells = this.staticData.SummonerSpellList.Data;

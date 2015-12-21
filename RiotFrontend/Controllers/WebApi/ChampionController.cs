@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApi.OutputCache.V2;
 
 namespace RiotFrontend.Controllers.WebApi
 {
@@ -26,6 +27,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+#endif
         public HttpResponseMessage GetChampions()
         {
             var champions = this.staticData.ChampionList.Data.Values.OrderBy(c => c.Name);
@@ -34,6 +38,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("{championId}")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
+#endif
         public HttpResponseMessage GetMatchesByChampion(string championId)
         {
             Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));

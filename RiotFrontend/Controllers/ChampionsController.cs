@@ -9,6 +9,9 @@ namespace RiotFrontend.Controllers
     public class ChampionsController : Controller
     {
         // GET: Champion
+#if (!DEBUG)
+        [OutputCache(Duration=86400)]
+#endif
         public ActionResult Index()
         {
             return View();

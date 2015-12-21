@@ -3,6 +3,7 @@ using CoffeeCat.RiotCommon.Utils;
 using RiotFrontend.Providers;
 using System.Net;
 using System.Net.Http;
+using WebApi.OutputCache.V2;
 
 namespace RiotFrontend.Controllers.WebApi
 {
@@ -18,6 +19,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
+#endif
         public HttpResponseMessage GetMatches()
         {
             var matches = this.matchProvider.GetMatches();
@@ -31,6 +35,9 @@ namespace RiotFrontend.Controllers.WebApi
 
         [HttpGet]
         [Route("{matchId}")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+#endif
         public HttpResponseMessage GetMatch(string matchId)
         {
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
