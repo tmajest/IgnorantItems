@@ -13,6 +13,10 @@ namespace RiotFrontend.Providers
 
         List<Match> GetMatches(int count);
 
+        List<Match> GetMatches(string championId);
+
+        List<Match> GetMatches(string championId, int count);
+
         Match GetMatch(string matchId);
     }
 }

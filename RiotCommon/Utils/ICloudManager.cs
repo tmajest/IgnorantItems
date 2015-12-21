@@ -38,6 +38,14 @@ namespace CoffeeCat.RiotCommon.Utils
         List<T> GetRows<T>(string tableName) where T : TableEntity, new();
 
         /// <summary>
+        /// Gets rows from the cloud table with the specified filters.
+        /// </summary>
+        /// <param name="tableName">The cloud table name</param>
+        /// <param name="filters">The filters for the cloud table</param>
+        /// <returns>The filtered rows from the cloud table</returns>
+        List<T> GetRows<T>(string tableName, params string[] filters) where T : TableEntity, new();
+
+        /// <summary>
         /// Gets all rows from the cloud table.
         /// </summary>
         /// <param name="entity">The entity to insert</param>

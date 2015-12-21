@@ -1,8 +1,12 @@
 ﻿@section scripts {
-    @Scripts.Render("~/Scripts/Apps/homeController.js")
+    @Scripts.Render("~/Scripts/Apps/championInfoController.js")
 }
 
-<div class="homeContainer" ng-app="IgnorantItems" ng-controller="homeController">
+<script type='text/javascript'>
+    window.backendParams = { championId: @ViewBag.ChampionId };
+</script>
+
+<div class="homeContainer" ng-app="IgnorantItems" ng-controller="championInfoController">
     <div class="recentMatchesHeader">
         <h2>{{title}}</h2>
     </div>

@@ -19,6 +19,16 @@ namespace RiotFrontend
                 defaults: new { controller = "Match", action = "Index", id=""});
 
             routes.MapRoute(
+                name: "champions",
+                url: "champions",
+                defaults: new { controller = "Champions", action = "Index", id=""});
+
+            routes.MapRoute(
+                name: "championInfo",
+                url: "champions/{id}",
+                defaults: new { controller = "ChampionInfo", action = "Index", id=""});
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id=""});

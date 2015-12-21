@@ -29,7 +29,7 @@ namespace RiotFrontend
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate };
+            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             var container = new UnityContainer();

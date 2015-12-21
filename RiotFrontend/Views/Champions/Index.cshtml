@@ -1,0 +1,23 @@
+﻿@section scripts {
+    @Scripts.Render("~/Scripts/Apps/championsController.js")
+}
+
+<div class="championsContainer" ng-app="IgnorantItems" ng-controller="championsController">
+    <div class="row">
+        <div class="allChampionsHeader">
+            <h2>Champions</h2>
+        </div>
+    </div>
+    <div class="allChampions">
+        <div class="championContainer" ng-repeat="champion in allChampions">
+            <a ng-href="/champions/{{champion.Id}}">
+                <div class="championsPageImage">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{champion.Image.Full}}" width="60" height="60"/>
+                </div>
+                <div class="championsPageName">
+                    <p>{{champion.Name}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
