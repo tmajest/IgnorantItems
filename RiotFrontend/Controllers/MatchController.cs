@@ -10,7 +10,7 @@ namespace RiotFrontend.Controllers
     {
         // GET: Match
 #if (!DEBUG)
-        [OutputCache(Duration=int.MaxValue, VaryByParam="id")]
+        [OutputCache(Duration=86000, VaryByParam="id")]
 #endif
         public ActionResult Index(string id)
         {
