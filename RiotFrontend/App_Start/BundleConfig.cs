@@ -27,7 +27,9 @@ namespace RiotFrontend
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/masteries.css",
+                      "~/Content/MatchDetails.css"));
         }
     }
 }
