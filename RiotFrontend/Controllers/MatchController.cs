@@ -9,7 +9,9 @@ namespace RiotFrontend.Controllers
     public class MatchController : Controller
     {
         // GET: Match
+#if (!DEBUG)
         [OutputCache(Duration=int.MaxValue, VaryByParam="id")]
+#endif
         public ActionResult Index(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
