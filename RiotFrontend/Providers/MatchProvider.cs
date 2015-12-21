@@ -20,6 +20,9 @@ namespace RiotFrontend.Providers
     public class MatchProvider : IMatchProvider
     {
         private static readonly int DefaultMatchCount = 15;
+        private static readonly string MatchCreationTimeColumn = "MatchCreationTime";
+        private static readonly string ChampionIdColumn = "ChampionId";
+        private static readonly string RowKeyColumn = "RowKey";
 
         private ICloudManager cloudManager;
         private IUploaderSettings settings;
@@ -39,9 +42,9 @@ namespace RiotFrontend.Providers
         {
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
 
-            var matchTable = this.cloudManager.GetCloudTable(settings.MatchListTableName);
-            var query = new TableQuery<MatchEntity>().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, matchId));
-            var matchEntity = matchTable.ExecuteQuery(query).FirstOrDefault();
+            var filter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
+            var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
+                .FirstOrDefault();
 
             if (matchEntity == null)
             {
@@ -59,14 +62,42 @@ namespace RiotFrontend.Providers
 
         public List<Match> GetMatches(int count)
         {
-            var matchTable = this.cloudManager.GetCloudTable(settings.MatchListTableName);
             var filter = TableQuery.GenerateFilterConditionForDate(
-                "MatchCreationTime",
+                MatchCreationTimeColumn,
                 QueryComparisons.GreaterThan,
                 DateTimeOffset.UtcNow.Subtract(TimeSpan.FromHours(12)));
 
-            var query = new TableQuery<MatchEntity>().Where(filter);
-            var matches = matchTable.ExecuteQuery(query).OrderByDescending(match => match.MatchCreationTime).Take(count);
+            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
+                .OrderByDescending(match => match.MatchCreationTime)
+                .Take(count);
+
+            var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
+            return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
+        }
+
+        public List<Match> GetMatches(string championId)
+        {
+            return this.GetMatches(championId, DefaultMatchCount);
+        }
+
+        public List<Match> GetMatches(string championId, int count)
+        {
+            Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));
+
+            var dateFilter = TableQuery.GenerateFilterConditionForDate(
+                MatchCreationTimeColumn,
+                QueryComparisons.GreaterThan,
+                DateTimeOffset.UtcNow.Subtract(TimeSpan.FromHours(12)));
+
+            var championFilter = TableQuery.GenerateFilterCondition(
+                ChampionIdColumn,
+                QueryComparisons.Equal,
+                championId);
+
+            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, dateFilter, championFilter)
+                .OrderByDescending(match => match.MatchCreationTime)
+                .Take(count);
+
             var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
             return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
         }

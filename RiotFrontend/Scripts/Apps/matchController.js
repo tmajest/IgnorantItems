@@ -1,6 +1,6 @@
 ﻿
 angular.module("IgnorantItems", ['ui.bootstrap'])
-    .controller("matchController", function($scope, $http) {
+    .controller("matchController", function($scope, $http, $q) {
         var matchId = window.backendParams.matchId;
 
         var getDuration = function(durationInSeconds) {
@@ -27,7 +27,7 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             return title.join("");
         }
 
-        var setMasteries = function() {
+        var setMasteriesToolTip = function() {
             var len = $scope.match.Masteries.length;
             for (var i = 0; i < len; i++) {
                 var mastery = $scope.match.Masteries[i];
@@ -52,37 +52,57 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             }
         }
 
-        $http.get("/api/matches/" + matchId).success(function(data) {
-            $scope.match = data;
-            $scope.imageName = data.Champion.Image.Full;
-            $scope.title = getTitle(data);
-            $scope.kills = data.Kills;
-            $scope.deaths = data.Deaths;
-            $scope.assists = data.Assists;
-            $scope.durationText = getDuration(data.MatchDuration);
-            $scope.spell1Id = data.Spell1Id;
-            $scope.spell2Id = data.Spell2Id;
-
-            $http.get("/api/static/masteries").success(function(data) {
-                $scope.masteries = data;
-                $scope.masteryDescription = {};
-                var len = data.length;
-                for (var key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        var mastery = data[key];
-                        $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
-                    }
-                }
-
-                setMasteries();
+        var matchesFunc = function() {
+            var d = $q.defer();
+            $http.get("/api/matches/" + matchId).then(function(data) {
+                d.resolve(data);
             });
+            return d.promise;
+        }
 
-            $http.get("/api/static/summonerSpells").success(function (data) {
-                $scope.summonerSpells = {};
-
-                for (var el in data) {
-                    $scope.summonerSpells[data[el].Id] = data[el];
-                }
+        var masteriesFunc = function() {
+            var d = $q.defer();
+            $http.get("/api/static/masteries").then(function(data) {
+                d.resolve(data);
             });
+            return d.promise;
+        }
+
+        var setMatchInfo = function(match) {
+            $scope.match = match;
+            $scope.imageName = match.Champion.Image.Full;
+            $scope.title = getTitle(match);
+            $scope.kills = match.Kills;
+            $scope.deaths = match.Deaths;
+            $scope.assists = match.Assists;
+            $scope.durationText = getDuration(match.MatchDuration);
+            $scope.spell1Id = match.Spell1Id;
+            $scope.spell2Id = match.Spell2Id;
+        }
+
+        var setMasteryInfo = function(masteries) {
+            $scope.masteries = masteries;
+            $scope.masteryDescription = {};
+            var len = masteries.length;
+            for (var key in masteries) {
+                if (masteries.hasOwnProperty(key)) {
+                    var mastery = masteries[key];
+                    $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
+                }
+            }
+            setMasteriesToolTip();
+        }
+
+        $q.all([matchesFunc(), masteriesFunc()]).then(function(responses) {
+            setMatchInfo(responses[0].data);
+            setMasteryInfo(responses[1].data);
+        });
+
+        $http.get("/api/static/summonerSpells").success(function(data) {
+            var summonerSpells = {};
+            for (var el in data) {
+                summonerSpells[data[el].Id] = data[el];
+            }
+            $scope.summonerSpells = summonerSpells;
         });
     });
