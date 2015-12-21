@@ -219,8 +219,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\UnityResolver.cs" />
+    <Compile Include="Controllers\ChampionInfoController.cs" />
+    <Compile Include="Controllers\ChampionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
+    <Compile Include="Controllers\WebApi\ChampionController.cs" />
     <Compile Include="Controllers\WebApi\MatchController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -264,6 +267,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\champions.css" />
     <Content Include="Content\masteries.css" />
     <Content Include="Content\MatchDetails.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
@@ -273,6 +277,8 @@
     <Content Include="riot.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\Apps\championsController.js" />
+    <Content Include="Scripts\Apps\championInfoController.js" />
     <Content Include="Scripts\Share\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\Share\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\Share\ui-bootstrap.js" />
@@ -337,10 +343,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ChampionInfo\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Champions\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

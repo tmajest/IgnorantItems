@@ -84,17 +84,12 @@ namespace RiotFrontend.Providers
         {
             Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));
 
-            var dateFilter = TableQuery.GenerateFilterConditionForDate(
-                MatchCreationTimeColumn,
-                QueryComparisons.GreaterThan,
-                DateTimeOffset.UtcNow.Subtract(TimeSpan.FromHours(12)));
-
             var championFilter = TableQuery.GenerateFilterCondition(
                 ChampionIdColumn,
                 QueryComparisons.Equal,
                 championId);
 
-            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, dateFilter, championFilter)
+            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, championFilter)
                 .OrderByDescending(match => match.MatchCreationTime)
                 .Take(count);
 

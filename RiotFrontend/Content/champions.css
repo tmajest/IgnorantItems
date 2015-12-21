@@ -1,0 +1,18 @@
+﻿.allChampionsHeader h2 {
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+.allChampions {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.championContainer {
+    padding: 10px 20px;
+    width: 130px;
+    text-align: center;
+    font-size: 14px;
+}
