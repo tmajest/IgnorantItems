@@ -131,6 +131,7 @@ footer {
 
 .items {
     padding-top: 10px;
+    padding-bottom: 30px;
     width: 100%;
 }
 
@@ -211,7 +212,8 @@ footer {
     position: relative;
 }
 
-.masteriesContainer .popover {
+.popover {
+    font-size: 12px;
     max-width: 600px;
     width: 200px;
     font-size: 12px;
@@ -493,6 +495,10 @@ footer {
 .summonerSpellsContainer {
     padding-top: 10px;
     padding-bottom: 30px
+}
+
+.summonerSpell {
+    padding-top: 15px;
 }
 
 .summonerSpellsContainer h3 {
