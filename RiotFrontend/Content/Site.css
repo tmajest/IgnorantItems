@@ -23,12 +23,6 @@ footer {
     width: 60%;
 }
 
-.baseContainer {
-    padding-top: 30px;
-    width: 60%;
-    float: left;
-}
-
 .kills {
     color: #138801;
     font-size: 15px;
@@ -47,16 +41,11 @@ footer {
     font-weight: bold;
 }
 
-#matchContainer {
-    height: 1600px;
+.base-container {
     padding-top: 30px;
     padding-bottom: 30px;
-}
-
-.sideGutter {
-    height: 1500px;
-    width: 20%;
-    float: left;
+    width: 60%;
+    margin: 0 auto;
 }
 
 #matchInfoHeader {
@@ -138,7 +127,6 @@ footer {
 .item {
     float: left;
     height: 90px;
-    padd
 }
 
 .imageItem {
@@ -236,246 +224,6 @@ footer {
 
 .padding30 {
     width: 30px;
-}
-
-
-#f6111 {
-    padding-left: 30px;
-    padding-top: 20px;
-    float: left;
-}
-
-#f6114 {
-    padding-left: 60px;
-    padding-top: 20px;
-    float: left;
-}
-
-#f6121 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6122 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6131 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6134 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6141 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6142 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6151 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6154 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-#f6161 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6162 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6164 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6311 {
-    padding-left: 30px;
-    padding-top: 20px;
-    float: left;
-}
-
-#f6312 {
-    padding-left: 60px;
-    padding-top: 20px;
-    float: left;
-}
-
-#f6321 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6322 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6323 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6331 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6332 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6342 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6351 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6352 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6343 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6361 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6362 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6363 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6211 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6212 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6221 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6223 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6231 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6232 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6241 {
-    padding-left: 55px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6242 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6251 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6252 {
-    padding-left: 60px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6261 {
-    padding-left: 30px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6262 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
-}
-
-#f6263 {
-    padding-left: 10px;
-    padding-top: 14px;
-    float: left;
 }
 
 .matchInfoContainer {
