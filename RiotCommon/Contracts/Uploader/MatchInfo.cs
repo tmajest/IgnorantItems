@@ -60,6 +60,9 @@ namespace CoffeeCat.RiotCommon.Contracts.Uploader
         public List<BannedChampionDto> EnemyTeamBannedChampions { get; set; }
 
         [JsonProperty]
+        public List<string> Items { get; set; }
+
+        [JsonProperty]
         public List<string> ItemsBought { get; set; }
 
         [JsonProperty]

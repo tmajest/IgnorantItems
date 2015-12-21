@@ -52,16 +52,17 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             }
         }
 
-        $http.get("/api/matches/" + matchId).success(function(match) {
-            $scope.match = match;
-            $scope.imageName = match.Champion.Image.Full;
-            $scope.title = getTitle(match);
-            $scope.kills = match.Kills;
-            $scope.deaths = match.Deaths;
-            $scope.assists = match.Assists;
-            $scope.durationText = getDuration(match.MatchDuration);
-            $scope.spell1Id = match.Spell1Id;
-            $scope.spell2Id = match.Spell2Id;
+        $http.get("/api/matches/" + matchId).success(function(data) {
+            $scope.match = data;
+            $scope.imageName = data.Champion.Image.Full;
+            $scope.title = getTitle(data);
+            $scope.kills = data.Kills;
+            $scope.deaths = data.Deaths;
+            $scope.assists = data.Assists;
+            $scope.durationText = getDuration(data.MatchDuration);
+            $scope.spell1Id = data.Spell1Id;
+            $scope.spell2Id = data.Spell2Id;
+            $scope.items = data.Items;
 
             setMasteriesToolTip();
         });
