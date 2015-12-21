@@ -6,30 +6,30 @@
     window.backendParams = { championId: @ViewBag.ChampionId };
 </script>
 
-<div id="homeContainer" ng-app="IgnorantItems" ng-controller="championInfoController">
-    <div class="row">
-        <div class="recentMatchesHeader">
-            <h2>{{title}}</h2>
-        </div>
+<div class="homeContainer" ng-app="IgnorantItems" ng-controller="championInfoController">
+    <div class="recentMatchesHeader">
+        <h2>{{title}}</h2>
     </div>
     <div class="allMatches">
         <div class="matchRow" ng-repeat="match in allMatches">
             <a ng-href="/matches/{{match.MatchId}}">
                 <div class="homeMatchContainer" ng-style=getMatchColor(match)>
-                    <div class="championImage">
+                    <div class="img-container">
                         <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
-                    </div>
-                    <div class="homeMatchContainerTopPadding">
-                        <div class="proName">
-                            {{match.ProName}}
+                        <div class="summoner-spell-container">
+                            <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[match.Spell1Id].Image.Full}}" />
+                            <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[match.Spell2Id].Image.Full}}" />
                         </div>
-                        <div class="championName">
-                            {{match.Champion.Name}}
-                        </div>
-                        <span class="matchResults" ng-style="getMatchResultColor(match)">
-                            {{getMatchResultText(match)}}
-                        </span>
                     </div>
+                    <div class="proName">
+                        {{match.ProName}}
+                    </div>
+                    <div class="championName">
+                        {{match.Champion.Name}}
+                    </div>
+                    <span class="matchResults" ng-style="getMatchResultColor(match)">
+                        {{getMatchResultText(match)}}
+                    </span>
                 </div>
             </a>
             <div class="homeMatchGutter"></div>
