@@ -52,23 +52,7 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             }
         }
 
-        var matchesFunc = function() {
-            var d = $q.defer();
-            $http.get("/api/matches/" + matchId).then(function(data) {
-                d.resolve(data);
-            });
-            return d.promise;
-        }
-
-        var masteriesFunc = function() {
-            var d = $q.defer();
-            $http.get("/api/static/masteries").then(function(data) {
-                d.resolve(data);
-            });
-            return d.promise;
-        }
-
-        var setMatchInfo = function(match) {
+        $http.get("/api/matches/" + matchId).success(function(match) {
             $scope.match = match;
             $scope.imageName = match.Champion.Image.Full;
             $scope.title = getTitle(match);
@@ -78,9 +62,11 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             $scope.durationText = getDuration(match.MatchDuration);
             $scope.spell1Id = match.Spell1Id;
             $scope.spell2Id = match.Spell2Id;
-        }
 
-        var setMasteryInfo = function(masteries) {
+            setMasteriesToolTip();
+        });
+
+        $http.get("/api/static/masteries").success(function(masteries) {
             $scope.masteries = masteries;
             $scope.masteryDescription = {};
             var len = masteries.length;
@@ -90,12 +76,6 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                     $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
                 }
             }
-            setMasteriesToolTip();
-        }
-
-        $q.all([matchesFunc(), masteriesFunc()]).then(function(responses) {
-            setMatchInfo(responses[0].data);
-            setMasteryInfo(responses[1].data);
         });
 
         $http.get("/api/static/summonerSpells").success(function(data) {

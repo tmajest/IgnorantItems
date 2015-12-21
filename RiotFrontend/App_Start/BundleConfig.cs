@@ -29,6 +29,7 @@ namespace RiotFrontend
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/masteries.css",
+                      "~/Content/champions.css",
                       "~/Content/MatchDetails.css"));
         }
     }
