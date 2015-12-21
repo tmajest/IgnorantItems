@@ -41,6 +41,8 @@ namespace CoffeeCat.RiotCommon.Contracts.Frontend
 
         public List<ItemDto> ItemsBought { get; set; }
 
+        public List<ItemDto> Items { get; set; }
+
         public int Spell1Id { get; set; }
 
         public int Spell2Id { get; set; }
