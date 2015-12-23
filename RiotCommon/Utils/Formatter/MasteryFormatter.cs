@@ -17,8 +17,6 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
 
         public Mastery FormatMastery(MatchContracts.MasteryDto masteryDto)
         {
-            Validation.ValidateNotNull(masteryDto, nameof(masteryDto));
-
             var staticMastery = this.staticData.MasteryList.Data[masteryDto.MasteryId.ToString()];
             var clonedMastery = CloneDto(staticMastery);
 
