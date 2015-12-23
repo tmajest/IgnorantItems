@@ -66,6 +66,9 @@ namespace CoffeeCat.RiotCommon.Contracts.Uploader
         public List<string> ItemsBought { get; set; }
 
         [JsonProperty]
+        public List<int> SkillOrder { get; set; }
+
+        [JsonProperty]
         public int Spell1Id { get; set; }
 
         [JsonProperty]

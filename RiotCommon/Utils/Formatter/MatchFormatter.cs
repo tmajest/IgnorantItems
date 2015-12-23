@@ -56,8 +56,9 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Assists = matchInfo.Assists,
                 Spell1Id = matchInfo.Spell1Id,
                 Spell2Id = matchInfo.Spell2Id,
-                Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
-                EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions?
+                SkillOrder = matchInfo.SkillOrder,
+                Items = matchInfo.Items.Where(x=> !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
+                EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
                 TeamBannedChampions = matchInfo.TeamBannedChampions?
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),

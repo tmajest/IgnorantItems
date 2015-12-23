@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: 'Helvetica Neue LT Pro', Helvetica, Arial, sans-serif;
 }
 
 a:hover {
@@ -22,9 +22,7 @@ textarea {
 
 footer {
     padding-top: 30px;
-    padding-bottom: 30px;
     font-size: 10px;
-    width: 60%;
 }
 
 .kills {
@@ -48,12 +46,11 @@ footer {
 .base-container {
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 60%;
+    width: 73%;
     margin: 0 auto;
 }
 
 .recentMatchesHeader h2 {
-    font-family: 'Helvetica Neue LT Pro', Helvetica, Arial, sans-serif;
     padding-bottom: 20px;
     font-weight: bold;
     color: #10222B;
@@ -110,158 +107,9 @@ footer {
     width: 140px;
 }
 
-.runeRow .runeDescription {
-    padding-top: 6px;
-}
-
-.items {
-    padding-top: 10px;
-    padding-bottom: 30px;
-    width: 100%;
-}
-
-.item {
-    float: left;
-    height: 90px;
-}
-
-.imageItem {
-    text-align: center;
-    width: 70px;
-    float: left;
-}
-
-.itemDescription {
-    padding-top: 3px;
-    font-size: 10px;
-}
-
-.masteryGutter {
-    height: 10px;
-}
-
-.itemArrow {
-    float: left;
-    padding-top: 15px
-}
-
-.masteries {
-    background-color: #0C0C0C;
-    height: 380px;
-    width: 680px;
-}
-
-#ferocityContainer {
-    border: 1px solid #2B2B2B;
-    margin-left: 35px;
-    margin-top: 15px;
-    background-color: #320705;
-    height: 350px;
-    width: 200px;
-    border-radius: 0px;
-    float: left;
-}
-
-#cunningContainer {
-    border: 1px solid #2B2B2B;
-    background-color: #120A23;
-    margin-top: 15px;
-    height: 350px;
-    width: 200px;
-    border-radius: 0px;
-    float: left;
-}
-
-#resolveContainer {
-    border: 1px solid #2B2B2B;
-    background-color: #0B1827;
-    margin-top: 15px;
-    height: 350px;
-    width: 200px;
-    border-radius: 0px;
-    float: left;
-}
-
-#masteryGutter {
-    height: 350px;
-    width: 20px;
-    float: left;
-}
-
-.masteryRow {
-    width: 200px;
-}
-
-.masteryImageContainer {
-    position: relative;
-}
-
 .popover {
     font-size: 12px;
     max-width: 600px;
     width: 200px;
     font-size: 12px;
-}
-
-.masteryRank {
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: yellow;
-    font-size: 11px;
-    z-index: 100;
-}
-
-.masteryImage {
-    -webkit-filter: grayscale(1);
-    border: 1px solid #DBDBDB;
-}
-
-.padding30 {
-    width: 30px;
-}
-
-.matchInfoContainer {
-    padding-top: 10px;
-    padding-bottom: 30px;
-}
-
-.matchInfoContainer h3 {
-    padding-bottom: 10px;
-}
-
-.runesContainer {
-    padding-top: 10px;
-    padding-bottom: 30px
-}
-
-.summonerSpellsContainer {
-    padding-top: 10px;
-    padding-bottom: 30px
-}
-
-.summonerSpell {
-    padding-top: 15px;
-}
-
-.summonerSpellsContainer h3 {
-    padding-bottom: 10px;
-}
-
-.runesContainer h3 {
-    padding-bottom: 10px
-}
-
-.masteriesContainer {
-    padding-top: 10px;
-    padding-bottom: 30px;
-}
-
-.masteriesContainer h3 {
-    padding-bottom: 10px;
-}
-
-.items h3 {
-    padding-bottom: 10px;
 }

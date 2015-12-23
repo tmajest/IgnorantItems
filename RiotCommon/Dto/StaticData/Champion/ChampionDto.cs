@@ -50,7 +50,7 @@ namespace CoffeeCat.RiotCommon.Dto.StaticData.Champion
         public List<SkinDto> Skins { get; set; }
 
         [JsonProperty]
-        public List<ChampionSpellsDto> Spells { get; set; }
+        public List<ChampionSpellDto> Spells { get; set; }
 
         [JsonProperty]
         public StatsDto Stats { get; set; }

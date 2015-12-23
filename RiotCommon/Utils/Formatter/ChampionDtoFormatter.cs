@@ -22,7 +22,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Image = championDto.Image,
                 Name = championDto.Name,
                 Passive = championDto.Passive,
-                Spells = championDto.Spells,
+                Spells = championDto.Spells.Select(FormatSpell).ToList()
             };
         }
 
@@ -34,6 +34,16 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Id = championDto.Id,
                 Image = championDto.Image,
                 Name = championDto.Name
+            };
+        }
+
+        private ChampionSpellDto FormatSpell(ChampionSpellDto spell)
+        {
+            return new ChampionSpellDto
+            {
+                SanitizedDescription = spell.SanitizedDescription,
+                Image = spell.Image,
+                Name = spell.Name
             };
         }
     }

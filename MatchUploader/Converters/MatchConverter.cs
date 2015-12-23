@@ -40,8 +40,9 @@ namespace CoffeeCat.MatchUploader.Converters
                 Assists = participant.Stats.Assists,
                 TeamBannedChampions = team.Bans,
                 EnemyTeamBannedChampions = otherTeam.Bans,
-                Items = new List<string> { participant.Stats.Item0.ToString(), participant.Stats.Item1.ToString(), participant.Stats.Item2.ToString(), participant.Stats.Item3.ToString(), participant.Stats.Item4.ToString(), participant.Stats.Item5.ToString() },
+                Items = ItemListConverter.GetFinalBuild(participant),
                 ItemsBought = ItemListConverter.GetSummonerItems(matchDetails, participant),
+                SkillOrder = SkillOrderConverter.GetSkillOrder(matchDetails, participant),
                 Spell1Id = participant.Spell1Id,
                 Spell2Id = participant.Spell2Id
             };
@@ -49,5 +50,6 @@ namespace CoffeeCat.MatchUploader.Converters
             var matchJson = JsonConvert.SerializeObject(matchInfo);
             return new MatchEntity(summoner.PartitionKey, matchInfo.MatchId, matchInfo.ChampionId, creationTime, matchJson);
         }
+
     }
 }

@@ -270,7 +270,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\champions.css" />
     <Content Include="Content\masteries.css" />
-    <Content Include="Content\MatchDetails.css" />
+    <Content Include="Content\matchInfo.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

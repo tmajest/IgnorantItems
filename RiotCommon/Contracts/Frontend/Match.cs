@@ -43,6 +43,8 @@ namespace CoffeeCat.RiotCommon.Contracts.Frontend
 
         public List<ItemDto> Items { get; set; }
 
+        public List<int> SkillOrder { get; set; }
+
         public int Spell1Id { get; set; }
 
         public int Spell2Id { get; set; }

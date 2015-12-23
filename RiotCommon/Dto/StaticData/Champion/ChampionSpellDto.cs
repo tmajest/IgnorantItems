@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CoffeeCat.RiotCommon.Dto.StaticData.Champion
 {
     [JsonObject]
-    public class ChampionSpellsDto
+    public class ChampionSpellDto
     {
         [JsonProperty]
         public List<ImageDto> AltImages { get; set; }
@@ -21,10 +21,14 @@ namespace CoffeeCat.RiotCommon.Dto.StaticData.Champion
 
         [JsonProperty]
         public List<int> Cost { get; set; }
+
+        [JsonProperty]
         public string CostBurn { get; set; }
 
         [JsonProperty]
         public string CostType { get; set; }
+
+        [JsonProperty]
         public string Description { get; set; }
 
         [JsonProperty]

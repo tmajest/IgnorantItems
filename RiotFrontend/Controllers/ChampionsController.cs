@@ -10,7 +10,7 @@ namespace RiotFrontend.Controllers
     {
         // GET: Champion
 #if (!DEBUG)
-        [OutputCache(Duration=int.86000)]
+        [OutputCache(Duration=86000)]
 #endif
         public ActionResult Index()
         {
