@@ -46,8 +46,8 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 SummonerId = matchInfo.SummonerId,
                 Champion = championFormatter.FormatChampionDetailed(matchInfo.ChampionId),
                 Region = matchInfo.Region,
-                Masteries = matchInfo.Masteries.Select(masteryFormatter.FormatMastery).ToList(),
-                Runes = matchInfo.Runes.Select(runeFormatter.FormatRune).ToList(),
+                Masteries = matchInfo.Masteries?.Select(masteryFormatter.FormatMastery).ToList(),
+                Runes = matchInfo.Runes?.Select(runeFormatter.FormatRune).ToList(),
                 Won = matchInfo.Won,
                 MatchDuration = matchInfo.MatchDuration,
                 MatchCreationTime = matchInfo.MatchCreationTime,
@@ -56,12 +56,12 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Assists = matchInfo.Assists,
                 Spell1Id = matchInfo.Spell1Id,
                 Spell2Id = matchInfo.Spell2Id,
-                Items = matchInfo.Items.Where(x=> !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
-                EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions
+                Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
+                EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions?
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
-                TeamBannedChampions = matchInfo.TeamBannedChampions
+                TeamBannedChampions = matchInfo.TeamBannedChampions?
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
-                ItemsBought = matchInfo.ItemsBought.Select(itemFormatter.FormatItem).ToList()
+                ItemsBought = matchInfo.ItemsBought?.Select(itemFormatter.FormatItem).ToList()
             };
         }
 

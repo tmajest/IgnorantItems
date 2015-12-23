@@ -28,7 +28,7 @@ namespace RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+        [CacheOutput(ClientTimeSpan=86000, ServerTimeSpan=int.86000)]
 #endif
         public HttpResponseMessage GetChampions()
         {
