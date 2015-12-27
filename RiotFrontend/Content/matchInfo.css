@@ -1,9 +1,23 @@
-﻿.matchContainer h3 {
+﻿.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+.matchContainer {
+    display: none;
+}
+
+h3 {
     font-size: 18px;
     font-weight: bold;
 }
 
-.matchContainer h2 {
+h2 {
     padding-bottom: 10px;
     font-size: 22px;
     font-weight: bold;

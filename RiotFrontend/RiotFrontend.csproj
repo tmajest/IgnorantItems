@@ -315,6 +315,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\IgnorantItems - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\IgnorantItems - Web Deploy.pubxml" />
