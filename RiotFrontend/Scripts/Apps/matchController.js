@@ -51,6 +51,13 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
         }
 
         $http.get("/api/matches/" + matchId).success(function(data) {
+            jQuery(".loadingContainer").hide();
+            jQuery(".glyphicon-refresh-animate")
+                .css("-animation: spin .7s infinite linear", "none 0s")
+                .css(".glyphicon-refresh-animate", "none 0s");
+
+            jQuery(".matchContainer").show();
+
             $scope.match = data;
             $scope.imageName = data.Champion.Image.Full;
             $scope.title = getTitle(data);
