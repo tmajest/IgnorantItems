@@ -1,0 +1,197 @@
+﻿.matchContainer h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.matchContainer h2 {
+    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.matchInfoContainer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.final-items {
+    width: 550px;
+    float: left;
+    padding-right: 40px;
+}
+
+.summonerSpellsContainer {
+    width: 170px;
+    float: left;
+}
+
+.summonerSpell {
+    padding-bottom: 10px;
+}
+
+.runesContainer {
+    padding-top: 10px;
+    padding-bottom: 30px
+}
+
+.masteriesContainer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.runeRow .runeDescription {
+    padding-top: 6px;
+}
+
+.items {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.item {
+    float: left;
+    height: 90px;
+}
+
+.imageItem {
+    text-align: center;
+    width: 70px;
+    float: left;
+}
+
+.itemDescription {
+    padding-top: 3px;
+    font-size: 10px;
+}
+
+.masteryGutter {
+    height: 10px;
+}
+
+.itemArrow {
+    float: left;
+    padding-top: 15px
+}
+
+.masteries {
+    background-color: #0C0C0C;
+    height: 380px;
+    width: 680px;
+}
+
+#ferocityContainer {
+    border: 1px solid #2B2B2B;
+    margin-left: 35px;
+    margin-top: 15px;
+    background-color: #320705;
+    height: 350px;
+    width: 200px;
+    border-radius: 0px;
+    float: left;
+}
+
+#cunningContainer {
+    border: 1px solid #2B2B2B;
+    background-color: #120A23;
+    margin-top: 15px;
+    height: 350px;
+    width: 200px;
+    border-radius: 0px;
+    float: left;
+}
+
+#resolveContainer {
+    border: 1px solid #2B2B2B;
+    background-color: #0B1827;
+    margin-top: 15px;
+    height: 350px;
+    width: 200px;
+    border-radius: 0px;
+    float: left;
+}
+
+#masteryGutter {
+    height: 350px;
+    width: 20px;
+    float: left;
+}
+
+.masteryRow {
+    width: 200px;
+}
+
+.masteryImageContainer {
+    position: relative;
+}
+
+
+.masteryRank {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: yellow;
+    font-size: 11px;
+    z-index: 100;
+}
+
+.masteryImage {
+    -webkit-filter: grayscale(1);
+    border: 1px solid #DBDBDB;
+}
+
+.padding30 {
+    width: 30px;
+}
+
+
+.skillRow1 {
+    display: flex;
+}
+
+
+.skillRow2 {
+    display: flex;
+}
+
+.skillRow3 {
+    display: flex;
+}
+
+.skillRow4 {
+    display: flex;
+}
+
+.skillOrderContainer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.skillOrderContainer img {
+    border-radius: 1px;
+}
+
+.passiveRow {
+    display: flex;
+}
+
+.passiveRow .passiveText {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+
+.spellCol  {
+    background-color: #DEDEDE;
+    flex: 0 0 30px;
+    margin: 2px;
+    border-radius: 2px;
+}
+
+.skillRank {
+    color: #FFFFB0;
+    text-align: center;
+    padding-top: 2px;
+}

@@ -7,8 +7,8 @@
     <ProjectGuid>{EEF7E988-63CF-4C48-B693-1E417D81CBAD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MatchUploader</RootNamespace>
-    <AssemblyName>MatchUploader</AssemblyName>
+    <RootNamespace>CoffeeCat.MatchUploader</RootNamespace>
+    <AssemblyName>CoffeeCat.MatchUploader</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,8 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\EventConverter.cs" />
     <Compile Include="Converters\ItemListConverter.cs" />
     <Compile Include="Converters\MatchConverter.cs" />
+    <Compile Include="Converters\SkillOrderConverter.cs" />
     <Compile Include="MatchUploader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

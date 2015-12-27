@@ -27,7 +27,7 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             return title.join("");
         }
 
-        var setMasteriesToolTip = function() {
+        var setMasteryTree = function() {
             var len = $scope.match.Masteries.length;
             for (var i = 0; i < len; i++) {
                 var mastery = $scope.match.Masteries[i];
@@ -40,8 +40,6 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                 if (!image) {
                     continue;
                 }
-
-                $scope.masteryDescription[mastery.Data.Id] = mastery.Data.SanitizedDescription[mastery.Rank - 1];
 
                 image.css("-webkit-filter", "none");
                 image.css("border", "2px solid #FFF5A6");
@@ -60,23 +58,43 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             $scope.deaths = data.Deaths;
             $scope.assists = data.Assists;
             $scope.durationText = getDuration(data.MatchDuration);
+            $scope.skillOrder = data.SkillOrder;
             $scope.spell1Id = data.Spell1Id;
             $scope.spell2Id = data.Spell2Id;
             $scope.items = data.Items;
 
-            setMasteriesToolTip();
-        });
+            setMasteryTree();
 
-        $http.get("/api/static/masteries").success(function(masteries) {
-            $scope.masteries = masteries;
-            $scope.masteryDescription = {};
-            var len = masteries.length;
-            for (var key in masteries) {
-                if (masteries.hasOwnProperty(key)) {
-                    var mastery = masteries[key];
-                    $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
+            $http.get("/api/static/masteries").success(function(masteries) {
+                $scope.masteries = masteries;
+                $scope.masteryDescription = {};
+                var len = masteries.length;
+                for (var key in masteries) {
+                    if (masteries.hasOwnProperty(key)) {
+                        var mastery = masteries[key];
+                        $scope.masteryDescription[mastery.Id] = mastery.SanitizedDescription[mastery.SanitizedDescription.length - 1];
+                    }
                 }
-            }
+
+                var len = $scope.match.Masteries.length;
+                for (var i = 0; i < len; i++) {
+                    var mastery = $scope.match.Masteries[i];
+                    if (mastery.Rank === 0) {
+                        continue;
+                    }
+
+                    $scope.masteryDescription[mastery.Data.Id] = mastery.Data.SanitizedDescription[mastery.Rank - 1];
+                }
+
+                len = data.SkillOrder.length;
+                for (var i = 0; i < len; i++) {
+                    var selector = ".skillRow" + data.SkillOrder[i] + " > .col" + (i + 1);
+                    var col = jQuery(selector)
+                        .css("background-color", "#4B73C9")
+                        .css("border", "2px solid #3E4BAD")
+                        .append("<div class=\"skillRank\">" + (i + 1) + "</div>");
+                }
+            });
         });
 
         $http.get("/api/static/summonerSpells").success(function(data) {

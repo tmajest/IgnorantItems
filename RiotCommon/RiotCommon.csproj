@@ -122,7 +122,7 @@
     <Compile Include="Dto\StaticData\Champion\BlockItemDto.cs" />
     <Compile Include="Dto\StaticData\Champion\ChampionDto.cs" />
     <Compile Include="Dto\StaticData\Champion\ChampionListDto.cs" />
-    <Compile Include="Dto\StaticData\Champion\ChampionSpellsDto.cs" />
+    <Compile Include="Dto\StaticData\Champion\ChampionSpellDto.cs" />
     <Compile Include="Dto\StaticData\Champion\InfoDto.cs" />
     <Compile Include="Dto\StaticData\Champion\LevelTipDto.cs" />
     <Compile Include="Dto\StaticData\Champion\PassiveDto.cs" />

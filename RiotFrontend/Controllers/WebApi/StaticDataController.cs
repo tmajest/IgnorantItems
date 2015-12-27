@@ -23,7 +23,7 @@ namespace RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("masteries")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.86000, ServerTimeSpan=86000)]
+        [CacheOutput(ClientTimeSpan=86000, ServerTimeSpan=86000)]
 #endif
         public HttpResponseMessage GetMasteries()
         {
