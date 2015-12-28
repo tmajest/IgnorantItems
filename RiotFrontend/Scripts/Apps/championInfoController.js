@@ -5,7 +5,16 @@
 
         $http.get("/api/champions/" + championId).success(function(data) {
             $scope.allMatches = data;
-            $scope.title = data[0].Champion.Name;
+            if (!data || data.length == 0) {
+                $scope.title = "No data found for champion."
+                jQuery(".matchContents").css("margin-top", "0");
+            } else {
+                $scope.title = data[0].Champion.Name;
+                var champNameIndex = data[0].Champion.Image.Full.indexOf(".");
+                var imageName = data[0].Champion.Image.Full.substring(0, champNameIndex) + "_0" + ".jpg";
+                $scope.imageName = imageName;
+            }
+
          });
 
         $http.get("/api/static/summonerSpells").success(function (data) {
