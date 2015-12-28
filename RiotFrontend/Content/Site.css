@@ -16,8 +16,12 @@ h3 {
 
 .ignorantItemsLogo {
     position: absolute;
-    top: 60px;
-    left: 180px;
+    top: 30px;
+    left: 40px;
+}
+
+.matchChampionImage {
+    position: relative;
 }
 
 .ignorantItemsLogo h1 {
