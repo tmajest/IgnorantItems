@@ -28,15 +28,19 @@
                         <div class="proName">
                             {{match.ProName}}
                         </div>
-                        <div class="championName">
-                            {{match.Champion.Name}}
+                        <div class="kdaContainer">
+                            {{match.Kills}} / {{match.Deaths}} / {{match.Assists}}
                         </div>
-                        <span class="matchResults" ng-style="getMatchResultColor(match)">
+                        <div class="matchResults" ng-style="getMatchResultColor(match)">
                             {{getMatchResultText(match)}}
-                        </span>
+                        </div>
+                        <div class="finalItemsContainer">
+                            <div class="finalItem" ng-repeat="item in match.Items">
+                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="35" height="35" />
+                            </div>
+                        </div>
                     </div>
                 </a>
-                <div class="homeMatchGutter"></div>
             </div>
         </div>
     </div>
