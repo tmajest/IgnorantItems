@@ -1,12 +1,20 @@
 ﻿@section scripts {
     @Scripts.Render("~/Scripts/Apps/homeController.js")
 }
-
-<div class="loadingContainer">
-    <h2><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading recent matches...</h2>
-</div>
+<link href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
 
 <div class="homeContainer" ng-app="IgnorantItems" ng-controller="homeController">
+    <div class="matchChampionImage">
+        <img ng-src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Braum_3.jpg" width="800"/>
+        <div class="ignorantItemsLogo">
+            <h1>Ignorant Items</h1>
+        </div>
+    </div>
+
+    <div class="loadingContainer">
+        <h2><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading recent matches...</h2>
+    </div>
+
     <div class="homeContent">
         <div class="recentMatchesHeader">
             <h2>{{title}}</h2>
@@ -25,12 +33,17 @@
                         <div class="proName">
                             {{match.ProName}}
                         </div>
-                        <div class="championName">
-                            {{match.Champion.Name}}
+                        <div class="kdaContainer">
+                            {{match.Kills}} / {{match.Deaths}} / {{match.Assists}}
                         </div>
-                        <span class="matchResults" ng-style="getMatchResultColor(match)">
+                        <div class="matchResults" ng-style="getMatchResultColor(match)">
                             {{getMatchResultText(match)}}
-                        </span>
+                        </div>
+                        <div class="finalItemsContainer">
+                            <div class="finalItem" ng-repeat="item in match.Items">
+                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="35" height="35" />
+                            </div>
+                        </div>
                     </div>
                 </a>
                 <div class="homeMatchGutter"></div>

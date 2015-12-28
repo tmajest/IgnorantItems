@@ -14,10 +14,24 @@ h3 {
     color: #4B748A;
 }
 
+.ignorantItemsLogo {
+    position: absolute;
+    top: 60px;
+    left: 180px;
+}
+
+.ignorantItemsLogo h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+
+
 .homeContent {
     display: none;
     padding-left: 50px;
     padding-right: 50px;
+    margin-top: -60px;
 }
 
 .recentMatchesHeader h2 {
@@ -113,9 +127,12 @@ footer {
 }
 
 .proName {
-    width: 160px;
-    padding-left: 30px;
-    font-size: 14px;
+    width: 140px;
+    padding-left: 20px;
+}
+
+.kdaContainer {
+    width: 100px;
 }
 
 .championName {
@@ -125,7 +142,7 @@ footer {
 
 .matchResults {
     padding-left: 10px;
-    width: 140px;
+    width: 80px;
 }
 
 .popover {
@@ -134,4 +151,25 @@ footer {
     width: 200px;
     font-size: 12px;
     color: black;
+}
+
+.finalItemsContainer {
+    display: flex;
+}
+
+.finalItem {
+    padding-right: 5px;
+
+}
+
+.matchRow {
+    font-size: 12px;
+}
+
+.matchRow a {
+    color: #F0EFC4;
+}
+
+.matchRow:hover {
+    background-color: #081218;
 }
