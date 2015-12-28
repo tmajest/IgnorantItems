@@ -83,6 +83,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Assists = matchInfo.Assists,
                 Spell1Id = matchInfo.Spell1Id,
                 Spell2Id = matchInfo.Spell2Id,
+                Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
             };
         }
     }
