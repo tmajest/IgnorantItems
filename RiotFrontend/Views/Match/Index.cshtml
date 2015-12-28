@@ -10,383 +10,371 @@
 </div>
 
 <div ng-cloak class="matchContainer" ng-app="IgnorantItems" ng-controller="matchController">
-    <div id="matchInfoHeader" class="row">
-        <div class="matchChampionImage">
-            <div class="col-xs-2">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{imageName}}" width="60" height="60" />
-            </div>
-            <div class="col-xs-6">
-                <h2>{{title}}</h2>
-            </div>
-        </div>
+    <div class="matchChampionImage">
+        <img ng-src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{imageName}}" width="800"/>
     </div>
-    <hr />
-    <div class="matchInfoContainer">
-        <h3>Match Info</h3>
-        <div class="row">
-            <div class="col-xs-2">Score:</div>
-            <div class="col-xs-2">
-                <span class="kills">{{kills}}</span> /
-                <span class="deaths">{{deaths}}</span> /
-                <span class="assists">{{assists}}</span>
-            </div>
+    <div class="matchContents">
+        <div class="matchInfoHeader">
+            <h2>{{title}}</h2>
         </div>
-        <div class="row">
-            <div class="col-xs-2">Champion:</div>
-            <div class="col-xs-2">{{match.Champion.Name}}</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-2">Duration:</div>
-            <div class="col-xs-2">{{durationText}}</div>
-        </div>
-    </div>
-    <hr />
-
-    <div class="skillOrderContainer">
-        <h3>Skill Order</h3>
-        <div class="passiveRow">
-            <div class="spellCol">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/passive/{{match.Champion.Passive.Image.Full}}" popover-placement="top" popover-title="{{match.Champion.Passive.Name}}" uib-popover="{{match.Champion.Passive.SanitizedDescription}}" popover-trigger="mouseenter" width="30" height="30"/>
-            </div>
-            <div class="passiveText">Passive</div>
-        </div>
-        <div class="skillRow1">
-            <div class="spellCol">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[0].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[0].Name}}" uib-popover="{{match.Champion.Spells[0].SanitizedDescription}}" popover-trigger="mouseenter"/>
-            </div>
-            <div class="col1 spellCol"></div>
-            <div class="col2 spellCol"></div>
-            <div class="col3 spellCol"></div>
-            <div class="col4 spellCol"></div>
-            <div class="col5 spellCol"></div>
-            <div class="col6 spellCol"></div>
-            <div class="col7 spellCol"></div>
-            <div class="col8 spellCol"></div>
-            <div class="col9 spellCol"></div>
-            <div class="col10 spellCol"></div>
-            <div class="col11 spellCol"></div>
-            <div class="col12 spellCol"></div>
-            <div class="col13 spellCol"></div>
-            <div class="col14 spellCol"></div>
-            <div class="col15 spellCol"></div>
-            <div class="col16 spellCol"></div>
-            <div class="col17 spellCol"></div>
-            <div class="col18 spellCol"></div>
-        </div>
-        <div class="skillRow2">
-            <div class="spellCol">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[1].Image.Full}}" width="30" height="30"popover-placement="top" popover-title="{{match.Champion.Spells[1].Name}}" uib-popover="{{match.Champion.Spells[1].SanitizedDescription}}" popover-trigger="mouseenter"/>
-            </div>
-            <div class="col1 spellCol"></div>
-            <div class="col2 spellCol"></div>
-            <div class="col3 spellCol"></div>
-            <div class="col4 spellCol"></div>
-            <div class="col5 spellCol"></div>
-            <div class="col6 spellCol"></div>
-            <div class="col7 spellCol"></div>
-            <div class="col8 spellCol"></div>
-            <div class="col9 spellCol"></div>
-            <div class="col10 spellCol"></div>
-            <div class="col11 spellCol"></div>
-            <div class="col12 spellCol"></div>
-            <div class="col13 spellCol"></div>
-            <div class="col14 spellCol"></div>
-            <div class="col15 spellCol"></div>
-            <div class="col16 spellCol"></div>
-            <div class="col17 spellCol"></div>
-            <div class="col18 spellCol"></div>
-        </div>
-        <div class="skillRow3">
-            <div class="spellCol">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[2].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[2].Name}}" uib-popover="{{match.Champion.Spells[2].SanitizedDescription}}" popover-trigger="mouseenter" />
-            </div>
-            <div class="col1 spellCol"></div>
-            <div class="col2 spellCol"></div>
-            <div class="col3 spellCol"></div>
-            <div class="col4 spellCol"></div>
-            <div class="col5 spellCol"></div>
-            <div class="col6 spellCol"></div>
-            <div class="col7 spellCol"></div>
-            <div class="col8 spellCol"></div>
-            <div class="col9 spellCol"></div>
-            <div class="col10 spellCol"></div>
-            <div class="col11 spellCol"></div>
-            <div class="col12 spellCol"></div>
-            <div class="col13 spellCol"></div>
-            <div class="col14 spellCol"></div>
-            <div class="col15 spellCol"></div>
-            <div class="col16 spellCol"></div>
-            <div class="col17 spellCol"></div>
-            <div class="col18 spellCol"></div>
-        </div>
-        <div class="skillRow4">
-            <div class="spellCol">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[3].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[3].Name}}" uib-popover="{{match.Champion.Spells[3].SanitizedDescription}}" popover-trigger="mouseenter"/>
-            </div>
-            <div class="col1 spellCol"></div>
-            <div class="col2 spellCol"></div>
-            <div class="col3 spellCol"></div>
-            <div class="col4 spellCol"></div>
-            <div class="col5 spellCol"></div>
-            <div class="col6 spellCol"></div>
-            <div class="col7 spellCol"></div>
-            <div class="col8 spellCol"></div>
-            <div class="col9 spellCol"></div>
-            <div class="col10 spellCol"></div>
-            <div class="col11 spellCol"></div>
-            <div class="col12 spellCol"></div>
-            <div class="col13 spellCol"></div>
-            <div class="col14 spellCol"></div>
-            <div class="col15 spellCol"></div>
-            <div class="col16 spellCol"></div>
-            <div class="col17 spellCol"></div>
-            <div class="col18 spellCol"></div>
-        </div>
-    </div>
-
-    <hr />
-    <div class="runesContainer">
-        <h3>Runes</h3>
-        <div class="row" ng-repeat="rune in match.Runes">
-            <div class="runeContainer" > 
-                <div class="runeRow">
-                    <div class="col-xs-2">
-                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/rune/{{rune.Data.Image.Full}}" width="35" height="35" popover-placement="top" popover-title="{{rune.Data.Name}}" uib-popover="{{rune.Data.SanitizedDescription}}" popover-trigger="mouseenter" />
-                        <span>x{{rune.Rank}}</span>
-                    </div>
-                    <div class="col-xs-8">
-                        <div class="runeDescription">
-                            <span>{{rune.Data.SanitizedDescription}}</span>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr />
-    <div class="masteriesContainer">
-        <h3>Masteries</h3>
-        <div class="masteries">
+        <div class="matchInfoContainer">
+            <h3>Match Info</h3>
             <div class="row">
-                <div id="ferocityContainer">
-                    <div class="masteryRow">
-                        <div id="f6111" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6111.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6111].Name}}" uib-popover="{{masteryDescription[6111]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6114" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6114.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6114].Name}}" uib-popover="{{masteryDescription[6114]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6121" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6121.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6121].Name}}" uib-popover="{{masteryDescription[6121]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6122" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6122.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6122].Name}}" uib-popover="{{masteryDescription[6122]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6131" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6131.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6131].Name}}" uib-popover="{{masteryDescription[6131]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6134" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6134.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6134].Name}}" uib-popover="{{masteryDescription[6134]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6141" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6141.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6141].Name}}" uib-popover="{{masteryDescription[6141]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6142" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6142.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6142].Name}}" uib-popover="{{masteryDescription[6142]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6151" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6151.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6151].Name}}" uib-popover="{{masteryDescription[6151]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6154" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6154.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6154].Name}}" uib-popover="{{masteryDescription[6154]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6161" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6161.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6161].Name}}" uib-popover="{{masteryDescription[6161]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6162" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6162.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6162].Name}}" uib-popover="{{masteryDescription[6162]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6164" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6164.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6164].Name}}" uib-popover="{{masteryDescription[6164]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-xs-2">Score:</div>
+                <div class="col-xs-2">{{kills}} / {{deaths}} / {{assists}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">Champion:</div>
+                <div class="col-xs-2">{{match.Champion.Name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">Duration:</div>
+                <div class="col-xs-2">{{durationText}}</div>
+            </div>
+        </div>
 
-                <div id="masteryGutter">
+        <div class="skillOrderContainer">
+            <h3>Skill Order</h3>
+            <div class="passiveRow">
+                <div class="spellCol">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/passive/{{match.Champion.Passive.Image.Full}}" popover-placement="top" popover-title="{{match.Champion.Passive.Name}}" uib-popover="{{match.Champion.Passive.SanitizedDescription}}" popover-trigger="mouseenter" width="30" height="30"/>
                 </div>
-
-                <div id="cunningContainer">
-                    <div class="masteryRow">
-                        <div id="f6311" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6311.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6311].Name}}" uib-popover="{{masteryDescription[6311]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6312" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6312.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6312].Name}}" uib-popover="{{masteryDescription[6312]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6321" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6321.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6321].Name}}" uib-popover="{{masteryDescription[6321]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6322" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6322.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6322].Name}}" uib-popover="{{masteryDescription[6322]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6323" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6323.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6323].Name}}" uib-popover="{{masteryDescription[6323]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6331" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6331.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6331].Name}}" uib-popover="{{masteryDescription[6331]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6332" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6332.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6332].Name}}" uib-popover="{{masteryDescription[6332]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6342" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6342.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6342].Name}}" uib-popover="{{masteryDescription[6342]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6343" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6343.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6343].Name}}" uib-popover="{{masteryDescription[6343]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6351" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6351.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6351].Name}}" uib-popover="{{masteryDescription[6351]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6352" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6352.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6352].Name}}" uib-popover="{{masteryDescription[6352]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
-                    <div class="masteryRow">
-                        <div id="f6361" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6361.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6361].Name}}" uib-popover="{{masteryDescription[6361]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6362" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6362.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6362].Name}}" uib-popover="{{masteryDescription[6362]}}" popover-trigger="mouseenter"/>
-                        </div>
-                        <div id="f6363" class="masteryImageContainer">
-                            <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6363.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6363].Name}}" uib-popover="{{masteryDescription[6363]}}" popover-trigger="mouseenter"/>
-                        </div>
-                    </div>
+                <div class="passiveText">Passive</div>
+            </div>
+            <div class="skillRow1">
+                <div class="spellCol">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[0].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[0].Name}}" uib-popover="{{match.Champion.Spells[0].SanitizedDescription}}" popover-trigger="mouseenter"/>
                 </div>
-
-                <div id="masteryGutter">
+                <div class="col1 spellCol"></div>
+                <div class="col2 spellCol"></div>
+                <div class="col3 spellCol"></div>
+                <div class="col4 spellCol"></div>
+                <div class="col5 spellCol"></div>
+                <div class="col6 spellCol"></div>
+                <div class="col7 spellCol"></div>
+                <div class="col8 spellCol"></div>
+                <div class="col9 spellCol"></div>
+                <div class="col10 spellCol"></div>
+                <div class="col11 spellCol"></div>
+                <div class="col12 spellCol"></div>
+                <div class="col13 spellCol"></div>
+                <div class="col14 spellCol"></div>
+                <div class="col15 spellCol"></div>
+                <div class="col16 spellCol"></div>
+                <div class="col17 spellCol"></div>
+                <div class="col18 spellCol"></div>
+            </div>
+            <div class="skillRow2">
+                <div class="spellCol">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[1].Image.Full}}" width="30" height="30"popover-placement="top" popover-title="{{match.Champion.Spells[1].Name}}" uib-popover="{{match.Champion.Spells[1].SanitizedDescription}}" popover-trigger="mouseenter"/>
                 </div>
+                <div class="col1 spellCol"></div>
+                <div class="col2 spellCol"></div>
+                <div class="col3 spellCol"></div>
+                <div class="col4 spellCol"></div>
+                <div class="col5 spellCol"></div>
+                <div class="col6 spellCol"></div>
+                <div class="col7 spellCol"></div>
+                <div class="col8 spellCol"></div>
+                <div class="col9 spellCol"></div>
+                <div class="col10 spellCol"></div>
+                <div class="col11 spellCol"></div>
+                <div class="col12 spellCol"></div>
+                <div class="col13 spellCol"></div>
+                <div class="col14 spellCol"></div>
+                <div class="col15 spellCol"></div>
+                <div class="col16 spellCol"></div>
+                <div class="col17 spellCol"></div>
+                <div class="col18 spellCol"></div>
+            </div>
+            <div class="skillRow3">
+                <div class="spellCol">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[2].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[2].Name}}" uib-popover="{{match.Champion.Spells[2].SanitizedDescription}}" popover-trigger="mouseenter" />
+                </div>
+                <div class="col1 spellCol"></div>
+                <div class="col2 spellCol"></div>
+                <div class="col3 spellCol"></div>
+                <div class="col4 spellCol"></div>
+                <div class="col5 spellCol"></div>
+                <div class="col6 spellCol"></div>
+                <div class="col7 spellCol"></div>
+                <div class="col8 spellCol"></div>
+                <div class="col9 spellCol"></div>
+                <div class="col10 spellCol"></div>
+                <div class="col11 spellCol"></div>
+                <div class="col12 spellCol"></div>
+                <div class="col13 spellCol"></div>
+                <div class="col14 spellCol"></div>
+                <div class="col15 spellCol"></div>
+                <div class="col16 spellCol"></div>
+                <div class="col17 spellCol"></div>
+                <div class="col18 spellCol"></div>
+            </div>
+            <div class="skillRow4">
+                <div class="spellCol">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{match.Champion.Spells[3].Image.Full}}" width="30" height="30" popover-placement="top" popover-title="{{match.Champion.Spells[3].Name}}" uib-popover="{{match.Champion.Spells[3].SanitizedDescription}}" popover-trigger="mouseenter"/>
+                </div>
+                <div class="col1 spellCol"></div>
+                <div class="col2 spellCol"></div>
+                <div class="col3 spellCol"></div>
+                <div class="col4 spellCol"></div>
+                <div class="col5 spellCol"></div>
+                <div class="col6 spellCol"></div>
+                <div class="col7 spellCol"></div>
+                <div class="col8 spellCol"></div>
+                <div class="col9 spellCol"></div>
+                <div class="col10 spellCol"></div>
+                <div class="col11 spellCol"></div>
+                <div class="col12 spellCol"></div>
+                <div class="col13 spellCol"></div>
+                <div class="col14 spellCol"></div>
+                <div class="col15 spellCol"></div>
+                <div class="col16 spellCol"></div>
+                <div class="col17 spellCol"></div>
+                <div class="col18 spellCol"></div>
+            </div>
+        </div>
 
-                <div id="resolveContainer">
-                        <div class="masteryRow">
-                            <div id="f6211" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6211.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6211].Name}}" uib-popover="{{masteryDescription[6211]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6212" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6212.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6212].Name}}" uib-popover="{{masteryDescription[6212]}}" popover-trigger="mouseenter"/>
+        <div class="runesContainer">
+            <h3>Runes</h3>
+            <div class="row" ng-repeat="rune in match.Runes">
+                <div class="runeContainer" > 
+                    <div class="runeRow">
+                        <div class="col-xs-2">
+                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/rune/{{rune.Data.Image.Full}}" width="35" height="35" popover-placement="top" popover-title="{{rune.Data.Name}}" uib-popover="{{rune.Data.SanitizedDescription}}" popover-trigger="mouseenter" />
+                            <span>x{{rune.Rank}}</span>
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="runeDescription">
+                                <span>{{rune.Data.SanitizedDescription}}</span>
                             </div>
                         </div>
-                        <div class="masteryRow">
-                            <div id="f6221" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6221.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6221].Name}}" uib-popover="{{masteryDescription[6221]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6223" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6223.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6223].Name}}" uib-popover="{{masteryDescription[6223]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6231" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6231.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6231].Name}}" uib-popover="{{masteryDescription[6231]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6232" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6232.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6232].Name}}" uib-popover="{{masteryDescription[6232]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6241" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6241.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6241].Name}}" uib-popover="{{masteryDescription[6241]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6242" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6242.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6242].Name}}" uib-popover="{{masteryDescription[6242]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6251" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6251.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6251].Name}}" uib-popover="{{masteryDescription[6251]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6252" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6252.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6252].Name}}" uib-popover="{{masteryDescription[6252]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
-                        <div class="masteryRow">
-                            <div id="f6261" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6261.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6261].Name}}" uib-popover="{{masteryDescription[6261]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6262" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6262.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6262].Name}}" uib-popover="{{masteryDescription[6262]}}" popover-trigger="mouseenter"/>
-                            </div>
-                            <div id="f6263" class="masteryImageContainer">
-                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6263.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6263].Name}}" uib-popover="{{masteryDescription[6263]}}" popover-trigger="mouseenter"/>
-                            </div>
-                        </div>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr />
-    <div class="finalItemsAndSummonerSpells">
-        <div class="final-items">
-            <div class="finalBuildHeader">
-                <h3>Final build</h3>
+
+        <div class="masteriesContainer">
+            <h3>Masteries</h3>
+            <div class="masteries">
+                <div class="row">
+                    <div id="ferocityContainer">
+                        <div class="masteryRow">
+                            <div id="f6111" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6111.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6111].Name}}" uib-popover="{{masteryDescription[6111]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6114" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6114.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6114].Name}}" uib-popover="{{masteryDescription[6114]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6121" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6121.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6121].Name}}" uib-popover="{{masteryDescription[6121]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6122" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6122.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6122].Name}}" uib-popover="{{masteryDescription[6122]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6131" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6131.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6131].Name}}" uib-popover="{{masteryDescription[6131]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6134" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6134.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6134].Name}}" uib-popover="{{masteryDescription[6134]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6141" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6141.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6141].Name}}" uib-popover="{{masteryDescription[6141]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6142" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6142.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6142].Name}}" uib-popover="{{masteryDescription[6142]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6151" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6151.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6151].Name}}" uib-popover="{{masteryDescription[6151]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6154" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6154.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6154].Name}}" uib-popover="{{masteryDescription[6154]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6161" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6161.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6161].Name}}" uib-popover="{{masteryDescription[6161]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6162" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6162.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6162].Name}}" uib-popover="{{masteryDescription[6162]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6164" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6164.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6164].Name}}" uib-popover="{{masteryDescription[6164]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="masteryGutter">
+                    </div>
+
+                    <div id="cunningContainer">
+                        <div class="masteryRow">
+                            <div id="f6311" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6311.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6311].Name}}" uib-popover="{{masteryDescription[6311]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6312" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6312.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6312].Name}}" uib-popover="{{masteryDescription[6312]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6321" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6321.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6321].Name}}" uib-popover="{{masteryDescription[6321]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6322" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6322.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6322].Name}}" uib-popover="{{masteryDescription[6322]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6323" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6323.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6323].Name}}" uib-popover="{{masteryDescription[6323]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6331" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6331.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6331].Name}}" uib-popover="{{masteryDescription[6331]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6332" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6332.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6332].Name}}" uib-popover="{{masteryDescription[6332]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6342" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6342.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6342].Name}}" uib-popover="{{masteryDescription[6342]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6343" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6343.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6343].Name}}" uib-popover="{{masteryDescription[6343]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6351" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6351.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6351].Name}}" uib-popover="{{masteryDescription[6351]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6352" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6352.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6352].Name}}" uib-popover="{{masteryDescription[6352]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                        <div class="masteryRow">
+                            <div id="f6361" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6361.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6361].Name}}" uib-popover="{{masteryDescription[6361]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6362" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6362.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6362].Name}}" uib-popover="{{masteryDescription[6362]}}" popover-trigger="mouseenter"/>
+                            </div>
+                            <div id="f6363" class="masteryImageContainer">
+                                <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6363.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6363].Name}}" uib-popover="{{masteryDescription[6363]}}" popover-trigger="mouseenter"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="masteryGutter">
+                    </div>
+
+                    <div id="resolveContainer">
+                            <div class="masteryRow">
+                                <div id="f6211" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6211.png" width="40" height="40" popover-placement="top" popover-title="{{masteries[6211].Name}}" uib-popover="{{masteryDescription[6211]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6212" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6212.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6212].Name}}" uib-popover="{{masteryDescription[6212]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6221" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6221.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6221].Name}}" uib-popover="{{masteryDescription[6221]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6223" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6223.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6223].Name}}" uib-popover="{{masteryDescription[6223]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6231" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6231.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6231].Name}}" uib-popover="{{masteryDescription[6231]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6232" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6232.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6232].Name}}" uib-popover="{{masteryDescription[6232]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6241" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6241.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6241].Name}}" uib-popover="{{masteryDescription[6241]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6242" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6242.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6242].Name}}" uib-popover="{{masteryDescription[6242]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6251" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6251.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6251].Name}}" uib-popover="{{masteryDescription[6251]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6252" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6252.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6252].Name}}" uib-popover="{{masteryDescription[6252]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                            <div class="masteryRow">
+                                <div id="f6261" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6261.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6261].Name}}" uib-popover="{{masteryDescription[6261]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6262" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6262.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6262].Name}}" uib-popover="{{masteryDescription[6262]}}" popover-trigger="mouseenter"/>
+                                </div>
+                                <div id="f6263" class="masteryImageContainer">
+                                    <img class="masteryImage" src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/mastery/6263.png" width="40" height="40"popover-placement="top" popover-title="{{masteries[6263].Name}}" uib-popover="{{masteryDescription[6263]}}" popover-trigger="mouseenter"/>
+                                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
-            <div class="finalItemsContainer">
-                <div class="finalItem" ng-repeat="item in items">
+        </div>
+        <div class="finalItemsAndSummonerSpells">
+            <div class="final-items">
+                <div class="finalBuildHeader">
+                    <h3>Final build</h3>
+                </div>
+                <div class="finalItemsContainer">
+                    <div class="finalItem" ng-repeat="item in items">
+                        <div class="imageItem" >
+                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="45" height="45" popover-placement="top" popover-title="{{item.Name}}" uib-popover="{{item.SanitizedDescription}}" popover-trigger="mouseenter"/>
+                            <div class="itemDescription">{{item.Name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summonerSpellsContainer">
+                <div class="summonerSpellsHeader">
+                    <h3>Summoner Spells</h3>
+                </div>
+                <div class="summonerSpell">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell1Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell1Id].Name}}" uib-popover="{{summonerSpells[spell1Id].Description}}" popover-trigger="mouseenter" width="40" height="40"/>
+                </div>
+                <div class="summonerSpell">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell2Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell2Id].Name}}" uib-popover="{{summonerSpells[spell2Id].Description}}" popover-trigger="mouseenter" width="40" height="40"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="itemsContainer">
+            <h3>Items</h3>
+            <div class="items">
+                <div class="item" ng-repeat="item in match.ItemsBought">
                     <div class="imageItem" >
-                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="50" height="50" popover-placement="top" popover-title="{{item.Name}}" uib-popover="{{item.SanitizedDescription}}" popover-trigger="mouseenter"/>
+                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="40" height="40" popover-placement="top" popover-title="{{item.Name}}" uib-popover="{{item.SanitizedDescription}}" popover-trigger="mouseenter"/>
                         <div class="itemDescription">{{item.Name}}</div>
                     </div>
+                    <div class="itemArrow">
+                        <div class="glyphicon glyphicon-arrow-right"></div>
+                    </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
-        </div>
-
-        <div class="summonerSpellsContainer">
-            <div class="summonerSpellsHeader">
-                <h3>Summoner Spells</h3>
-            </div>
-            <div class="summonerSpell">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell1Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell1Id].Name}}" uib-popover="{{summonerSpells[spell1Id].Description}}" popover-trigger="mouseenter" width="45" height="45"/>
-            </div>
-            <div class="summonerSpell">
-                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[spell2Id].Image.Full}}" popover-placement="top" popover-title="{{summonerSpells[spell2Id].Name}}" uib-popover="{{summonerSpells[spell2Id].Description}}" popover-trigger="mouseenter" width="45" height="45"/>
-            </div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-    <hr />
-    <h3>Items</h3>
-    <div class="itemsContainer">
-        <div class="items">
-            <div class="item" ng-repeat="item in match.ItemsBought">
-                <div class="imageItem" >
-                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="40" height="40" popover-placement="top" popover-title="{{item.Name}}" uib-popover="{{item.SanitizedDescription}}" popover-trigger="mouseenter"/>
-                    <div class="itemDescription">{{item.Name}}</div>
-                </div>
-                <div class="itemArrow">
-                    <div class="glyphicon glyphicon-arrow-right"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
         </div>
     </div>
 </div>

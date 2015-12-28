@@ -56,10 +56,13 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                 .css("-animation: spin .7s infinite linear", "none 0s")
                 .css(".glyphicon-refresh-animate", "none 0s");
 
+            var champNameIndex = data.Champion.Image.Full.indexOf(".");
+            var imageName = data.Champion.Image.Full.substring(0, champNameIndex) + "_0" + ".jpg";
+            $scope.imageName = imageName;
+
             jQuery(".matchContainer").show();
 
             $scope.match = data;
-            $scope.imageName = data.Champion.Image.Full;
             $scope.title = getTitle(data);
             $scope.kills = data.Kills;
             $scope.deaths = data.Deaths;

@@ -1,10 +1,35 @@
 ﻿body {
-    padding-top: 50px;
     font-family: 'Helvetica Neue LT Pro', Helvetica, Arial, sans-serif;
+    background-color: #070E12;
+    color: #F0EFC4;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #F0EFC4;
+}
+
+h3 {
+    color: #4B748A;
+}
+
+.homeContent {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.recentMatchesHeader h2 {
+    margin-top: 0;
+    padding-top: 20px;
 }
 
 a:hover {
     text-decoration: none;
+}
+
+.navbar {
+    margin-bottom: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,8 +46,10 @@ textarea {
 }
 
 footer {
-    padding-top: 30px;
+    padding: 30px 50px 0px 50px;
     font-size: 10px;
+    color: #8F8E75;
+    margin-bottom: -10px;
 }
 
 .kills {
@@ -44,17 +71,10 @@ footer {
 }
 
 .base-container {
-    padding-top: 30px;
+    background-color: #0B161C;
     padding-bottom: 30px;
-    width: 73%;
+    width: 800px;
     margin: 0 auto;
-}
-
-.recentMatchesHeader h2 {
-    padding-bottom: 20px;
-    font-weight: bold;
-    color: #10222B;
-    font-size: 18px;
 }
 
 .homeMatchContainer {
@@ -112,4 +132,10 @@ footer {
     max-width: 600px;
     width: 200px;
     font-size: 12px;
+    color: black;
+}
+
+.matchChampionImage img {
+    clip: rect(110px, 160px, 170px, 60px);
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
 }
