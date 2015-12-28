@@ -6,6 +6,13 @@
 
         $http.get("/api/matches").success(function(data) {
             $scope.allMatches = data;
+
+            jQuery(".loadingContainer").hide();
+            jQuery(".glyphicon-refresh-animate")
+                .css("-animation: spin .7s infinite linear", "none 0s")
+                .css(".glyphicon-refresh-animate", "none 0s");
+
+            jQuery(".homeContent").show();
          });
 
         $scope.getMatchResultText = function(match) {

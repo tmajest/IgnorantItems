@@ -15,6 +15,7 @@ h3 {
 }
 
 .homeContent {
+    display: none;
     padding-left: 50px;
     padding-right: 50px;
 }
