@@ -8,6 +8,17 @@
     to { -webkit-transform: rotate(360deg);}
 }
 
+.matchChampionImage img {
+    clip: rect(110px, 160px, 170px, 60px);
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+}
+
+.matchContents {
+    margin-top: -100px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 .matchContainer {
     display: none;
 }
@@ -18,9 +29,9 @@ h3 {
 }
 
 h2 {
-    padding-bottom: 10px;
     font-size: 22px;
     font-weight: bold;
+    color: #F0EFC4;
 }
 
 .matchInfoContainer {
@@ -31,12 +42,22 @@ h2 {
 .final-items {
     width: 550px;
     float: left;
-    padding-right: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
 }
 
 .summonerSpellsContainer {
-    width: 170px;
+    width: 150px;
     float: left;
+}
+
+.summonerSpellsContainer img {
+    border: 3px solid #070E12;
+    border-radius: 3px;
+}
+
+.summonerSpellsContainer h3 {
+    font-size: 17px;
 }
 
 .summonerSpell {
@@ -50,7 +71,7 @@ h2 {
 
 .masteriesContainer {
     padding-top: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .runeRow .runeDescription {
@@ -66,6 +87,11 @@ h2 {
 .item {
     float: left;
     height: 90px;
+}
+
+.imageItem img {
+    border: 3px solid #070E12;
+    border-radius: 3px;
 }
 
 .imageItem {
@@ -184,6 +210,7 @@ h2 {
 
 .skillOrderContainer img {
     border-radius: 1px;
+    border: 1px solid black;
 }
 
 .passiveRow {
