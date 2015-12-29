@@ -12,14 +12,15 @@ namespace RiotFrontend.Controllers
 #if (!DEBUG)
         [OutputCache(Duration=86000, VaryByParam="id")]
 #endif
-        public ActionResult Index(string id)
+        public ActionResult Index(string summonerName, string matchId)
         {
-            if (string.IsNullOrWhiteSpace(id))
+            if (string.IsNullOrWhiteSpace(matchId) || string.IsNullOrWhiteSpace(summonerName))
             {
                 return RedirectToAction("Home", "Index");
             }
 
-            this.ViewBag.MatchId = id;
+            this.ViewBag.MatchId = matchId;
+            this.ViewBag.SummonerName = summonerName;
             return View();
         }
     }

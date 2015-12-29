@@ -23,6 +23,7 @@ namespace RiotFrontend.Providers
         private static readonly string MatchCreationTimeColumn = "MatchCreationTime";
         private static readonly string ChampionIdColumn = "ChampionId";
         private static readonly string RowKeyColumn = "RowKey";
+        private static readonly string PartitionKeyColumn = "PartitionKey";
 
         private ICloudManager cloudManager;
         private IUploaderSettings settings;
@@ -44,6 +45,27 @@ namespace RiotFrontend.Providers
 
             var filter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
             var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
+                .FirstOrDefault();
+
+            if (matchEntity == null)
+            {
+                return null;
+            }
+
+            var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
+            return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
+        }
+
+        public Match GetMatch(string matchId, string summonerName)
+        {
+            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
+            Validation.ValidateNotNullOrWhitespace(summonerName, nameof(summonerName));
+
+            var rowKeyFilter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
+            var partitionKeyFilter = TableQuery.GenerateFilterCondition(PartitionKeyColumn, QueryComparisons.Equal, summonerName.ToLowerInvariant());
+            var finalFilter = TableQuery.CombineFilters(rowKeyFilter, TableOperators.And, partitionKeyFilter);
+
+            var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, finalFilter)
                 .FirstOrDefault();
 
             if (matchEntity == null)

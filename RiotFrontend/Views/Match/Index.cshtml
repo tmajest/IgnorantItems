@@ -2,7 +2,10 @@
     @Scripts.Render("~/Scripts/Apps/matchController.js")
 }
 <script type='text/javascript'>
-    window.backendParams = { matchId: @ViewBag.MatchId };
+    window.backendParams = {
+        matchId: @ViewBag.MatchId,
+        summonerName: "@ViewBag.SummonerName",
+    };
 </script>
 
 <div class="loadingContainer">

@@ -16,7 +16,7 @@
         </div>
         <div class="allMatches">
             <div class="matchRow" ng-repeat="match in allMatches">
-                <a ng-href="/matches/{{match.MatchId}}">
+                <a ng-href="/matches/{{match.ProName}}/{{match.MatchId}}">
                     <div class="homeMatchContainer" ng-style=getMatchColor(match)>
                         <div class="img-container">
                             <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
