@@ -4,6 +4,10 @@ using RiotFrontend.Providers;
 using System.Net;
 using System.Net.Http;
 using WebApi.OutputCache.V2;
+using System.Threading;
+using System.Diagnostics;
+using CoffeeCat.RiotCommon.Contracts.Frontend;
+using System.Web;
 
 namespace RiotFrontend.Controllers.WebApi
 {
@@ -25,6 +29,7 @@ namespace RiotFrontend.Controllers.WebApi
         public HttpResponseMessage GetMatches()
         {
             var matches = this.matchProvider.GetMatches();
+
             if (matches == null || matches.Count == 0)
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
@@ -41,7 +46,30 @@ namespace RiotFrontend.Controllers.WebApi
         public HttpResponseMessage GetMatch(string matchId)
         {
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
+
             var match = this.matchProvider.GetMatch(matchId);
+
+            if (match == null)
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+
+            return Request.CreateResponse(match);
+        }
+
+        [HttpGet]
+        [Route("{summonerName}/{matchId}")]
+#if (!DEBUG)
+        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+#endif
+        public HttpResponseMessage GetMatch(string summonerName, string matchId)
+        {
+            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
+
+            var decodedSummonerName = HttpUtility.UrlDecode(summonerName);
+
+            var match = this.matchProvider.GetMatch(matchId, decodedSummonerName);
+
             if (match == null)
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
