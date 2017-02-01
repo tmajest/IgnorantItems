@@ -21,27 +21,27 @@ namespace CoffeeCat.MatchUploader
             }
             catch (Exception e)
             {
-                Trace.TraceError("Could not configure MatchUploader: {0}", e);
+                Console.WriteLine($"Could not configure MatchUploader: {e}");
                 return;
             }
 
             try
             {
-                Trace.TraceInformation("Starting MatchUploader...");
+                Console.WriteLine("Starting MatchUploader...");
 
                 var matchUploader = new MatchUploader(settings);
                 if (matchUploader.Run().Wait(settings.Timeout))
                 {
-                    Trace.TraceInformation("MatchUploader completed successfully");
+                    Console.WriteLine("MatchUploader completed successfully");
                 }
                 else
                 {
-                    Trace.TraceError("MatchUploader timed out before it could complete.");
+                    Console.WriteLine("MatchUploader timed out before it could complete.");
                 }
             }
             catch (AggregateException e)
             {
-                Trace.TraceError("MatchUploader failed with error: " + e.InnerException);
+                Console.WriteLine($"MatchUploader failed with error: {e.InnerException}");
             }
         }
 
@@ -56,10 +56,10 @@ namespace CoffeeCat.MatchUploader
                 Retries = int.Parse(appSettings["Retries"]),
                 Region = appSettings["Region"],
                 Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"])),
-                MatchDetailRequestDelay = TimeSpan.FromSeconds(int.Parse(appSettings["MatchDetailRequestDelaySeconds"])),
-                RetryDelay = TimeSpan.FromSeconds(int.Parse(appSettings["RetryDelaySeconds"])),
-                RateLimitDelay = TimeSpan.FromMinutes(int.Parse(appSettings["RateLimitDelayMinutes"])),
-                DefaultUploadPeriod = TimeSpan.FromDays(int.Parse(appSettings["DefaultUploadPeriodDays"])),
+                MatchDetailRequestDelay = TimeSpan.FromSeconds(double.Parse(appSettings["MatchDetailRequestDelaySeconds"])),
+                RetryDelay = TimeSpan.FromSeconds(double.Parse(appSettings["RetryDelaySeconds"])),
+                RateLimitDelay = TimeSpan.FromMinutes(double.Parse(appSettings["RateLimitDelayMinutes"])),
+                DefaultUploadPeriod = TimeSpan.FromDays(double.Parse(appSettings["DefaultUploadPeriodDays"])),
             };
         }
     }

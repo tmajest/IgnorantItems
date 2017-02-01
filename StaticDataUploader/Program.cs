@@ -45,17 +45,17 @@ namespace CoffeeCat.StaticDataUploader
                 Trace.TraceInformation("Starting StaticDataUploader...");
                 if (staticDataUploader.Run().Wait(settings.Timeout))
                 {
-                    Trace.TraceInformation("StaticDataUploader completed successfully");
+                    Console.WriteLine("StaticDataUploader completed successfully");
                 }
                 else
                 {
-                    Trace.TraceError("StaticDataUploader timed out before it could complete.");
+                    Console.WriteLine("StaticDataUploader timed out before it could complete.");
                 }
 
             }
             catch (AggregateException e)
             {
-                Trace.TraceError("StaticDataUploader failed with error: " + e.InnerException);
+                Console.WriteLine("StaticDataUploader failed with error: " + e.InnerException);
             }
         }
     }

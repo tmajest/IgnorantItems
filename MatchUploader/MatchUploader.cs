@@ -29,19 +29,19 @@ namespace CoffeeCat.MatchUploader
             using (var context = new RiotContext(settings.DatabaseConnectionString))
             {
                 var versions = Utils.GetApiVersion(context);
-                foreach (var streamer in context.Streamers)
+                foreach (var streamer in context.Streamers.ToList())
                 {
-                    foreach (var summoner in streamer.Summoners)
+                    foreach (var summoner in streamer.Summoners.ToList())
                     {
-                        await this.UploadMatchHistory(summoner, versions);
+                        await this.UploadMatchHistory(summoner, versions, context);
                     }
                 }
             }
         }
 
-        private async Task UploadMatchHistory(SummonerEntity summoner, ApiVersion version)
+        private async Task UploadMatchHistory(SummonerEntity summoner, ApiVersion version, RiotContext context)
         {
-            Trace.WriteLine("Getting match history for summoner " + summoner.Name + "...");
+            Console.WriteLine("Getting match history for summoner " + summoner.Name + "...");
             var beginTime = summoner.LastUpdatedTime;
             var endTime = DateTime.UtcNow;
             if (beginTime > endTime || beginTime == DateTime.MinValue)
@@ -52,39 +52,37 @@ namespace CoffeeCat.MatchUploader
             var matches = await GetMatchList(summoner, version, beginTime, endTime);
             if (matches == null)
             {
-                Trace.TraceInformation($"Finished getting {summoner.Name} match history");
+                Console.WriteLine($"Finished getting {summoner.Name} match history");
                 return;
             }
 
-            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
+            foreach (var matchReference in matches)
             {
-                foreach (var matchReference in matches)
+                var matchEntity = context.Matches.FirstOrDefault(m => m.Id == matchReference.MatchId);
+                if (matchEntity != null)
                 {
-                    var matchDetails = await GetMatchDetail(matchReference, version);
-
-                    // Create match
-                    var matchEntity = MatchConverter.GetMatchEntity(matchDetails, matchReference, summoner);
-                    context.Matches.Add(matchEntity);
-                    context.SaveChanges();
-
-                    // Create participants
-                    foreach (var participant in ParticipantConverter.GetParticipants(matchDetails, context))
-                    {
-                        participant.Match = matchEntity;
-                        context.Participants.Add(participant);
-                        await context.SaveChangesAsync();
-                    }
-
-                    // Wait between match details requests to avoid hitting rate limit
-                    await Task.Delay(settings.MatchDetailRequestDelay);
+                    continue;
                 }
 
-                // Update the summoner's last updated time
-                summoner.LastUpdatedTime = endTime;
-                context.SaveChanges();
+                var matchDetails = await GetMatchDetail(matchReference, version);
+
+                // Match doesn't exist, create it
+                matchEntity = MatchConverter.GetMatchEntity(matchDetails, matchReference, summoner);
+                context.Matches.Add(matchEntity);
+
+                // Create participants
+                foreach (var participant in ParticipantConverter.GetParticipants(matchDetails, context))
+                {
+                    participant.Match = matchEntity;
+                    context.Participants.Add(participant);
+                }
             }
 
-            Trace.TraceInformation($"Finished getting {summoner.Name} match history");
+            // Update the summoner's last updated time
+            summoner.LastUpdatedTime = DateTime.UtcNow;
+            await context.SaveChangesAsync();
+
+            Console.WriteLine($"Finished getting {summoner.Name} match history");
         }
 
         private async Task<MatchDetailDto> GetMatchDetail(MatchReferenceDto matchReference, ApiVersion versions)
@@ -101,13 +99,13 @@ namespace CoffeeCat.MatchUploader
                 }
                 catch (Exception)
                 {
-                    Trace.TraceWarning("Hit rate limit, retrying {0}...", i);
+                    Console.WriteLine("Hit rate limit, retrying {0}...", i);
                 }
 
                 await Task.Delay(settings.RetryDelay);
             }
 
-            Trace.TraceWarning("Hit rate limit. Waiting...");
+            Console.WriteLine("Hit rate limit. Waiting...");
             await Task.Delay(settings.RateLimitDelay);
             using (var client = new MatchDetailClient(region, versions.MatchVersion, this.settings.RiotApiKey))
             {

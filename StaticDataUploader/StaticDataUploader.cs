@@ -46,62 +46,62 @@ namespace CoffeeCat.StaticDataUploader
 
         private async Task UploadMasteries()
         {
-            Trace.WriteLine("Begin uploading masteries");
+            Console.WriteLine("Begin uploading masteries");
 
             using (var masteryTask = new MasteriesUploadTask(this.apiVersions, this.settings))
             {
                 await masteryTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading masteries.");
+            Console.WriteLine("Completed uploading masteries.");
         }
 
         private async Task UploadRunes()
         {
-            Trace.WriteLine("Begin uploading masteries");
+            Console.WriteLine("Begin uploading masteries");
 
             using (var runesTask = new RunesUploadTask(this.apiVersions, this.settings))
             {
                 await runesTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading runes.");
+            Console.WriteLine("Completed uploading runes.");
         }
 
         private async Task UploadChampions()
         {
-            Trace.WriteLine("Begin uploading champions");
+            Console.WriteLine("Begin uploading champions");
 
             using (var championsTask = new ChampionsUploadTask(this.apiVersions, this.settings))
             {
                 await championsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading champions.");
+            Console.WriteLine("Completed uploading champions.");
         }
 
         private async Task UploadItems()
         {
-            Trace.WriteLine("Begin uploading items");
+            Console.WriteLine("Begin uploading items");
 
             using (var itemsTask = new ItemsUploadTask(this.apiVersions, this.settings))
             {
                 await itemsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading items.");
+            Console.WriteLine("Completed uploading items.");
         }
 
         private async Task UploadSummonerSpells()
         {
-            Trace.WriteLine("Begin uploading summoner spells");
+            Console.WriteLine("Begin uploading summoner spells");
 
             using (var summonerSpellsTask = new SummonerSpellsTask(this.apiVersions, this.settings))
             {
                 await summonerSpellsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading summoner spells.");
+            Console.WriteLine("Completed uploading summoner spells.");
         }
     }
 }
