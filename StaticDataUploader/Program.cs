@@ -19,16 +19,6 @@ namespace CoffeeCat.StaticDataUploader
             var appSettings = ConfigurationManager.AppSettings;
             var settings = new UploaderSettings()
             {
-                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
-                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
-                Region = appSettings["Region"],
-                DataContainerName = appSettings["DataContainerName"],
-                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
-                RunesBlobPath = appSettings["RunesBlobPath"],
-                ChampionsBlobPath = appSettings["ChampionsBlobPath"],
-                ItemsBlobPath = appSettings["ItemsBlobPath"],
-                SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
-                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
                 Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"]))
             };
 

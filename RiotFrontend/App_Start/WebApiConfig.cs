@@ -30,7 +30,6 @@ namespace RiotFrontend
 
             container
                 .RegisterInstance(settings)
-                .RegisterType<ICloudManager, CloudManager>(new InjectionConstructor(settings.AzureStorageConnectionString))
                 .RegisterType<IStaticData, StaticData>(new ContainerControlledLifetimeManager())
                 .RegisterType<IDtoConverter, DtoConverter>(new ContainerControlledLifetimeManager())
                 .RegisterType<IMatchProvider, MatchProvider>();
@@ -52,17 +51,6 @@ namespace RiotFrontend
             var appSettings = ConfigurationManager.AppSettings;
             return new UploaderSettings
             {
-                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
-                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
-                DataContainerName = appSettings["DataContainerName"],
-                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
-                RunesBlobPath = appSettings["RunesBlobPath"],
-                ChampionsBlobPath = appSettings["ChampionsBlobPath"],
-                ItemsBlobPath = appSettings["ItemsBlobPath"],
-                SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
-                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
-                SummonersTableName = appSettings["SummonersTableName"],
-                MatchListTableName = appSettings["MatchListTableName"],
             };
         }
     }

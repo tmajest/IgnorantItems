@@ -7,29 +7,11 @@ namespace CoffeeCat.RiotCommon.Settings
     [InheritedExport(typeof(IUploaderSettings))]
     public interface IUploaderSettings
     {
-        string AzureStorageConnectionString { get; }
+        string ConnectionString { get; }
 
-        List<string> RiotApiKeys { get; }
+        string RiotApiKey { get; }
 
         string Region { get; }
-
-        string DataContainerName { get; }
-
-        string ApiVersionsBlobPath { get; }
-
-        string SummonersTableName { get; }
-
-        string MatchListTableName { get; }
-
-        string MasteriesBlobPath { get; }
-
-        string RunesBlobPath { get; }
-
-        string ChampionsBlobPath { get; }
-
-        string ItemsBlobPath { get; }
-
-        string SummonerSpellsBlobPath { get; }
 
         int Retries { get; }
 

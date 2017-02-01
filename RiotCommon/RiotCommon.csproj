@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CoffeeCat.RiotCommon</RootNamespace>
     <AssemblyName>CoffeeCat.RiotCommon</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,14 +104,13 @@
     <Compile Include="Contracts\Frontend\Match.cs" />
     <Compile Include="Contracts\Frontend\Rune.cs" />
     <Compile Include="Contracts\Frontend\SummonerSpells.cs" />
+    <Compile Include="Contracts\UploaderV2\ApiVersionEntity.cs" />
+    <Compile Include="Contracts\UploaderV2\ApiVersionV2.cs" />
     <Compile Include="Contracts\UploaderV2\MatchEntity.cs" />
     <Compile Include="Contracts\UploaderV2\ParticipantEntity.cs" />
+    <Compile Include="Contracts\UploaderV2\StreamEntity.cs" />
     <Compile Include="Contracts\UploaderV2\StreamerEntity.cs" />
     <Compile Include="Contracts\UploaderV2\SummonerEntity.cs" />
-    <Compile Include="Contracts\Uploader\ApiVersion.cs" />
-    <Compile Include="Contracts\Uploader\MatchEntity.cs" />
-    <Compile Include="Contracts\Uploader\MatchInfo.cs" />
-    <Compile Include="Contracts\Uploader\SummonerEntity.cs" />
     <Compile Include="Dto\Match\BannedChampionDto.cs" />
     <Compile Include="Dto\Match\EventDto.cs" />
     <Compile Include="Dto\Match\FrameDto.cs" />
@@ -186,7 +186,6 @@
     <Compile Include="Utils\KeyManager.cs" />
     <Compile Include="Utils\StaticData.cs" />
     <Compile Include="Utils\Validation.cs" />
-    <Compile Include="Utils\VersionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

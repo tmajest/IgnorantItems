@@ -12,7 +12,7 @@ namespace CoffeeCat.MatchUploader.Converters
     {
         private static readonly string ItemPurchasedEvent = "ITEM_PURCHASED";
 
-        public static List<string> GetSummonerItems(MatchDetailDto match, ParticipantDto participant)
+        public static List<int> GetSummonerItems(MatchDetailDto match, ParticipantDto participant)
         {
             Validation.ValidateNotNull(match, nameof(match));
             Validation.ValidateNotNull(participant, nameof(participant));
@@ -20,26 +20,25 @@ namespace CoffeeCat.MatchUploader.Converters
             var events = EventConverter.GetEvents(match, e => EventFilter(e, participant.ParticipantId));
 
             // Return all item IDs for the items that the participant purchased
-            return events.Select(e => e.ItemId.ToString()).ToList();
+            return events.Select(e => e.ItemId).ToList();
         }
 
         /// <summary>
         /// Get list of Item Ids for the participant's final build.
         /// </summary>
-        public static List<string> GetFinalBuild(ParticipantDto participant)
+        public static List<int> GetFinalBuild(ParticipantDto participant)
         {
-            return new List<long>
+            return new List<int>
             {
-                participant.Stats.Item0,
-                participant.Stats.Item1,
-                participant.Stats.Item2,
-                participant.Stats.Item3,
-                participant.Stats.Item4,
-                participant.Stats.Item5,
-                participant.Stats.Item6,
+                (int) participant.Stats.Item0,
+                (int) participant.Stats.Item1,
+                (int) participant.Stats.Item2,
+                (int) participant.Stats.Item3,
+                (int) participant.Stats.Item4,
+                (int) participant.Stats.Item5,
+                (int) participant.Stats.Item6,
             }
             .Where(i => i > 0)
-            .Select(i => i.ToString())
             .ToList();
         }
 

@@ -20,6 +20,7 @@ namespace CoffeeCat.RiotCommon.Utils
 
         public StaticData(ICloudManager cloudManager, IUploaderSettings settings)
         {
+            /*
             var runeTask = cloudManager.DownloadTextAsync(
                 settings.DataContainerName,
                 settings.RunesBlobPath);
@@ -47,6 +48,7 @@ namespace CoffeeCat.RiotCommon.Utils
             this.ChampionList = GetList<ChampionListDto>(championTask);
             this.ItemList = GetList<ItemListDto>(itemTask);
             this.SummonerSpellList = GetList<SummonerSpellListDto>(summonerSpellsTask);
+            */
         }
 
         private static T GetList<T>(Task<string> downloadTask)

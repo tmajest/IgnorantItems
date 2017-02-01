@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
 {
+    [Table("Summoners")]
     public class SummonerEntity
     {
         [Key]
@@ -25,7 +26,8 @@ namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
         [Required]
         public DateTime LastUpdatedTime { get; set; }
 
-        [ForeignKey("StreamerId")]
         public virtual StreamerEntity Streamer { get; set; }
+
+        public virtual ICollection<ParticipantEntity> Participants { get; set; }
     }
 }

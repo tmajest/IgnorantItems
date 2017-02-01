@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using CoffeeCat.RiotCommon.Contracts;
 using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
+using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using Microsoft.WindowsAzure.Storage.Table;
 using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
@@ -43,9 +43,9 @@ namespace RiotFrontend.Providers
         {
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
 
+            /*
             var filter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
             var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
-                .FirstOrDefault();
 
             if (matchEntity == null)
             {
@@ -54,6 +54,8 @@ namespace RiotFrontend.Providers
 
             var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
             return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
+            */
+            return null;
         }
 
         public Match GetMatch(string matchId, string summonerName)
@@ -61,6 +63,7 @@ namespace RiotFrontend.Providers
             Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
             Validation.ValidateNotNullOrWhitespace(summonerName, nameof(summonerName));
 
+            /*
             var rowKeyFilter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
             var partitionKeyFilter = TableQuery.GenerateFilterCondition(PartitionKeyColumn, QueryComparisons.Equal, summonerName.ToLowerInvariant());
             var finalFilter = TableQuery.CombineFilters(rowKeyFilter, TableOperators.And, partitionKeyFilter);
@@ -75,6 +78,8 @@ namespace RiotFrontend.Providers
 
             var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
             return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
+            */
+            return null;
         }
 
         public List<Match> GetMatches()
@@ -84,6 +89,7 @@ namespace RiotFrontend.Providers
 
         public List<Match> GetMatches(int count)
         {
+            /*
             var filter = TableQuery.GenerateFilterConditionForDate(
                 MatchCreationTimeColumn,
                 QueryComparisons.GreaterThan,
@@ -95,6 +101,8 @@ namespace RiotFrontend.Providers
 
             var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
             return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
+            */
+            return null;
         }
 
         public List<Match> GetMatches(string championId)
@@ -106,6 +114,7 @@ namespace RiotFrontend.Providers
         {
             Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));
 
+            /*
             var championFilter = TableQuery.GenerateFilterCondition(
                 ChampionIdColumn,
                 QueryComparisons.Equal,
@@ -117,6 +126,8 @@ namespace RiotFrontend.Providers
 
             var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
             return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
+            */
+            return null;
         }
     }
 }

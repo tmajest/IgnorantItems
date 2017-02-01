@@ -5,15 +5,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoffeeCat.RiotCommon.Dto.Match;
 using Newtonsoft.Json;
 
 namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
 {
+    [Table("Participants")]
     public class ParticipantEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long SummonerId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long Id { get; set; }
 
         [Required]
         [MaxLength(64)]
@@ -27,14 +29,14 @@ namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
         {
             get
             {
-                this.MasteryList = this.MasteryList ?? new List<MasteryInstance>();
+                this.MasteryList = this.MasteryList ?? new List<MasteryDto>();
                 return JsonConvert.SerializeObject(this.MasteryList);
             }
             set
             {
                 this.MasteryList = value == null
-                    ? new List<MasteryInstance>()
-                    : JsonConvert.DeserializeObject<List<MasteryInstance>>(value);
+                    ? new List<MasteryDto>()
+                    : JsonConvert.DeserializeObject<List<MasteryDto>>(value);
             }
         }
 
@@ -43,14 +45,14 @@ namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
         {
             get
             {
-                this.RuneList = this.RuneList ?? new List<RuneInstance>();
+                this.RuneList = this.RuneList ?? new List<RuneDto>();
                 return JsonConvert.SerializeObject(this.RuneList);
             }
             set
             {
                 this.RuneList = value == null
-                    ? new List<RuneInstance>()
-                    : JsonConvert.DeserializeObject<List<RuneInstance>>(value);
+                    ? new List<RuneDto>()
+                    : JsonConvert.DeserializeObject<List<RuneDto>>(value);
             }
         }
 
@@ -83,16 +85,24 @@ namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
         public int Assists { get; set; }
 
         [Required]
+        public int SummonerSpell1 { get; set; }
+
+        [Required]
+        public int SummonerSpell2 { get; set; }
+
+        [Required]
         [MaxLength(8)]
         public string Team { get; set; }
 
-        public virtual ICollection<MatchEntity> Matches { get; set; }
+        public virtual MatchEntity Match { get; set; }
+
+        public virtual SummonerEntity Summoner { get; set; }
 
         [NotMapped]
-        public List<MasteryInstance> MasteryList { get; set; }
+        public List<MasteryDto> MasteryList { get; set; }
 
         [NotMapped]
-        public List<RuneInstance> RuneList { get; set; }
+        public List<RuneDto> RuneList { get; set; }
 
         [NotMapped]
         public List<int> ItemsBought { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
+using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 
 namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
@@ -29,17 +29,18 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
             this.itemFormatter = itemFormatter;
         }
 
-        public Match FormatMatch(MatchInfo matchInfo, FormatType type)
+        public Match FormatMatch(MatchEntity matchInfo, FormatType type)
         {
             return type == FormatType.Detailed
                 ? FormatMatchDetailed(matchInfo)
                 : FormatMatchSimple(matchInfo);
         }
 
-        private Match FormatMatchDetailed(MatchInfo matchInfo)
+        private Match FormatMatchDetailed(MatchEntity match)
         {
             return new Match
             {
+                /*
                 MatchId = matchInfo.MatchId,
                 SummonerName = matchInfo.SummonerName,
                 ProName = matchInfo.ProName,
@@ -63,13 +64,15 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 TeamBannedChampions = matchInfo.TeamBannedChampions?
                     .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
                 ItemsBought = itemFormatter.FormatItems(matchInfo.ItemsBought)
+                */
             };
         }
 
-        private Match FormatMatchSimple(MatchInfo matchInfo)
+        private Match FormatMatchSimple(MatchEntity match)
         {
             return new Match
             {
+                /*
                 MatchId = matchInfo.MatchId,
                 SummonerName = matchInfo.SummonerName,
                 ProName = matchInfo.ProName,
@@ -84,6 +87,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
                 Spell1Id = matchInfo.Spell1Id,
                 Spell2Id = matchInfo.Spell2Id,
                 Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
+                */
             };
         }
     }

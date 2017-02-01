@@ -38,7 +38,6 @@ namespace CoffeeCat.MatchUploader
                 {
                     Trace.TraceError("MatchUploader timed out before it could complete.");
                 }
-
             }
             catch (AggregateException e)
             {
@@ -49,16 +48,12 @@ namespace CoffeeCat.MatchUploader
         private static IUploaderSettings GetUploaderSettings()
         {
             var appSettings = ConfigurationManager.AppSettings;
-            return new UploaderSettings()
+            return new UploaderSettings
             {
-                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
-                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
+                ConnectionString = appSettings["ConnectionString"],
+                RiotApiKey = appSettings["ApiKey"],
                 Retries = int.Parse(appSettings["Retries"]),
                 Region = appSettings["Region"],
-                DataContainerName = appSettings["DataContainerName"],
-                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
-                SummonersTableName = appSettings["SummonersTableName"],
-                MatchListTableName = appSettings["MatchListTableName"],
                 Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"])),
                 MatchDetailRequestDelay = TimeSpan.FromSeconds(int.Parse(appSettings["MatchDetailRequestDelaySeconds"])),
                 RetryDelay = TimeSpan.FromSeconds(int.Parse(appSettings["RetryDelaySeconds"])),

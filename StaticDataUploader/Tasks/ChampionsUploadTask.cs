@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
+using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
 
@@ -19,7 +19,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
         {
         }
 
-        protected override string BlobName => this.settings.ChampionsBlobPath;
+        protected override string BlobName => "";
 
         protected override async Task<string> GetUploadData()
         {

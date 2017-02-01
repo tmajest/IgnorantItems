@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
+using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
 using CoffeeCat.RiotCommon.Dto.StaticData.Item;
 using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
@@ -38,7 +38,7 @@ namespace CoffeeCat.RiotCommon.Utils
                 this.itemFormatter);
         }
 
-        public Match GetMatchContract(MatchInfo matchInfo, FormatType type)
+        public Match GetMatchContract(MatchEntity matchInfo, FormatType type)
         {
             return this.matchFormatter.FormatMatch(matchInfo, type);
         }

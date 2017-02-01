@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
 {
+    [Table("Matches")]
     public class MatchEntity
     {
         [Key]

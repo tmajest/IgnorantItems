@@ -8,20 +8,16 @@ using System.Threading.Tasks;
 
 namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
 {
-    [Table("Streams")]
-    public class StreamEntity
+    [Table("ApiVersions")]
+    public class ApiVersionEntity
     {
-        [Required]
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long Id { get; set; }
+        [MaxLength(32)]
+        public string Name { get; set; }
 
         [Required]
-        [MaxLength(128)]
-        public string Url { get; set; }
-
-        [Required]
-        public int Offset { get; set; }
-
-        public virtual StreamerEntity Streamer { get; set; }
+        [MaxLength(32)]
+        public string Version { get; set; }
     }
 }

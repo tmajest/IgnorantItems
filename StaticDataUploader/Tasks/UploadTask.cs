@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
+using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using CoffeeCat.RiotCommon.Settings;
 
 namespace CoffeeCat.StaticDataUploader.Tasks
@@ -24,7 +24,6 @@ namespace CoffeeCat.StaticDataUploader.Tasks
             Validation.ValidateNotNull(settings, nameof(settings));
 
             this.settings = settings;
-            this.cloudManager = new CloudManager(settings.AzureStorageConnectionString);
             this.Client = new StaticDataClient(settings.Region, versions.StaticDataVersion, keyManager.NextKey);
         }
 
@@ -35,7 +34,6 @@ namespace CoffeeCat.StaticDataUploader.Tasks
         public async Task UploadData()
         {
             var data = await this.GetUploadData();
-            await this.cloudManager.UploadTextAsync(this.settings.DataContainerName, this.BlobName, data);
         }
 
         public void Dispose()

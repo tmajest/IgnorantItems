@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
 {
+    [Table("Streamers")]
     public class StreamerEntity
     {
         [Key]
@@ -22,8 +23,8 @@ namespace CoffeeCat.RiotCommon.Contracts.UploaderV2
         [Required]
         public string TwitchName { get; set; }
 
-        public ICollection<SummonerEntity> Summoners { get; set; }
+        public virtual ICollection<SummonerEntity> Summoners { get; set; }
 
-        public ICollection<StreamEntity> Streams { get; set; }
+        public virtual ICollection<StreamEntity> Streams { get; set; }
     }
 }
