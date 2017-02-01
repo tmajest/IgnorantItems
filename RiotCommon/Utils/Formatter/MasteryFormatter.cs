@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
-using MatchContracts = CoffeeCat.RiotCommon.Dto.Match;
+using MasteryDto = CoffeeCat.RiotCommon.Contracts.RiotApi.Match.MasteryDto;
 
 namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
@@ -15,7 +14,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
         {
         }
 
-        public Mastery FormatMastery(MatchContracts.MasteryDto masteryDto)
+        public Mastery FormatMastery(MasteryDto masteryDto)
         {
             var staticMastery = this.staticData.MasteryList.Data[masteryDto.MasteryId.ToString()];
             var clonedMastery = CloneDto(staticMastery);

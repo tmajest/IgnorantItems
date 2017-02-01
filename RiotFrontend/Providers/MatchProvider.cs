@@ -1,19 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using CoffeeCat.RiotCommon.Contracts;
+using CoffeeCat.RiotCommon.Contracts.Frontend;
+using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.RiotCommon.Settings;
+using CoffeeCat.RiotCommon.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using CoffeeCat.RiotCommon.Contracts;
-using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using Microsoft.WindowsAzure.Storage.Table;
-using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
-using CoffeeCat.RiotCommon.Dto.StaticData.Item;
-using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
-using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
-using CoffeeCat.RiotCommon.Settings;
-using CoffeeCat.RiotCommon.Utils;
-using MatchContracts = CoffeeCat.RiotCommon.Dto.Match;
 
 namespace RiotFrontend.Providers
 {

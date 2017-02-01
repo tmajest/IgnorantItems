@@ -1,17 +1,14 @@
-﻿using CoffeeCat.RiotCommon.Contracts.Frontend;
+﻿using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.RiotCommon.Utils.Formatter;
+using CoffeeCat.RiotCommon.Contracts.Frontend;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
-using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
-using CoffeeCat.RiotCommon.Dto.StaticData.Item;
-using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
-using MatchContracts = CoffeeCat.RiotCommon.Dto.Match;
-using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
-using CoffeeCat.RiotCommon.Utils.Formatter;
+using MasteryDto = CoffeeCat.RiotCommon.Contracts.RiotApi.Match.MasteryDto;
+using RuneDto = CoffeeCat.RiotCommon.Contracts.RiotApi.Match.RuneDto;
 
 namespace CoffeeCat.RiotCommon.Utils
 {
@@ -43,12 +40,12 @@ namespace CoffeeCat.RiotCommon.Utils
             return this.matchFormatter.FormatMatch(matchInfo, type);
         }
 
-        public Rune GetRuneContract(MatchContracts.RuneDto runeDto)
+        public Rune GetRuneContract(RuneDto runeDto)
         {
             return this.runeFormatter.FormatRune(runeDto);
         }
 
-        public Mastery GetMasteryContract(MatchContracts.MasteryDto masteryDto)
+        public Mastery GetMasteryContract(MasteryDto masteryDto)
         {
             return this.masteryFormatter.FormatMastery(masteryDto);
         }

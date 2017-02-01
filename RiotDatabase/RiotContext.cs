@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
+using CoffeeCat.RiotCommon.Contracts.Entities;
 
 namespace CoffeeCat.RiotDatabase
 {

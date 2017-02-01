@@ -1,4 +1,4 @@
-﻿using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
+﻿using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Rune;
 
 namespace CoffeeCat.RiotCommon.Contracts.Frontend
 {

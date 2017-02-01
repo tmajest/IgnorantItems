@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
-using MatchContracts = CoffeeCat.RiotCommon.Dto.Match;
+using RuneDto = CoffeeCat.RiotCommon.Contracts.RiotApi.Match.RuneDto;
 
 namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
@@ -15,7 +14,7 @@ namespace CoffeeCat.RiotCommon.Utils.Formatter
         {
         }
 
-        public Rune FormatRune(MatchContracts.RuneDto runeDto)
+        public Rune FormatRune(RuneDto runeDto)
         {
             Validation.ValidateNotNull(runeDto, nameof(runeDto));
 

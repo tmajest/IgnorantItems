@@ -1,4 +1,4 @@
-﻿using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
+﻿using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Mastery;
 
 namespace CoffeeCat.RiotCommon.Contracts.Frontend
 {

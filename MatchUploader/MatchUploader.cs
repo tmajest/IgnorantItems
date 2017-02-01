@@ -1,22 +1,22 @@
 ﻿using CoffeeCat.RiotClient.Clients;
-using CoffeeCat.RiotCommon.Dto.Match;
 using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.MatchUploader.Converters;
+using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.RiotCommon.Settings;
+using CoffeeCat.RiotDatabase;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.MatchUploader.Converters;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
-using CoffeeCat.RiotCommon.Settings;
-using CoffeeCat.RiotDatabase;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
 
 namespace CoffeeCat.MatchUploader
 {
-    class MatchUploader
+    internal class MatchUploader
     {
-        private IUploaderSettings settings;
+        private readonly IUploaderSettings settings;
 
         public MatchUploader(IUploaderSettings settings)
         {
@@ -79,7 +79,7 @@ namespace CoffeeCat.MatchUploader
             }
 
             // Update the summoner's last updated time
-            summoner.LastUpdatedTime = DateTime.UtcNow;
+            summoner.LastUpdatedTime = endTime;
             await context.SaveChangesAsync();
 
             Console.WriteLine($"Finished getting {summoner.Name} match history");

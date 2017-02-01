@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Dto.Match;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
 using CoffeeCat.RiotCommon.Utils;
 
 namespace CoffeeCat.MatchUploader.Converters

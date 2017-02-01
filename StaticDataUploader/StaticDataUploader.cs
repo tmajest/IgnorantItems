@@ -1,4 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using CoffeeCat.RiotCommon.Settings;
+using CoffeeCat.RiotDatabase;
+using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.StaticDataUploader.Tasks;
+using Newtonsoft.Json;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -7,10 +11,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Settings;
-using CoffeeCat.StaticDataUploader.Tasks;
-using CoffeeCat.RiotDatabase;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 
 namespace CoffeeCat.StaticDataUploader
 {

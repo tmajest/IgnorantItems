@@ -1,8 +1,8 @@
-﻿using CoffeeCat.RiotCommon.Dto.Match;
-using CoffeeCat.RiotCommon.Utils;
+﻿using CoffeeCat.RiotCommon.Utils;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
 
 namespace CoffeeCat.RiotClient.Clients
 {

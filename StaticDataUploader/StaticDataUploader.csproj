@@ -7,8 +7,8 @@
     <ProjectGuid>{13B8B196-01B3-4567-9733-F597F4D0B22B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StaticDataUploader</RootNamespace>
-    <AssemblyName>StaticDataUploader</AssemblyName>
+    <RootNamespace>CoffeeCat.StaticDataUploader</RootNamespace>
+    <AssemblyName>CoffeeCat.StaticDataUploader</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

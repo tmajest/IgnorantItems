@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.Summoner;
 
 namespace CoffeeCat.RiotClient.Clients
 {

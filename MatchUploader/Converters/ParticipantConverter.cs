@@ -1,13 +1,13 @@
-﻿using System;
+﻿using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.RiotDatabase;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
-using CoffeeCat.RiotCommon.Dto.Match;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
 using Microsoft.Data.OData.Query.SemanticAst;
-using CoffeeCat.RiotDatabase;
 
 namespace CoffeeCat.MatchUploader.Converters
 {

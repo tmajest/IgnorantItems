@@ -1,23 +1,23 @@
 ﻿using CoffeeCat.RiotClient.Clients;
+using CoffeeCat.RiotCommon.Contracts.Entities;
+using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Contracts.UploaderV2;
-using CoffeeCat.RiotCommon.Settings;
 
 namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal abstract class UploadTask : IDisposable
     {
-        private CloudManager cloudManager;
+        private readonly CloudManager cloudManager;
 
-        protected StaticDataClient Client { get; private set; }
-        protected UploaderSettings settings;
+        protected StaticDataClient Client { get; }
+        protected readonly UploaderSettings settings;
 
-        public UploadTask(ApiVersion versions, UploaderSettings settings)
+        protected UploadTask(ApiVersion versions, UploaderSettings settings)
         {
             Validation.ValidateNotNull(versions, nameof(versions));
             Validation.ValidateNotNull(settings, nameof(settings));

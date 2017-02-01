@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Dto.StaticData.Item;
+using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Item;
 
 namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
