@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 
-namespace RiotDatabase
+namespace CoffeeCat.RiotDatabase
 {
     public class Utils
     {

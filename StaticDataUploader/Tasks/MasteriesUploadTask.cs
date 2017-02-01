@@ -14,12 +14,12 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class MasteriesUploadTask : UploadTask
     {
-        public MasteriesUploadTask(ApiVersion versions, KeyManager keyManager, IUploaderSettings settings)
-            : base(versions, keyManager, settings)
+        public MasteriesUploadTask(ApiVersion versions, UploaderSettings settings)
+            : base(versions, settings)
         {
         }
 
-        protected override string BlobName => "";
+        protected override string BlobName => this.settings.MasteriesBlobPath;
 
         protected override async Task<string> GetUploadData()
         {

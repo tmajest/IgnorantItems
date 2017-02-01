@@ -12,12 +12,12 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class SummonerSpellsTask : UploadTask
     {
-        public SummonerSpellsTask(ApiVersion versions, KeyManager keyManager, IUploaderSettings settings)
-            : base(versions, keyManager, settings)
+        public SummonerSpellsTask(ApiVersion versions, UploaderSettings settings)
+            : base(versions, settings)
         {
         }
 
-        protected override string BlobName => "";
+        protected override string BlobName => this.settings.SummonerSpellsBlobPath;
 
         protected override async Task<string> GetUploadData()
         {

@@ -1,9 +1,6 @@
 ﻿using CoffeeCat.RiotClient.Clients;
 using CoffeeCat.RiotCommon.Dto.Match;
 using CoffeeCat.RiotCommon.Utils;
-using Newtonsoft.Json;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,8 +10,7 @@ using System.Threading.Tasks;
 using CoffeeCat.MatchUploader.Converters;
 using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using CoffeeCat.RiotCommon.Settings;
-using Microsoft.WindowsAzure.Storage.Table;
-using RiotDatabase;
+using CoffeeCat.RiotDatabase;
 
 namespace CoffeeCat.MatchUploader
 {
@@ -30,7 +26,7 @@ namespace CoffeeCat.MatchUploader
 
         public async Task Run()
         {
-            using (var context = new RiotContext(settings.ConnectionString))
+            using (var context = new RiotContext(settings.DatabaseConnectionString))
             {
                 var versions = Utils.GetApiVersion(context);
                 foreach (var streamer in context.Streamers)
@@ -60,7 +56,7 @@ namespace CoffeeCat.MatchUploader
                 return;
             }
 
-            using (var context = new RiotContext(this.settings.ConnectionString))
+            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
             {
                 foreach (var matchReference in matches)
                 {

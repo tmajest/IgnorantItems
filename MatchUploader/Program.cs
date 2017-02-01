@@ -50,7 +50,8 @@ namespace CoffeeCat.MatchUploader
             var appSettings = ConfigurationManager.AppSettings;
             return new UploaderSettings
             {
-                ConnectionString = appSettings["ConnectionString"],
+                DatabaseConnectionString = appSettings["DatabaseConnectionString"],
+                StorageConnectionString = appSettings["StorageConnectionString"],
                 RiotApiKey = appSettings["ApiKey"],
                 Retries = int.Parse(appSettings["Retries"]),
                 Region = appSettings["Region"],

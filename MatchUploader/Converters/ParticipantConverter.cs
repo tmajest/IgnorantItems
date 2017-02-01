@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.UploaderV2;
 using CoffeeCat.RiotCommon.Dto.Match;
 using Microsoft.Data.OData.Query.SemanticAst;
-using RiotDatabase;
+using CoffeeCat.RiotDatabase;
 
 namespace CoffeeCat.MatchUploader.Converters
 {

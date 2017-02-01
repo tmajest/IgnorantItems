@@ -7,8 +7,8 @@
     <ProjectGuid>{3F57E012-8275-4E62-8B8E-B655DCB8C028}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RiotDatabase</RootNamespace>
-    <AssemblyName>RiotDatabase</AssemblyName>
+    <RootNamespace>CoffeeCat.RiotDatabase</RootNamespace>
+    <AssemblyName>CoffeeCat.RiotDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

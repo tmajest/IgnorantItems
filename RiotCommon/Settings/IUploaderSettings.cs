@@ -7,7 +7,9 @@ namespace CoffeeCat.RiotCommon.Settings
     [InheritedExport(typeof(IUploaderSettings))]
     public interface IUploaderSettings
     {
-        string ConnectionString { get; }
+        string DatabaseConnectionString { get; }
+
+        string StorageConnectionString { get; }
 
         string RiotApiKey { get; }
 

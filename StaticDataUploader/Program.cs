@@ -19,7 +19,23 @@ namespace CoffeeCat.StaticDataUploader
             var appSettings = ConfigurationManager.AppSettings;
             var settings = new UploaderSettings()
             {
-                Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"]))
+                StorageAccountName = appSettings["StorageAccountName"],
+                StaticDataContainerName = appSettings["StaticDataContainerName"],
+                DatabaseConnectionString = appSettings["DatabaseConnectionString"],
+                StorageConnectionString = appSettings["StorageConnectionString"],
+                ChampionsBlobPath = appSettings["ChampionsBlobPath"],
+                ItemsBlobPath = appSettings["ItemsBlobPath"],
+                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
+                RunesBlobPath = appSettings["RunesBlobPath"],
+                SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
+                RiotApiKey = appSettings["ApiKey"],
+                Retries = int.Parse(appSettings["Retries"]),
+                Region = appSettings["Region"],
+                Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"])),
+                MatchDetailRequestDelay = TimeSpan.FromSeconds(int.Parse(appSettings["MatchDetailRequestDelaySeconds"])),
+                RetryDelay = TimeSpan.FromSeconds(int.Parse(appSettings["RetryDelaySeconds"])),
+                RateLimitDelay = TimeSpan.FromMinutes(int.Parse(appSettings["RateLimitDelayMinutes"])),
+                DefaultUploadPeriod = TimeSpan.FromDays(int.Parse(appSettings["DefaultUploadPeriodDays"])),
             };
 
             var staticDataUploader = new StaticDataUploader(settings);
