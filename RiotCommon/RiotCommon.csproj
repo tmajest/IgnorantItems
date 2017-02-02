@@ -58,8 +58,8 @@
       <HintPath>..\packages\WindowsAzure.Storage.6.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -103,8 +103,11 @@
     <Compile Include="Contracts\Frontend\Match.cs" />
     <Compile Include="Contracts\Frontend\Rune.cs" />
     <Compile Include="Contracts\Frontend\SummonerSpells.cs" />
+    <Compile Include="Contracts\UploaderV2\MasteryInstance.cs" />
     <Compile Include="Contracts\UploaderV2\MatchEntity.cs" />
     <Compile Include="Contracts\UploaderV2\ParticipantEntity.cs" />
+    <Compile Include="Contracts\UploaderV2\RuneInstance.cs" />
+    <Compile Include="Contracts\UploaderV2\StreamEntity.cs" />
     <Compile Include="Contracts\UploaderV2\StreamerEntity.cs" />
     <Compile Include="Contracts\UploaderV2\SummonerEntity.cs" />
     <Compile Include="Contracts\Uploader\ApiVersion.cs" />
@@ -172,6 +175,7 @@
     <Compile Include="Utils\CloudManager.cs" />
     <Compile Include="Utils\DateTimeUtils.cs" />
     <Compile Include="Utils\DtoConverter.cs" />
+    <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Utils\Formatter\BaseFormatter.cs" />
     <Compile Include="Utils\Formatter\ChampionDtoFormatter.cs" />
     <Compile Include="Utils\Formatter\FormatType.cs" />

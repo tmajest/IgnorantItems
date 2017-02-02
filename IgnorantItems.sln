@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotFrontend", "RiotFrontend\RiotFrontend.csproj", "{7BC1CB40-BC7C-4094-A466-E91095D0AA39}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticDataUploader", "StaticDataUploader\StaticDataUploader.csproj", "{13B8B196-01B3-4567-9733-F597F4D0B22B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchUploader", "MatchUploader\MatchUploader.csproj", "{EEF7E988-63CF-4C48-B693-1E417D81CBAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchClient", "TwitchClient\TwitchClient.csproj", "{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchClientTests", "TwitchClientTests\TwitchClientTests.csproj", "{8CB9440E-A7CB-4286-B22A-7C44F22E6585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF7E988-63CF-4C48-B693-1E417D81CBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +74,7 @@ Global
 		{E5E9F219-877C-4484-B038-B5EBC1D7D533} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
 		{13B8B196-01B3-4567-9733-F597F4D0B22B} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
 		{EEF7E988-63CF-4C48-B693-1E417D81CBAD} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
 	EndGlobalSection
 EndGlobal
