@@ -1,10 +1,10 @@
-﻿using CoffeeCat.RiotCommon.Utils;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace TwitchClient.Client
+﻿namespace CoffeeCat.TwitchClient.Client
 {
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using CoffeeCat.RiotCommon.Utils;
+
     public class BaseClient : IDisposable
     {
         private HttpClient httpClient;
@@ -34,7 +34,7 @@ namespace TwitchClient.Client
         {
             Validation.ValidateNotNull(uri, nameof(uri));
 
-            var response = await httpClient.GetAsync(uri);
+            var response = await this.httpClient.GetAsync(uri);
 
             // TODO: replace this with retry logic
             response.EnsureSuccessStatusCode();
@@ -46,13 +46,13 @@ namespace TwitchClient.Client
 
         public void Dispose()
         {
-            Dispose(true);
+            this.Dispose(true);
             GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposed)
+            if (this.disposed)
             {
                 return;
             }
@@ -62,7 +62,7 @@ namespace TwitchClient.Client
                 this.httpClient.Dispose();
             }
 
-            disposed = true;
+            this.disposed = true;
         }
     }
 }

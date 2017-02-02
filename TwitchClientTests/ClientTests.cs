@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using Newtonsoft.Json;
-using TwitchClient.Dto;
 using RiotClientTests;
 using System;
 using System.Collections.Generic;
@@ -9,10 +8,12 @@ using System.Net;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
-using TwitchClient.Client;
 
 namespace TwitchClientTests
 {
+    using CoffeeCat.TwitchClient.Client;
+    using CoffeeCat.TwitchClient.Dto;
+
     [TestClass]
     [DeploymentItem("Samples", "Samples")]
     public class ClientTests

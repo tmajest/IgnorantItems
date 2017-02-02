@@ -1,9 +1,8 @@
-﻿
-using Newtonsoft.Json;
-using System.Collections.Generic;
-
-namespace TwitchClient.Dto
+﻿namespace CoffeeCat.TwitchClient.Dto
 {
+    using System.Collections.Generic;
+    using Newtonsoft.Json;
+
     [JsonObject]
     public class VideoListDto
     {

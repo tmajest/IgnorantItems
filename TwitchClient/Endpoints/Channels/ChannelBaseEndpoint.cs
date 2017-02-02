@@ -1,4 +1,4 @@
-﻿namespace TwitchClient.Endpoints.Channels
+﻿namespace CoffeeCat.TwitchClient.Endpoints.Channels
 {
     public abstract class ChannelBaseEndpoint : TwitchEndpoint
     {

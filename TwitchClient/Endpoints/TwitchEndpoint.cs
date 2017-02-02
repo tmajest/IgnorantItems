@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace TwitchClient.Endpoints
+﻿namespace CoffeeCat.TwitchClient.Endpoints
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public abstract class TwitchEndpoint
     {
         public abstract string Format();
@@ -15,10 +15,10 @@ namespace TwitchClient.Endpoints
             var apiBaseFormatted = this.Format();
 
             var queryParameterDict = this.CreateQueryParameters();
-            var joined = queryParameterDict.Where(kv => kv.Value != null).Select(kv => string.Format("{0}={1}", kv.Key, kv.Value));
+            var joined = queryParameterDict.Where(kv => kv.Value != null).Select(kv => $"{kv.Key}={kv.Value}");
             var queryParameters = string.Join("&", joined);
 
-            var uriString = string.Format("{0}?{1}", apiBaseFormatted, queryParameters);
+            var uriString = $"{apiBaseFormatted}?{queryParameters}";
 
             return new Uri(uriString, UriKind.Relative);
         }

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace TwitchClient.Endpoints.Channels
+﻿namespace CoffeeCat.TwitchClient.Endpoints.Channels
 {
+    using System.Collections.Generic;
+
     public class ChannelVideosEndpoint : ChannelBaseEndpoint
     {
         /// <summary>

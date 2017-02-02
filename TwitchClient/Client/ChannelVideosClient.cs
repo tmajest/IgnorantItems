@@ -1,11 +1,11 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using TwitchClient.Dto;
-using TwitchClient.Endpoints.Channels;
-
-namespace TwitchClient.Client
+﻿namespace CoffeeCat.TwitchClient.Client
 {
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using CoffeeCat.TwitchClient.Dto;
+    using CoffeeCat.TwitchClient.Endpoints.Channels;
+
     public class ChannelVideosClient : BaseClient
     {
         public ChannelVideosClient(string clientId) : base(clientId)

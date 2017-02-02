@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
-
-namespace TwitchClient.Dto
+﻿namespace CoffeeCat.TwitchClient.Dto
 {
+    using System;
+    using Newtonsoft.Json;
+
     [JsonObject]
     public class VideoDto
     {
