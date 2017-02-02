@@ -190,7 +190,11 @@ namespace RiotClientTests
 
                 var runesUriString = $"static-data/{ClientTests.Region}/v{version}/rune";
                 fakeMessageHander.MockResponse = this.CreateFakeResponse("Runes.json");
-                fakeMessageHander.VerifyRequestFunc = this.CreateVerifyResponseAction(runesUriString);
+                var runeAdditionalParams = new Dictionary<string, string>()
+                {
+                    ["runeListData"] = "all"
+                };
+                fakeMessageHander.VerifyRequestFunc = this.CreateVerifyResponseAction(runesUriString, runeAdditionalParams);
                 var runes = await staticDataClient.GetRunes();
                 Assert.IsNotNull(runes);
 

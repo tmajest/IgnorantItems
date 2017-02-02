@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using CoffeeCat.RiotCommon.Utils;
 
     public abstract class TwitchEndpoint
     {
@@ -15,7 +16,7 @@
             var apiBaseFormatted = this.Format();
 
             var queryParameterDict = this.CreateQueryParameters();
-            var joined = queryParameterDict.Where(kv => kv.Value != null).Select(kv => $"{kv.Key}={kv.Value}");
+            var joined = queryParameterDict.NotNull(kv => kv.Value).Select(kv => $"{kv.Key}={kv.Value}");
             var queryParameters = string.Join("&", joined);
 
             var uriString = $"{apiBaseFormatted}?{queryParameters}";
