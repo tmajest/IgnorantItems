@@ -103,8 +103,11 @@
     <Compile Include="Contracts\Frontend\Match.cs" />
     <Compile Include="Contracts\Frontend\Rune.cs" />
     <Compile Include="Contracts\Frontend\SummonerSpells.cs" />
+    <Compile Include="Contracts\UploaderV2\MasteryInstance.cs" />
     <Compile Include="Contracts\UploaderV2\MatchEntity.cs" />
     <Compile Include="Contracts\UploaderV2\ParticipantEntity.cs" />
+    <Compile Include="Contracts\UploaderV2\RuneInstance.cs" />
+    <Compile Include="Contracts\UploaderV2\StreamEntity.cs" />
     <Compile Include="Contracts\UploaderV2\StreamerEntity.cs" />
     <Compile Include="Contracts\UploaderV2\SummonerEntity.cs" />
     <Compile Include="Contracts\Uploader\ApiVersion.cs" />
