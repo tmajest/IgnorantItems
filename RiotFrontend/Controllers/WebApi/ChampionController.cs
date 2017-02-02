@@ -1,14 +1,11 @@
-﻿using CoffeeCat.RiotCommon.Utils;
-using RiotFrontend.Providers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.OutputCache.V2;
+using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotFrontend.Providers;
 
-namespace RiotFrontend.Controllers.WebApi
+namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
     [RoutePrefix("api/champions")]
     public class ChampionController : ApiController

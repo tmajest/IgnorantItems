@@ -16,10 +16,10 @@ namespace CoffeeCat.StaticDataUploader
 {
     internal class StaticDataUploader
     {
-        private readonly UploaderSettings settings;
+        private readonly CommonSettings settings;
         private readonly ApiVersion apiVersions;
 
-        public StaticDataUploader(UploaderSettings settings)
+        public StaticDataUploader(CommonSettings settings)
         {
             this.settings = settings;
             using (var context = new RiotContext(this.settings.DatabaseConnectionString))

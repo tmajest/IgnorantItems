@@ -1,11 +1,7 @@
-﻿using CoffeeCat.RiotCommon.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CoffeeCat.RiotCommon.Contracts.Frontend;
+﻿using System.Collections.Generic;
+using CoffeeCat.RiotFrontend.Models;
 
-namespace RiotFrontend.Providers
+namespace CoffeeCat.RiotFrontend.Providers
 {
     public interface IMatchProvider
     {

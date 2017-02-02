@@ -12,7 +12,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class RunesUploadTask : UploadTask
     {
-        public RunesUploadTask(ApiVersion versions, UploaderSettings settings)
+        public RunesUploadTask(ApiVersion versions, CommonSettings settings)
             : base(versions, settings)
         {
         }

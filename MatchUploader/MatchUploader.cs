@@ -16,9 +16,9 @@ namespace CoffeeCat.MatchUploader
 {
     internal class MatchUploader
     {
-        private readonly IUploaderSettings settings;
+        private readonly ICommonSettings settings;
 
-        public MatchUploader(IUploaderSettings settings)
+        public MatchUploader(ICommonSettings settings)
         {
             Validation.ValidateNotNull(settings, nameof(settings));
             this.settings = settings;

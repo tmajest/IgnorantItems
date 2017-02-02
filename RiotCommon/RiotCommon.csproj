@@ -100,10 +100,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Frontend\Mastery.cs" />
-    <Compile Include="Contracts\Frontend\Match.cs" />
-    <Compile Include="Contracts\Frontend\Rune.cs" />
-    <Compile Include="Contracts\Frontend\SummonerSpells.cs" />
     <Compile Include="Contracts\Entities\ApiVersionEntity.cs" />
     <Compile Include="Contracts\Entities\ApiVersionV2.cs" />
     <Compile Include="Contracts\Entities\MatchEntity.cs" />
@@ -167,20 +163,11 @@
     <Compile Include="Contracts\RiotApi\Summoner\RuneSlotDto.cs" />
     <Compile Include="Contracts\RiotApi\Summoner\SummonerDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\IUploaderSettings.cs" />
-    <Compile Include="Settings\UploaderSettings.cs" />
+    <Compile Include="Settings\ICommonSettings.cs" />
+    <Compile Include="Settings\CommonSettings.cs" />
     <Compile Include="Utils\CloudManager.cs" />
     <Compile Include="Utils\DateTimeUtils.cs" />
-    <Compile Include="Utils\DtoConverter.cs" />
-    <Compile Include="Utils\Formatter\BaseFormatter.cs" />
-    <Compile Include="Utils\Formatter\ChampionDtoFormatter.cs" />
-    <Compile Include="Utils\Formatter\FormatType.cs" />
-    <Compile Include="Utils\Formatter\ItemDtoFormatter.cs" />
-    <Compile Include="Utils\Formatter\MasteryFormatter.cs" />
-    <Compile Include="Utils\Formatter\MatchFormatter.cs" />
-    <Compile Include="Utils\Formatter\RuneFormatter.cs" />
     <Compile Include="Utils\ICloudManager.cs" />
-    <Compile Include="Utils\IDtoConverter.cs" />
     <Compile Include="Utils\IStaticData.cs" />
     <Compile Include="Utils\JsonUtils.cs" />
     <Compile Include="Utils\KeyManager.cs" />

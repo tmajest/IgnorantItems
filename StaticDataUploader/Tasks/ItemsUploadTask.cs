@@ -12,7 +12,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class ItemsUploadTask : UploadTask
     {
-        public ItemsUploadTask(ApiVersion versions, UploaderSettings settings)
+        public ItemsUploadTask(ApiVersion versions, CommonSettings settings)
             : base(versions, settings)
         {
         }

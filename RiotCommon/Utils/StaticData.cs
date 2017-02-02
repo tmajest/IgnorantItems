@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Champion;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Item;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Mastery;
@@ -12,33 +14,47 @@ namespace CoffeeCat.RiotCommon.Utils
 {
     public class StaticData : IStaticData
     {
-        public RuneListDto RuneList { get; }
-        public MasteryListDto MasteryList { get; }
-        public ChampionListDto ChampionList { get; }
-        public ItemListDto ItemList { get; }
-        public SummonerSpellListDto SummonerSpellList { get; }
+        private readonly ICloudManager cloudManager;
+        private readonly ICommonSettings settings;
+        private readonly Timer UpdateTimer;
 
-        public StaticData(ICloudManager cloudManager, IUploaderSettings settings)
+        public RuneListDto RuneList { get; private set; }
+
+        public MasteryListDto MasteryList { get; private set; }
+        
+        public ChampionListDto ChampionList { get; private set; }
+
+        public ItemListDto ItemList { get; private set; }
+
+        public SummonerSpellListDto SummonerSpellList { get; private set; }
+
+        public StaticData(ICloudManager cloudManager, ICommonSettings settings)
         {
-            /*
+            this.cloudManager = cloudManager;
+            this.settings = settings;
+            this.UpdateTimer = new Timer(UpdateStaticData, null, TimeSpan.Zero, this.settings.StaticDataRefreshRate);
+        }
+
+        private void UpdateStaticData(object state)
+        {
             var runeTask = cloudManager.DownloadTextAsync(
-                settings.DataContainerName,
+                settings.StaticDataContainerName,
                 settings.RunesBlobPath);
 
             var masteryTask = cloudManager.DownloadTextAsync(
-                settings.DataContainerName,
+                settings.StaticDataContainerName,
                 settings.MasteriesBlobPath);
 
             var championTask = cloudManager.DownloadTextAsync(
-                settings.DataContainerName,
+                settings.StaticDataContainerName,
                 settings.ChampionsBlobPath);
 
             var itemTask = cloudManager.DownloadTextAsync(
-                settings.DataContainerName,
+                settings.StaticDataContainerName,
                 settings.ItemsBlobPath);
 
             var summonerSpellsTask = cloudManager.DownloadTextAsync(
-                settings.DataContainerName,
+                settings.StaticDataContainerName,
                 settings.SummonerSpellsBlobPath);
 
             Task.WaitAll(runeTask, masteryTask, championTask, itemTask, summonerSpellsTask);
@@ -48,7 +64,6 @@ namespace CoffeeCat.RiotCommon.Utils
             this.ChampionList = GetList<ChampionListDto>(championTask);
             this.ItemList = GetList<ItemListDto>(itemTask);
             this.SummonerSpellList = GetList<SummonerSpellListDto>(summonerSpellsTask);
-            */
         }
 
         private static T GetList<T>(Task<string> downloadTask)

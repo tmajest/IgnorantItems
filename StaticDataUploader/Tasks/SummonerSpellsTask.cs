@@ -12,7 +12,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class SummonerSpellsTask : UploadTask
     {
-        public SummonerSpellsTask(ApiVersion versions, UploaderSettings settings)
+        public SummonerSpellsTask(ApiVersion versions, CommonSettings settings)
             : base(versions, settings)
         {
         }

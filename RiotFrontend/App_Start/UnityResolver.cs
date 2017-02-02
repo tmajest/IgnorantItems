@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http.Dependencies;
 using CoffeeCat.RiotCommon.Utils;
 using Microsoft.Practices.Unity;
 
-namespace RiotFrontend.App_Start
+namespace CoffeeCat.RiotFrontend
 {
     public class UnityResolver : IDependencyResolver
     {

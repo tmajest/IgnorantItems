@@ -1,14 +1,9 @@
-﻿using CoffeeCat.RiotCommon.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
-using WebApi.OutputCache.V2;
+using CoffeeCat.RiotCommon.Utils;
 
-namespace RiotFrontend.Controllers.WebApi
+namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
     [RoutePrefix("api/static")]
     public class StaticDataController : ApiController

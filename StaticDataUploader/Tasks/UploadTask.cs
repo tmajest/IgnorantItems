@@ -15,9 +15,9 @@ namespace CoffeeCat.StaticDataUploader.Tasks
         private readonly CloudManager cloudManager;
 
         protected StaticDataClient Client { get; }
-        protected readonly UploaderSettings settings;
+        protected readonly CommonSettings settings;
 
-        protected UploadTask(ApiVersion versions, UploaderSettings settings)
+        protected UploadTask(ApiVersion versions, CommonSettings settings)
         {
             Validation.ValidateNotNull(versions, nameof(versions));
             Validation.ValidateNotNull(settings, nameof(settings));

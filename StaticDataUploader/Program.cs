@@ -17,7 +17,7 @@ namespace CoffeeCat.StaticDataUploader
         public static void Main(string[] args)
         {
             var appSettings = ConfigurationManager.AppSettings;
-            var settings = new UploaderSettings()
+            var settings = new CommonSettings()
             {
                 StorageAccountName = appSettings["StorageAccountName"],
                 StaticDataContainerName = appSettings["StaticDataContainerName"],

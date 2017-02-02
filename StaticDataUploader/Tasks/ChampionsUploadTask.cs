@@ -14,7 +14,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class ChampionsUploadTask : UploadTask
     {
-        public ChampionsUploadTask(ApiVersion versions, UploaderSettings settings)
+        public ChampionsUploadTask(ApiVersion versions, CommonSettings settings)
             : base(versions, settings)
         {
         }

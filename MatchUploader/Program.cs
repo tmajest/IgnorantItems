@@ -14,7 +14,7 @@ namespace CoffeeCat.MatchUploader
     {
         public static void Main(string[] args)
         {
-            IUploaderSettings settings;
+            ICommonSettings settings;
             try
             {
                 settings = GetUploaderSettings();
@@ -45,10 +45,10 @@ namespace CoffeeCat.MatchUploader
             }
         }
 
-        private static IUploaderSettings GetUploaderSettings()
+        private static ICommonSettings GetUploaderSettings()
         {
             var appSettings = ConfigurationManager.AppSettings;
-            return new UploaderSettings
+            return new CommonSettings
             {
                 DatabaseConnectionString = appSettings["DatabaseConnectionString"],
                 StorageConnectionString = appSettings["StorageConnectionString"],

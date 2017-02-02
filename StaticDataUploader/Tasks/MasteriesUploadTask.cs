@@ -14,7 +14,7 @@ namespace CoffeeCat.StaticDataUploader.Tasks
 {
     internal class MasteriesUploadTask : UploadTask
     {
-        public MasteriesUploadTask(ApiVersion versions, UploaderSettings settings)
+        public MasteriesUploadTask(ApiVersion versions, CommonSettings settings)
             : base(versions, settings)
         {
         }

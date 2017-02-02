@@ -1,5 +1,4 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
-using RiotFrontend.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,7 +11,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
-using RiotFrontend.Providers;
+using CoffeeCat.RiotFrontend;
 
 namespace RiotFrontend
 {

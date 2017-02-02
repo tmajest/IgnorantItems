@@ -1,33 +1,23 @@
-﻿using CoffeeCat.RiotCommon.Contracts;
-using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Contracts.Entities;
+﻿using System.Collections.Generic;
 using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.WindowsAzure.Storage.Table;
+using CoffeeCat.RiotFrontend.Models;
+using IDtoConverter = CoffeeCat.RiotFrontend.BusinessLogic.Converters.IDtoConverter;
 
-namespace RiotFrontend.Providers
+namespace CoffeeCat.RiotFrontend.Providers
 {
     public class MatchProvider : IMatchProvider
     {
         private static readonly int DefaultMatchCount = 15;
-        private static readonly string MatchCreationTimeColumn = "MatchCreationTime";
-        private static readonly string ChampionIdColumn = "ChampionId";
-        private static readonly string RowKeyColumn = "RowKey";
-        private static readonly string PartitionKeyColumn = "PartitionKey";
 
         private ICloudManager cloudManager;
-        private IUploaderSettings settings;
+        private ICommonSettings settings;
         private IDtoConverter dtoConverter;
 
         public MatchProvider(
             ICloudManager cloudManager, 
             IDtoConverter dtoConverter,
-            IUploaderSettings settings)
+            ICommonSettings settings)
         {
             this.cloudManager = cloudManager;
             this.dtoConverter = dtoConverter;
