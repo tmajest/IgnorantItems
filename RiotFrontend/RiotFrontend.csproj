@@ -119,6 +119,10 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Nito.Disposables, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.Disposables.1.0.0\lib\portable45-net45+win8+wp8+wpa81\Nito.Disposables.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -332,6 +336,10 @@
     <ProjectReference Include="..\RiotCommon\RiotCommon.csproj">
       <Project>{c6522b4c-4028-4fed-9b6d-0a22ff37471f}</Project>
       <Name>RiotCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RiotDatabase\RiotDatabase.csproj">
+      <Project>{3f57e012-8275-4e62-8b8e-b655dcb8c028}</Project>
+      <Name>RiotDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

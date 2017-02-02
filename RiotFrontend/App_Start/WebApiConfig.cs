@@ -59,7 +59,7 @@ namespace CoffeeCat.RiotFrontend
                 RunesBlobPath = appSettings["RunesBlobPath"],
                 SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
                 Region = appSettings["Region"],
-                StaticDataRefreshRate = TimeSpan.FromSeconds(30)
+                StaticDataRefreshRate = TimeSpan.FromHours(double.Parse(appSettings["StaticDataRefreshRateHours"]))
             };
         }
     }

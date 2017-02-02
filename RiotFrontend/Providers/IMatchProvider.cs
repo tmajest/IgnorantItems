@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CoffeeCat.RiotFrontend.Models;
 
 namespace CoffeeCat.RiotFrontend.Providers
 {
     public interface IMatchProvider
     {
-        List<Match> GetMatches();
+        Task<List<Match>> GetMatches();
 
-        List<Match> GetMatches(int count);
+        Task<List<Match>> GetMatches(int count);
 
-        List<Match> GetMatches(string championId);
+        Task<List<Match>> GetMatchesByChampion(int championId);
 
-        List<Match> GetMatches(string championId, int count);
+        Task<List<Match>> GetMatchesByChampion(int championId, int count);
 
-        Match GetMatch(string matchId);
-
-        Match GetMatch(string matchId, string summonerName);
+        Task<Match> GetMatch(string summonerName, long matchId);
     }
 }

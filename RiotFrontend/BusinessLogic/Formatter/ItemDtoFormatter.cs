@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.StaticData.Item;
-using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotFrontend.BusinessLogic.Formatter;
 
-namespace CoffeeCat.RiotFrontend.BusinessLogic.Formatter
+namespace CoffeeCat.RiotCommon.Utils.Formatter
 {
     internal class ItemDtoFormatter : BaseFormatter
     {
@@ -19,7 +23,7 @@ namespace CoffeeCat.RiotFrontend.BusinessLogic.Formatter
                 return EmptyItemList;
             }
 
-            var prev = "";
+            string prev = "";
             var items = new List<ItemDto>();
             foreach (var itemId in itemIds)
             {

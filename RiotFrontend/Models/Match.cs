@@ -35,13 +35,13 @@ namespace CoffeeCat.RiotFrontend.Models
 
         public long Assists { get; set; }
 
-        public List<ChampionDto> TeamBannedChampions { get; set; }
+        public List<ChampionDto> BlueSideBannedChampions { get; set; }
 
-        public List<ChampionDto> EnemyTeamBannedChampions { get; set; }
+        public List<ChampionDto> RedSideBannedChampions { get; set; }
 
         public List<ItemDto> ItemsBought { get; set; }
 
-        public List<ItemDto> Items { get; set; }
+        public List<ItemDto> FinalBuild { get; set; }
 
         public List<int> SkillOrder { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using CoffeeCat.RiotCommon.Contracts.Entities;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
 using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotCommon.Utils.Formatter;
 using CoffeeCat.RiotFrontend.BusinessLogic.Formatter;
 using CoffeeCat.RiotFrontend.Models;
 
@@ -29,9 +30,12 @@ namespace CoffeeCat.RiotFrontend.BusinessLogic.Converters
                 this.itemFormatter);
         }
 
-        public Match GetMatchContract(MatchEntity matchInfo, FormatType type)
+        public Match GetMatchContract(
+            MatchEntity matchInfo, 
+            ParticipantEntity participant, 
+            FormatType type)
         {
-            return this.matchFormatter.FormatMatch(matchInfo, type);
+            return this.matchFormatter.FormatMatch(matchInfo, participant, type);
         }
 
         public Rune GetRuneContract(RuneDto runeDto)

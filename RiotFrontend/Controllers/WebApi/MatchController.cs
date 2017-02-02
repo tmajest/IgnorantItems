@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using CoffeeCat.RiotCommon.Utils;
@@ -27,9 +28,9 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 #if (!DEBUG)
         [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
-        public HttpResponseMessage GetMatches()
+        public async Task<HttpResponseMessage> GetMatches()
         {
-            var matches = this.matchProvider.GetMatches();
+            var matches = await this.matchProvider.GetMatches();
 
             if (matches == null || matches.Count == 0)
             {
@@ -40,43 +41,20 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
         }
 
         [HttpGet]
-        [Route("{matchId}")]
+        [Route("{proName}/{matchId}")]
 #if (!DEBUG)
         [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
 #endif
-        public HttpResponseMessage GetMatch(string matchId)
+        public async Task<HttpResponseMessage> GetMatch(string proName, long matchId)
         {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
+            Validation.ValidateNotNullOrWhitespace(proName, nameof(proName));
 
-            var match = this.matchProvider.GetMatch(matchId);
+            var decodedProName = HttpUtility.UrlDecode(proName);
+            var match = await this.matchProvider.GetMatch(decodedProName, matchId);
 
-            if (match == null)
-            {
-                return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
-
-            return Request.CreateResponse(match);
-        }
-
-        [HttpGet]
-        [Route("{summonerName}/{matchId}")]
-#if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
-#endif
-        public HttpResponseMessage GetMatch(string summonerName, string matchId)
-        {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
-
-            var decodedSummonerName = HttpUtility.UrlDecode(summonerName);
-
-            var match = this.matchProvider.GetMatch(matchId, decodedSummonerName);
-
-            if (match == null)
-            {
-                return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
-
-            return Request.CreateResponse(match);
+            return match == null 
+                ? new HttpResponseMessage(HttpStatusCode.NotFound) 
+                : Request.CreateResponse(match);
         }
     }
 }

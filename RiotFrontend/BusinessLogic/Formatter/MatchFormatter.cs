@@ -1,5 +1,8 @@
-﻿using CoffeeCat.RiotCommon.Contracts.Entities;
+﻿using System;
+using System.Linq;
+using CoffeeCat.RiotCommon.Contracts.Entities;
 using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotCommon.Utils.Formatter;
 using CoffeeCat.RiotFrontend.Models;
 
 namespace CoffeeCat.RiotFrontend.BusinessLogic.Formatter
@@ -25,65 +28,64 @@ namespace CoffeeCat.RiotFrontend.BusinessLogic.Formatter
             this.itemFormatter = itemFormatter;
         }
 
-        public Match FormatMatch(MatchEntity matchInfo, FormatType type)
+        public Match FormatMatch(
+            MatchEntity matchInfo, 
+            ParticipantEntity participant, 
+            FormatType type)
         {
             return type == FormatType.Detailed
-                ? FormatMatchDetailed(matchInfo)
-                : FormatMatchSimple(matchInfo);
+                ? FormatMatchDetailed(matchInfo, participant)
+                : FormatMatchSimple(matchInfo, participant);
         }
 
-        private Match FormatMatchDetailed(MatchEntity match)
+        private Match FormatMatchDetailed(MatchEntity match, ParticipantEntity participant)
         {
             return new Match
             {
-                /*
-                MatchId = matchInfo.MatchId,
-                SummonerName = matchInfo.SummonerName,
-                ProName = matchInfo.ProName,
-                SummonerId = matchInfo.SummonerId,
-                Champion = championFormatter.FormatChampionDetailed(matchInfo.ChampionId),
-                Region = matchInfo.Region,
-                Masteries = matchInfo.Masteries?.Select(masteryFormatter.FormatMastery).ToList(),
-                Runes = matchInfo.Runes?.Select(runeFormatter.FormatRune).ToList(),
-                Won = matchInfo.Won,
-                MatchDuration = matchInfo.MatchDuration,
-                MatchCreationTime = matchInfo.MatchCreationTime,
-                Kills = matchInfo.Kills,
-                Deaths = matchInfo.Deaths,
-                Assists = matchInfo.Assists,
-                Spell1Id = matchInfo.Spell1Id,
-                Spell2Id = matchInfo.Spell2Id,
-                SkillOrder = matchInfo.SkillOrder,
-                Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
-                EnemyTeamBannedChampions = matchInfo.EnemyTeamBannedChampions?
-                    .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
-                TeamBannedChampions = matchInfo.TeamBannedChampions?
-                    .Select(c => championFormatter.FormatChampionDetailed(c.ChampionId.ToString())).ToList(),
-                ItemsBought = itemFormatter.FormatItems(matchInfo.ItemsBought)
-                */
+                MatchId = match.Id.ToString(),
+                ProName = participant.Summoner.Streamer.ProName,
+                SummonerName = participant.Summoner.Name,
+                SummonerId = participant.Summoner.Id.ToString(),
+                Champion = championFormatter.FormatChampionDetailed(participant.ChampionId.ToString()),
+                Region = match.Region,
+                Masteries = participant.MasteryList?.Select(masteryFormatter.FormatMastery).ToList(),
+                Runes = participant.RuneList?.Select(runeFormatter.FormatRune).ToList(),
+                Won = participant.Won,
+                MatchDuration = match.Duration,
+                MatchCreationTime = match.CreationTime,
+                Kills = participant.Kills,
+                Deaths = participant.Deaths,
+                Assists = participant.Assists,
+                Spell1Id = participant.SummonerSpell1,
+                Spell2Id = participant.SummonerSpell2,
+                SkillOrder = participant.SkillOrder?.ToList(),
+                FinalBuild = participant.FinalItems?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
+                BlueSideBannedChampions = match.BlueSideBans?
+                    .Select(c => championFormatter.FormatChampionDetailed(c.ToString())).ToList(),
+                RedSideBannedChampions = match.RedSideBans?
+                    .Select(c => championFormatter.FormatChampionDetailed(c.ToString())).ToList(),
+                ItemsBought = itemFormatter.FormatItems(participant.ItemsBought)
             };
         }
 
-        private Match FormatMatchSimple(MatchEntity match)
+        private Match FormatMatchSimple(MatchEntity match, ParticipantEntity participant)
         {
             return new Match
             {
-                /*
-                MatchId = matchInfo.MatchId,
-                SummonerName = matchInfo.SummonerName,
-                ProName = matchInfo.ProName,
-                SummonerId = matchInfo.SummonerId,
-                Champion = championFormatter.FormatChampionSimple(matchInfo.ChampionId),
-                Region = matchInfo.Region,
-                Won = matchInfo.Won,
-                MatchDuration = matchInfo.MatchDuration,
-                Kills = matchInfo.Kills,
-                Deaths = matchInfo.Deaths,
-                Assists = matchInfo.Assists,
-                Spell1Id = matchInfo.Spell1Id,
-                Spell2Id = matchInfo.Spell2Id,
-                Items = matchInfo.Items?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
-                */
+                MatchId = match.Id.ToString(),
+                ProName = participant.Summoner.Streamer.ProName,
+                SummonerName = participant.SummonerName,
+                SummonerId = participant.Summoner.Id.ToString(),
+                Champion = championFormatter.FormatChampionSimple(participant.ChampionId.ToString()),
+                Region = match.Region,
+                Won = participant.Won,
+                MatchDuration = match.Duration,
+                Kills = participant.Kills,
+                Deaths = participant.Deaths,
+                Assists = participant.Assists,
+                Spell1Id = participant.SummonerSpell1,
+                Spell2Id = participant.SummonerSpell2,
+                FinalBuild = participant.FinalItems?.Where(x => !x.Equals("0")).Select(itemFormatter.FormatItem).ToList(),
             };
         }
     }

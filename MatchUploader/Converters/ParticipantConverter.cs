@@ -2,12 +2,10 @@
 using CoffeeCat.RiotDatabase;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoffeeCat.RiotCommon.Contracts.RiotApi.Match;
-using Microsoft.Data.OData.Query.SemanticAst;
 
 namespace CoffeeCat.MatchUploader.Converters
 {
@@ -27,7 +25,9 @@ namespace CoffeeCat.MatchUploader.Converters
                     ChampionId = participant.ChampionId,
                     MasteryList = participant.Masteries,
                     RuneList = participant.Runes,
-                    ItemsBought = ItemListConverter.GetSummonerItems(matchDetails, participant),
+                    ItemsBought = ItemListConverter.GetSummonerItems(matchDetails, participant)?.Select(i => i.ToString()).ToList(),
+                    FinalItems = ItemListConverter.GetFinalBuild(participant)?.Select(x => x.ToString()).ToList(),
+                    SkillOrder = SkillOrderConverter.GetSkillOrder(matchDetails, participant),
                     Won = team.Winner,
                     Kills = (int) participant.Stats.Kills,
                     Deaths = (int) participant.Stats.Deaths,

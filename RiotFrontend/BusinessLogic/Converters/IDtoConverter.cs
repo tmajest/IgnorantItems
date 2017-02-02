@@ -9,7 +9,7 @@ namespace CoffeeCat.RiotFrontend.BusinessLogic.Converters
     [InheritedExport(typeof(IDtoConverter))]
     public interface IDtoConverter
     {
-        Match GetMatchContract(MatchEntity matchInfo, FormatType type);
+        Match GetMatchContract(MatchEntity matchInfo, ParticipantEntity participant, FormatType type);
 
         Rune GetRuneContract(RuneDto runeDto);
 

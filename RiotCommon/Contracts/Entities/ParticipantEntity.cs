@@ -61,12 +61,44 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
         {
             get
             {
-                this.ItemsBought = this.ItemsBought ?? new List<int>();
+                this.ItemsBought = this.ItemsBought ?? new List<string>();
                 return JsonConvert.SerializeObject(this.ItemsBought);
             }
             set
             {
                 this.ItemsBought = value == null
+                    ? new List<string>()
+                    : JsonConvert.DeserializeObject<List<string>>(value);
+            }
+        }
+
+        [Required]
+        public string FinalItemsString
+        {
+            get
+            {
+                this.FinalItems = this.FinalItems ?? new List<string>();
+                return JsonConvert.SerializeObject(this.FinalItems);
+            }
+            set
+            {
+                this.FinalItems = value == null
+                    ? new List<string>()
+                    : JsonConvert.DeserializeObject<List<string>>(value);
+            }
+        }
+
+        [Required]
+        public string Skills
+        {
+            get
+            {
+                this.SkillOrder = this.SkillOrder ?? new List<int>();
+                return JsonConvert.SerializeObject(this.SkillOrder);
+            }
+            set
+            {
+                this.SkillOrder = value == null
                     ? new List<int>()
                     : JsonConvert.DeserializeObject<List<int>>(value);
             }
@@ -105,6 +137,12 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
         public List<RuneDto> RuneList { get; set; }
 
         [NotMapped]
-        public List<int> ItemsBought { get; set; }
+        public List<string> ItemsBought { get; set; }
+
+        [NotMapped]
+        public List<string> FinalItems { get; set; }
+
+        [NotMapped]
+        public List<int> SkillOrder { get; set; }
     }
 }
