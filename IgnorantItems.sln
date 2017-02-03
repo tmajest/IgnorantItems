@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotFrontend", "RiotFrontend\RiotFrontend.csproj", "{7BC1CB40-BC7C-4094-A466-E91095D0AA39}"
 EndProject
@@ -22,6 +22,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchUploader", "MatchUploader\MatchUploader.csproj", "{EEF7E988-63CF-4C48-B693-1E417D81CBAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotDatabase", "RiotDatabase\RiotDatabase.csproj", "{3F57E012-8275-4E62-8B8E-B655DCB8C028}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchClient", "TwitchClient\TwitchClient.csproj", "{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchClientTests", "TwitchClientTests\TwitchClientTests.csproj", "{8CB9440E-A7CB-4286-B22A-7C44F22E6585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +60,14 @@ Global
 		{3F57E012-8275-4E62-8B8E-B655DCB8C028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F57E012-8275-4E62-8B8E-B655DCB8C028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F57E012-8275-4E62-8B8E-B655DCB8C028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +80,7 @@ Global
 		{13B8B196-01B3-4567-9733-F597F4D0B22B} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
 		{EEF7E988-63CF-4C48-B693-1E417D81CBAD} = {AA79C7DA-18CD-4826-9F77-7BAD9726C606}
 		{3F57E012-8275-4E62-8B8E-B655DCB8C028} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{4F24E8C5-8DCF-413E-8FF5-E26A74D174F9} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
+		{8CB9440E-A7CB-4286-B22A-7C44F22E6585} = {33DC92C3-943F-47E2-ACD9-9A1BBC32F594}
 	EndGlobalSection
 EndGlobal

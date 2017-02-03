@@ -1,0 +1,620 @@
+﻿{
+  "_total": 82,
+  "_links": {
+    "self": "https://api.twitch.tv/kraken/channels/tsm_dyrus/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=0",
+    "next": "https://api.twitch.tv/kraken/channels/tsm_dyrus/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=10"
+  },
+  "videos": [
+    {
+      "title": "Dyrus - solo queue experimenting",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24346453984,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 847,
+      "created_at": "2017-01-26T17:59:56Z",
+      "url": "https://www.twitch.tv/videos/117494820",
+      "published_at": "2017-01-26T17:59:56Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/storyboards/117494820-strip-0.jpg",
+      "_id": "v117494820",
+      "recorded_at": "2017-01-26T17:59:40Z",
+      "game": "League of Legends",
+      "length": 35841,
+      "preview": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_0d6c/tsm_dyrus_24346453984_590323876/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9851311122186,
+        "high": 29.993430480528,
+        "low": 29.9935141828911,
+        "medium": 29.993430480528,
+        "mobile": 29.9935141828911
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v117494820",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - solo queue experimenting",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24337754176,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 961,
+      "created_at": "2017-01-25T17:58:35Z",
+      "url": "https://www.twitch.tv/videos/117261046",
+      "published_at": "2017-01-25T17:58:35Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/storyboards/117261046-strip-0.jpg",
+      "_id": "v117261046",
+      "recorded_at": "2017-01-25T17:58:18Z",
+      "game": "League of Legends",
+      "length": 37209,
+      "preview": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_f36b/tsm_dyrus_24337754176_589780138/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9959988387818,
+        "high": 29.9987922341137,
+        "low": 29.9988459842644,
+        "medium": 29.9987922341137,
+        "mobile": 29.9988459842644
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v117261046",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - solo queue",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24328854048,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 948,
+      "created_at": "2017-01-24T17:57:32Z",
+      "url": "https://www.twitch.tv/videos/117030458",
+      "published_at": "2017-01-24T17:57:32Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/storyboards/117030458-strip-0.jpg",
+      "_id": "v117030458",
+      "recorded_at": "2017-01-24T17:57:16Z",
+      "game": "League of Legends",
+      "length": 39221,
+      "preview": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/v1/AUTH_system/vods_1fcd/tsm_dyrus_24328854048_589223880/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9848785544563,
+        "high": 29.9939945618072,
+        "low": 29.9940455547443,
+        "medium": 29.9939945618072,
+        "mobile": 29.9940455547443
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v117030458",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - solo queue",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24319321408,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 892,
+      "created_at": "2017-01-23T15:56:56Z",
+      "url": "https://www.twitch.tv/videos/116785193",
+      "published_at": "2017-01-23T15:56:56Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/3e1bb1ba61_tsm_dyrus_24319321408_588628090/storyboards/116785193-strip-0.jpg",
+      "_id": "v116785193",
+      "recorded_at": "2017-01-23T15:56:40Z",
+      "game": "League of Legends",
+      "length": 37877,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/3e1bb1ba61_tsm_dyrus_24319321408_588628090/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/3e1bb1ba61_tsm_dyrus_24319321408_588628090/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/3e1bb1ba61_tsm_dyrus_24319321408_588628090/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/3e1bb1ba61_tsm_dyrus_24319321408_588628090/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/3e1bb1ba61_tsm_dyrus_24319321408_588628090/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9979924536957,
+        "high": 29.9999862713824,
+        "low": 30.0000918761328,
+        "medium": 29.9999862713824,
+        "mobile": 30.0000918761328
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v116785193",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - solo queue",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24309809472,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 996,
+      "created_at": "2017-01-22T14:36:55Z",
+      "url": "https://www.twitch.tv/videos/116550530",
+      "published_at": "2017-01-22T14:36:55Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/b2a9f84cd6_tsm_dyrus_24309809472_588033594/storyboards/116550530-strip-0.jpg",
+      "_id": "v116550530",
+      "recorded_at": "2017-01-22T14:36:38Z",
+      "game": "League of Legends",
+      "length": 20779,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/b2a9f84cd6_tsm_dyrus_24309809472_588033594/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/b2a9f84cd6_tsm_dyrus_24309809472_588033594/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/b2a9f84cd6_tsm_dyrus_24309809472_588033594/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/b2a9f84cd6_tsm_dyrus_24309809472_588033594/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/b2a9f84cd6_tsm_dyrus_24309809472_588033594/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9999076031625,
+        "high": 30.000386911757,
+        "low": 30.0004831584627,
+        "medium": 30.000386911757,
+        "mobile": 30.0004831584627
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v116550530",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - solo queue",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24298105744,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 929,
+      "created_at": "2017-01-21T14:00:30Z",
+      "url": "https://www.twitch.tv/videos/116275638",
+      "published_at": "2017-01-21T14:00:30Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/8f358f2220_tsm_dyrus_24298105744_587302111/storyboards/116275638-strip-0.jpg",
+      "_id": "v116275638",
+      "recorded_at": "2017-01-21T14:00:13Z",
+      "game": "League of Legends",
+      "length": 21650,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/8f358f2220_tsm_dyrus_24298105744_587302111/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/8f358f2220_tsm_dyrus_24298105744_587302111/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/8f358f2220_tsm_dyrus_24298105744_587302111/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/8f358f2220_tsm_dyrus_24298105744_587302111/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/8f358f2220_tsm_dyrus_24298105744_587302111/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9999048525258,
+        "high": 30.0010609405254,
+        "low": 30.0012456929025,
+        "medium": 30.0010609405254,
+        "mobile": 30.0012456929025
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v116275638",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "Dyrus - no league today",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24290669248,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 529,
+      "created_at": "2017-01-20T20:15:25Z",
+      "url": "https://www.twitch.tv/videos/116094843",
+      "published_at": "2017-01-20T20:15:25Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/dbcebef59d_tsm_dyrus_24290669248_586837329/storyboards/116094843-strip-0.jpg",
+      "_id": "v116094843",
+      "recorded_at": "2017-01-20T20:15:08Z",
+      "game": "Overwatch",
+      "length": 20314,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/dbcebef59d_tsm_dyrus_24290669248_586837329/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/dbcebef59d_tsm_dyrus_24290669248_586837329/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/dbcebef59d_tsm_dyrus_24290669248_586837329/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/dbcebef59d_tsm_dyrus_24290669248_586837329/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/dbcebef59d_tsm_dyrus_24290669248_586837329/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 58.968104203051,
+        "high": 29.5190520114413,
+        "low": 29.5191996903861,
+        "medium": 29.5190520114413,
+        "mobile": 29.5191996903861
+      },
+      "resolutions": {
+        "chunked": "1280x720",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v116094843",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "40 ping? PC? ",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24281560496,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 1172,
+      "created_at": "2017-01-19T19:16:41Z",
+      "url": "https://www.twitch.tv/videos/115860003",
+      "published_at": "2017-01-19T19:16:41Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/97301ec907_tsm_dyrus_24281560496_586268033/storyboards/115860003-strip-0.jpg",
+      "_id": "v115860003",
+      "recorded_at": "2017-01-19T19:16:25Z",
+      "game": "League of Legends",
+      "length": 31015,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/97301ec907_tsm_dyrus_24281560496_586268033/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/97301ec907_tsm_dyrus_24281560496_586268033/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/97301ec907_tsm_dyrus_24281560496_586268033/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/97301ec907_tsm_dyrus_24281560496_586268033/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/97301ec907_tsm_dyrus_24281560496_586268033/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 59.9577324641926,
+        "high": 29.9810103029537,
+        "low": 29.9810103029537,
+        "medium": 29.9810103029537,
+        "mobile": 29.9810103029537
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v115860003",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "let there be light",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24275188304,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 957,
+      "created_at": "2017-01-18T23:28:52Z",
+      "url": "https://www.twitch.tv/videos/115693045",
+      "published_at": "2017-01-18T23:28:52Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/142d395613_tsm_dyrus_24275188304_585869771/storyboards/115693045-strip-0.jpg",
+      "_id": "v115693045",
+      "recorded_at": "2017-01-18T23:28:35Z",
+      "game": "League of Legends",
+      "length": 10974,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/142d395613_tsm_dyrus_24275188304_585869771/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/142d395613_tsm_dyrus_24275188304_585869771/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/142d395613_tsm_dyrus_24275188304_585869771/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/142d395613_tsm_dyrus_24275188304_585869771/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/142d395613_tsm_dyrus_24275188304_585869771/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 60.0000965866725,
+        "high": 30.0056521427343,
+        "low": 30.0059255012415,
+        "medium": 30.0056521427343,
+        "mobile": 30.0059255012415
+      },
+      "resolutions": {
+        "chunked": "1920x1080",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v115693045",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    },
+    {
+      "title": "bronze star wars force arena with dyrus #ad",
+      "description": null,
+      "description_html": null,
+      "broadcast_id": 24259885936,
+      "broadcast_type": "archive",
+      "status": "recorded",
+      "language": "en",
+      "tag_list": "",
+      "views": 719,
+      "created_at": "2017-01-17T01:00:14Z",
+      "url": "https://www.twitch.tv/videos/115278141",
+      "published_at": "2017-01-17T01:00:14Z",
+      "animated_preview_url": "https://vod-storyboards.twitch.tv/bad47cd3c7_tsm_dyrus_24259885936_584913373/storyboards/115278141-strip-0.jpg",
+      "_id": "v115278141",
+      "recorded_at": "2017-01-17T00:59:58Z",
+      "game": "Star Wars",
+      "length": 3931,
+      "preview": "https://static-cdn.jtvnw.net/s3_vods/bad47cd3c7_tsm_dyrus_24259885936_584913373/thumb/thumb0-320x240.jpg",
+      "thumbnails": [
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/bad47cd3c7_tsm_dyrus_24259885936_584913373/thumb/thumb0-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/bad47cd3c7_tsm_dyrus_24259885936_584913373/thumb/thumb1-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/bad47cd3c7_tsm_dyrus_24259885936_584913373/thumb/thumb2-320x240.jpg",
+          "type": "generated"
+        },
+        {
+          "url": "https://static-cdn.jtvnw.net/s3_vods/bad47cd3c7_tsm_dyrus_24259885936_584913373/thumb/thumb3-320x240.jpg",
+          "type": "generated"
+        }
+      ],
+      "fps": {
+        "audio_only": 0,
+        "chunked": 56.9561594752118,
+        "high": 28.4821491247257,
+        "low": 28.4831664715056,
+        "medium": 28.4821491247257,
+        "mobile": 28.4831664715056
+      },
+      "resolutions": {
+        "chunked": "1280x720",
+        "high": "1280x720",
+        "low": "640x360",
+        "medium": "852x480",
+        "mobile": "400x226"
+      },
+      "_links": {
+        "self": "https://api.twitch.tv/kraken/videos/v115278141",
+        "channel": "https://api.twitch.tv/kraken/channels/tsm_dyrus"
+      },
+      "channel": {
+        "name": "tsm_dyrus",
+        "display_name": "TSM_Dyrus"
+      }
+    }
+  ]
+}
+
