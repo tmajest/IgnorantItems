@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace RiotFrontend
+namespace CoffeeCat.RiotFrontend
 {
     public class BundleConfig
     {
