@@ -17,19 +17,25 @@ namespace CoffeeCat.StaticDataUploader
         public static void Main(string[] args)
         {
             var appSettings = ConfigurationManager.AppSettings;
-            var settings = new UploaderSettings()
+            var settings = new CommonSettings()
             {
-                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
-                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
-                Region = appSettings["Region"],
-                DataContainerName = appSettings["DataContainerName"],
-                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
-                RunesBlobPath = appSettings["RunesBlobPath"],
+                StorageAccountName = appSettings["StorageAccountName"],
+                StaticDataContainerName = appSettings["StaticDataContainerName"],
+                DatabaseConnectionString = appSettings["DatabaseConnectionString"],
+                StorageConnectionString = appSettings["StorageConnectionString"],
                 ChampionsBlobPath = appSettings["ChampionsBlobPath"],
                 ItemsBlobPath = appSettings["ItemsBlobPath"],
+                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
+                RunesBlobPath = appSettings["RunesBlobPath"],
                 SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
-                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
-                Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"]))
+                RiotApiKey = appSettings["ApiKey"],
+                Retries = int.Parse(appSettings["Retries"]),
+                Region = appSettings["Region"],
+                Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"])),
+                MatchDetailRequestDelay = TimeSpan.FromSeconds(int.Parse(appSettings["MatchDetailRequestDelaySeconds"])),
+                RetryDelay = TimeSpan.FromSeconds(int.Parse(appSettings["RetryDelaySeconds"])),
+                RateLimitDelay = TimeSpan.FromMinutes(int.Parse(appSettings["RateLimitDelayMinutes"])),
+                DefaultUploadPeriod = TimeSpan.FromDays(int.Parse(appSettings["DefaultUploadPeriodDays"])),
             };
 
             var staticDataUploader = new StaticDataUploader(settings);
@@ -39,17 +45,17 @@ namespace CoffeeCat.StaticDataUploader
                 Trace.TraceInformation("Starting StaticDataUploader...");
                 if (staticDataUploader.Run().Wait(settings.Timeout))
                 {
-                    Trace.TraceInformation("StaticDataUploader completed successfully");
+                    Console.WriteLine("StaticDataUploader completed successfully");
                 }
                 else
                 {
-                    Trace.TraceError("StaticDataUploader timed out before it could complete.");
+                    Console.WriteLine("StaticDataUploader timed out before it could complete.");
                 }
 
             }
             catch (AggregateException e)
             {
-                Trace.TraceError("StaticDataUploader failed with error: " + e.InnerException);
+                Console.WriteLine("StaticDataUploader failed with error: " + e.InnerException);
             }
         }
     }

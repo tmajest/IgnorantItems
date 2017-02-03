@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace RiotFrontend.Controllers
+namespace CoffeeCat.RiotFrontend.Controllers
 {
     public class HomeController : Controller
     {

@@ -19,10 +19,10 @@
                 <a ng-href="/matches/{{match.ProName}}/{{match.MatchId}}">
                     <div class="homeMatchContainer" ng-style=getMatchColor(match)>
                         <div class="img-container">
-                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
+                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
                             <div class="summoner-spell-container">
-                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[match.Spell1Id].Image.Full}}" />
-                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/spell/{{summonerSpells[match.Spell2Id].Image.Full}}" />
+                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell1Id].Image.Full}}" />
+                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell2Id].Image.Full}}" />
                             </div>
                         </div>
                         <div class="proName">
@@ -35,8 +35,8 @@
                             {{getMatchResultText(match)}}
                         </div>
                         <div class="finalItemsContainer">
-                            <div class="finalItem" ng-repeat="item in match.Items">
-                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/item/{{item.Image.Full}}" width="35" height="35" />
+                            <div class="finalItem" ng-repeat="item in match.FinalBuild">
+                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/{{item.Image.Full}}" width="35" height="35" />
                             </div>
                         </div>
                     </div>

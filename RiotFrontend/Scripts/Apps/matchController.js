@@ -72,14 +72,13 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
             $scope.skillOrder = data.SkillOrder;
             $scope.spell1Id = data.Spell1Id;
             $scope.spell2Id = data.Spell2Id;
-            $scope.items = data.Items;
+            $scope.finalBuild = data.FinalBuild;
 
             setMasteryTree();
 
             $http.get("/api/static/masteries").success(function(masteries) {
                 $scope.masteries = masteries;
                 $scope.masteryDescription = {};
-                var len = masteries.length;
                 for (var key in masteries) {
                     if (masteries.hasOwnProperty(key)) {
                         var mastery = masteries[key];

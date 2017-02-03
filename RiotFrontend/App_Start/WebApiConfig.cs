@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotFrontend.Providers;
 using Microsoft.Practices.Unity;
-using Newtonsoft.Json.Serialization;
-using RiotFrontend.App_Start;
-using RiotFrontend.Providers;
-using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using CoffeeCat.RiotFrontend.BusinessLogic.Converters;
 
-namespace RiotFrontend
+namespace CoffeeCat.RiotFrontend
 {
     public static class WebApiConfig
     {
@@ -30,7 +27,7 @@ namespace RiotFrontend
 
             container
                 .RegisterInstance(settings)
-                .RegisterType<ICloudManager, CloudManager>(new InjectionConstructor(settings.AzureStorageConnectionString))
+                .RegisterType<ICloudManager, CloudManager>(new InjectionConstructor(settings.StorageConnectionString))
                 .RegisterType<IStaticData, StaticData>(new ContainerControlledLifetimeManager())
                 .RegisterType<IDtoConverter, DtoConverter>(new ContainerControlledLifetimeManager())
                 .RegisterType<IMatchProvider, MatchProvider>();
@@ -47,22 +44,22 @@ namespace RiotFrontend
             );
         }
 
-        private static IUploaderSettings GetUploaderSettings()
+        private static ICommonSettings GetUploaderSettings()
         {
             var appSettings = ConfigurationManager.AppSettings;
-            return new UploaderSettings
+            return new CommonSettings
             {
-                AzureStorageConnectionString = appSettings["AzureStorageConnectionString"],
-                RiotApiKeys = appSettings["ApiKeys"].Split(',').ToList(),
-                DataContainerName = appSettings["DataContainerName"],
-                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
-                RunesBlobPath = appSettings["RunesBlobPath"],
+                StorageAccountName = appSettings["StorageAccountName"],
+                StaticDataContainerName = appSettings["StaticDataContainerName"],
+                DatabaseConnectionString = appSettings["DatabaseConnectionString"],
+                StorageConnectionString = appSettings["StorageConnectionString"],
                 ChampionsBlobPath = appSettings["ChampionsBlobPath"],
                 ItemsBlobPath = appSettings["ItemsBlobPath"],
+                MasteriesBlobPath = appSettings["MasteriesBlobPath"],
+                RunesBlobPath = appSettings["RunesBlobPath"],
                 SummonerSpellsBlobPath = appSettings["SummonerSpellsBlobPath"],
-                ApiVersionsBlobPath = appSettings["ApiVersionsBlobPath"],
-                SummonersTableName = appSettings["SummonersTableName"],
-                MatchListTableName = appSettings["MatchListTableName"],
+                Region = appSettings["Region"],
+                StaticDataRefreshRate = TimeSpan.FromHours(double.Parse(appSettings["StaticDataRefreshRateHours"]))
             };
         }
     }

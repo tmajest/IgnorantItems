@@ -1,122 +1,100 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using CoffeeCat.RiotCommon.Contracts;
-using CoffeeCat.RiotCommon.Contracts.Frontend;
-using CoffeeCat.RiotCommon.Contracts.Uploader;
-using Microsoft.WindowsAzure.Storage.Table;
-using CoffeeCat.RiotCommon.Dto.StaticData.Champion;
-using CoffeeCat.RiotCommon.Dto.StaticData.Item;
-using CoffeeCat.RiotCommon.Dto.StaticData.Mastery;
-using CoffeeCat.RiotCommon.Dto.StaticData.Rune;
+using System.Threading.Tasks;
+using CoffeeCat.RiotCommon.Contracts.Entities;
 using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
-using MatchContracts = CoffeeCat.RiotCommon.Dto.Match;
+using CoffeeCat.RiotDatabase;
+using CoffeeCat.RiotFrontend.BusinessLogic.Formatter;
+using CoffeeCat.RiotFrontend.Models;
+using Newtonsoft.Json;
+using CoffeeCat.RiotFrontend.BusinessLogic.Converters;
 
-namespace RiotFrontend.Providers
+namespace CoffeeCat.RiotFrontend.Providers
 {
     public class MatchProvider : IMatchProvider
     {
         private static readonly int DefaultMatchCount = 15;
-        private static readonly string MatchCreationTimeColumn = "MatchCreationTime";
-        private static readonly string ChampionIdColumn = "ChampionId";
-        private static readonly string RowKeyColumn = "RowKey";
-        private static readonly string PartitionKeyColumn = "PartitionKey";
 
-        private ICloudManager cloudManager;
-        private IUploaderSettings settings;
+        private ICommonSettings settings;
         private IDtoConverter dtoConverter;
 
         public MatchProvider(
-            ICloudManager cloudManager, 
             IDtoConverter dtoConverter,
-            IUploaderSettings settings)
+            ICommonSettings settings)
         {
-            this.cloudManager = cloudManager;
             this.dtoConverter = dtoConverter;
             this.settings = settings;
         }
 
-        public Match GetMatch(string matchId)
+        public async Task<Match> GetMatch(string proName, long matchId)
         {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
-
-            var filter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
-            var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
-                .FirstOrDefault();
-
-            if (matchEntity == null)
+            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
             {
-                return null;
-            }
+                var matchEntity = await context.Matches.FirstOrDefaultAsync(m => m.Id == matchId);
+                if (matchEntity == null)
+                {
+                    return null;
+                }
 
-            var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
-            return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
+                var participant = matchEntity.Participants
+                    .FirstOrDefault(p => p.Summoner != null && p.Summoner.Streamer.ProName.Equals(proName)); 
+
+                return participant == null 
+                    ? null 
+                    : dtoConverter.GetMatchContract(matchEntity, participant, FormatType.Detailed);
+            }
         }
 
-        public Match GetMatch(string matchId, string summonerName)
-        {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
-            Validation.ValidateNotNullOrWhitespace(summonerName, nameof(summonerName));
-
-            var rowKeyFilter = TableQuery.GenerateFilterCondition(RowKeyColumn, QueryComparisons.Equal, matchId);
-            var partitionKeyFilter = TableQuery.GenerateFilterCondition(PartitionKeyColumn, QueryComparisons.Equal, summonerName.ToLowerInvariant());
-            var finalFilter = TableQuery.CombineFilters(rowKeyFilter, TableOperators.And, partitionKeyFilter);
-
-            var matchEntity = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, finalFilter)
-                .FirstOrDefault();
-
-            if (matchEntity == null)
-            {
-                return null;
-            }
-
-            var matchInfo = JsonConvert.DeserializeObject<MatchInfo>(matchEntity.Match);
-            return dtoConverter.GetMatchContract(matchInfo, FormatType.Detailed);
-        }
-
-        public List<Match> GetMatches()
+        public Task<List<Match>> GetMatches()
         {
             return this.GetMatches(DefaultMatchCount);
         }
 
-        public List<Match> GetMatches(int count)
+        public async Task<List<Match>> GetMatches(int count)
         {
-            var filter = TableQuery.GenerateFilterConditionForDate(
-                MatchCreationTimeColumn,
-                QueryComparisons.GreaterThan,
-                DateTimeOffset.UtcNow.Subtract(TimeSpan.FromHours(12)));
+            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
+            {
+                var matchEntities = await context.Matches
+                    .OrderByDescending(m => m.CreationTime)
+                    .Take(count)
+                    .ToListAsync();
 
-            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, filter)
-                .OrderByDescending(match => match.MatchCreationTime)
-                .Take(count);
+                var convertedMatches = new List<Match>();
+                foreach (var matchEntity in matchEntities)
+                {
+                    foreach (var participant in matchEntity.Participants.Where(p => p.Summoner != null))
+                    {
+                        convertedMatches.Add(dtoConverter.GetMatchContract(matchEntity, participant, FormatType.Simple));
+                    }
+                }
 
-            var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
-            return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
+                return convertedMatches;
+            }
         }
 
-        public List<Match> GetMatches(string championId)
+        public Task<List<Match>> GetMatchesByChampion(int championId)
         {
-            return this.GetMatches(championId, DefaultMatchCount);
+            return this.GetMatchesByChampion(championId, DefaultMatchCount);
         }
 
-        public List<Match> GetMatches(string championId, int count)
+        public async Task<List<Match>> GetMatchesByChampion(int championId, int count)
         {
-            Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));
+            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
+            {
+                var participants = await context.Participants
+                    .Where(p => p.ChampionId == championId && p.Summoner != null)
+                    .Select(p => new {Participant = p, Match = p.Match})
+                    .OrderByDescending(p => p.Match.CreationTime)
+                    .Take(count)
+                    .ToListAsync();
 
-            var championFilter = TableQuery.GenerateFilterCondition(
-                ChampionIdColumn,
-                QueryComparisons.Equal,
-                championId);
+                return participants
+                    .Select(p => dtoConverter.GetMatchContract(p.Match, p.Participant, FormatType.Simple))
+                    .ToList();
+            }
 
-            var matches = this.cloudManager.GetRows<MatchEntity>(settings.MatchListTableName, championFilter)
-                .OrderByDescending(match => match.MatchCreationTime)
-                .Take(count);
-
-            var matchesInfo = matches.Select(m => JsonConvert.DeserializeObject<MatchInfo>(m.Match));
-            return matchesInfo.Select(m => dtoConverter.GetMatchContract(m, FormatType.Simple)).ToList();
         }
     }
 }

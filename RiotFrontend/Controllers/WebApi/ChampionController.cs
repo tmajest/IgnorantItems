@@ -1,14 +1,13 @@
-﻿using CoffeeCat.RiotCommon.Utils;
-using RiotFrontend.Providers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotFrontend.Providers;
 using WebApi.OutputCache.V2;
 
-namespace RiotFrontend.Controllers.WebApi
+namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
     [RoutePrefix("api/champions")]
     public class ChampionController : ApiController
@@ -28,7 +27,7 @@ namespace RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=86000, ServerTimeSpan=86000)]
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
         public HttpResponseMessage GetChampions()
         {
@@ -41,11 +40,9 @@ namespace RiotFrontend.Controllers.WebApi
 #if (!DEBUG)
         [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
-        public HttpResponseMessage GetMatchesByChampion(string championId)
+        public async Task<HttpResponseMessage> GetMatchesByChampion(int championId)
         {
-            Validation.ValidateNotNullOrWhitespace(championId, nameof(championId));
-
-            var matches = this.matchProvider.GetMatches(championId);
+            var matches = await this.matchProvider.GetMatchesByChampion(championId);
             return Request.CreateResponse(HttpStatusCode.OK, matches);
         }
     }

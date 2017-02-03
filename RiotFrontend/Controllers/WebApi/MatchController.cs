@@ -1,34 +1,37 @@
-﻿using System.Web.Http;
-using CoffeeCat.RiotCommon.Utils;
-using RiotFrontend.Providers;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using WebApi.OutputCache.V2;
-using System.Threading;
-using System.Diagnostics;
-using CoffeeCat.RiotCommon.Contracts.Frontend;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
+using CoffeeCat.RiotCommon.Utils;
+using CoffeeCat.RiotFrontend.Providers;
+using WebApi.OutputCache.V2;
 
-namespace RiotFrontend.Controllers.WebApi
+namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
     [RoutePrefix("api/matches")]
     public class MatchController : ApiController
     {
-        private IMatchProvider matchProvider;
+        private readonly IMatchProvider matchProvider;
 
         public MatchController(IMatchProvider matchProvider)
         {
             this.matchProvider = matchProvider;
         }
 
+        public MatchController()
+        {
+            matchProvider = null;
+        }
+
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
+        [CacheOutput(ClientTimeSpan=1800, ServerTimeSpan=1800)]
 #endif
-        public HttpResponseMessage GetMatches()
+        public async Task<HttpResponseMessage> GetMatches()
         {
-            var matches = this.matchProvider.GetMatches();
+            var matches = await this.matchProvider.GetMatches();
 
             if (matches == null || matches.Count == 0)
             {
@@ -39,43 +42,20 @@ namespace RiotFrontend.Controllers.WebApi
         }
 
         [HttpGet]
-        [Route("{matchId}")]
+        [Route("{proName}/{matchId}")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+        [CacheOutput(ClientTimeSpan=1800, ServerTimeSpan=1800)]
 #endif
-        public HttpResponseMessage GetMatch(string matchId)
+        public async Task<HttpResponseMessage> GetMatch(string proName, long matchId)
         {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
+            Validation.ValidateNotNullOrWhitespace(proName, nameof(proName));
 
-            var match = this.matchProvider.GetMatch(matchId);
+            var decodedProName = HttpUtility.UrlDecode(proName);
+            var match = await this.matchProvider.GetMatch(decodedProName, matchId);
 
-            if (match == null)
-            {
-                return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
-
-            return Request.CreateResponse(match);
-        }
-
-        [HttpGet]
-        [Route("{summonerName}/{matchId}")]
-#if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
-#endif
-        public HttpResponseMessage GetMatch(string summonerName, string matchId)
-        {
-            Validation.ValidateNotNullOrWhitespace(matchId, nameof(matchId));
-
-            var decodedSummonerName = HttpUtility.UrlDecode(summonerName);
-
-            var match = this.matchProvider.GetMatch(matchId, decodedSummonerName);
-
-            if (match == null)
-            {
-                return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
-
-            return Request.CreateResponse(match);
+            return match == null 
+                ? new HttpResponseMessage(HttpStatusCode.NotFound) 
+                : Request.CreateResponse(match);
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿using CoffeeCat.RiotClient.Clients;
-using CoffeeCat.RiotCommon.Utils;
+﻿using CoffeeCat.RiotCommon.Settings;
+using CoffeeCat.RiotDatabase;
+using CoffeeCat.RiotCommon.Contracts.Entities;
 using CoffeeCat.StaticDataUploader.Tasks;
 using Newtonsoft.Json;
 using Microsoft.WindowsAzure.Storage;
@@ -10,34 +11,21 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoffeeCat.RiotCommon.Settings;
 
 namespace CoffeeCat.StaticDataUploader
 {
     internal class StaticDataUploader
     {
-        private readonly IUploaderSettings settings;
-        private readonly KeyManager keyManager;
-        private readonly VersionManager versionManager;
+        private readonly CommonSettings settings;
+        private readonly ApiVersion apiVersions;
 
-        public StaticDataUploader(IUploaderSettings settings)
+        public StaticDataUploader(CommonSettings settings)
         {
-            Validation.ValidateNotNull(settings, nameof(settings));
-            Validation.ValidateNotNullOrWhitespace(settings.AzureStorageConnectionString, "AzureStorageConnectionString");
-            Validation.ValidateNotNullOrWhitespace(settings.DataContainerName, "DataContainerName");
-            Validation.ValidateNotNullOrWhitespace(settings.Region, "Region");
-            Validation.ValidateNotNullOrEmpty(settings.RiotApiKeys, "RiotApiKeys");
-            Validation.ValidateNotNullOrWhitespace(settings.ApiVersionsBlobPath, "ApiVersionsBlobPath");
-            Validation.ValidateNotNullOrWhitespace(settings.MasteriesBlobPath, "MasteriesBlobPath");
-            Validation.ValidateNotNullOrWhitespace(settings.RunesBlobPath, "RunesBlobPath");
-            Validation.ValidateNotNullOrWhitespace(settings.ChampionsBlobPath, "ChampionsBlobPath");
-
             this.settings = settings;
-            this.keyManager = new KeyManager(settings.RiotApiKeys);
-            this.versionManager = new VersionManager(
-                settings.AzureStorageConnectionString, 
-                settings.DataContainerName, 
-                settings.ApiVersionsBlobPath);
+            using (var context = new RiotContext(this.settings.DatabaseConnectionString))
+            {
+                this.apiVersions = Utils.GetApiVersion(context);
+            }
         }
 
         public Task Run()
@@ -58,62 +46,62 @@ namespace CoffeeCat.StaticDataUploader
 
         private async Task UploadMasteries()
         {
-            Trace.WriteLine("Begin uploading masteries");
+            Console.WriteLine("Begin uploading masteries");
 
-            using (var masteryTask = new MasteriesUploadTask(this.versionManager.Versions, this.keyManager, this.settings))
+            using (var masteryTask = new MasteriesUploadTask(this.apiVersions, this.settings))
             {
                 await masteryTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading masteries.");
+            Console.WriteLine("Completed uploading masteries.");
         }
 
         private async Task UploadRunes()
         {
-            Trace.WriteLine("Begin uploading masteries");
+            Console.WriteLine("Begin uploading masteries");
 
-            using (var runesTask = new RunesUploadTask(this.versionManager.Versions, this.keyManager, this.settings))
+            using (var runesTask = new RunesUploadTask(this.apiVersions, this.settings))
             {
                 await runesTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading runes.");
+            Console.WriteLine("Completed uploading runes.");
         }
 
         private async Task UploadChampions()
         {
-            Trace.WriteLine("Begin uploading champions");
+            Console.WriteLine("Begin uploading champions");
 
-            using (var championsTask = new ChampionsUploadTask(this.versionManager.Versions, this.keyManager, this.settings))
+            using (var championsTask = new ChampionsUploadTask(this.apiVersions, this.settings))
             {
                 await championsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading champions.");
+            Console.WriteLine("Completed uploading champions.");
         }
 
         private async Task UploadItems()
         {
-            Trace.WriteLine("Begin uploading items");
+            Console.WriteLine("Begin uploading items");
 
-            using (var itemsTask = new ItemsUploadTask(this.versionManager.Versions, this.keyManager, this.settings))
+            using (var itemsTask = new ItemsUploadTask(this.apiVersions, this.settings))
             {
                 await itemsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading items.");
+            Console.WriteLine("Completed uploading items.");
         }
 
         private async Task UploadSummonerSpells()
         {
-            Trace.WriteLine("Begin uploading summoner spells");
+            Console.WriteLine("Begin uploading summoner spells");
 
-            using (var summonerSpellsTask = new SummonerSpellsTask(this.versionManager.Versions, this.keyManager, this.settings))
+            using (var summonerSpellsTask = new SummonerSpellsTask(this.apiVersions, this.settings))
             {
                 await summonerSpellsTask.UploadData();
             }
 
-            Trace.WriteLine("Completed uploading summoner spells.");
+            Console.WriteLine("Completed uploading summoner spells.");
         }
     }
 }

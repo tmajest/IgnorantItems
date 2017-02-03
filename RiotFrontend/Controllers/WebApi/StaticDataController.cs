@@ -1,14 +1,10 @@
-﻿using CoffeeCat.RiotCommon.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using CoffeeCat.RiotCommon.Utils;
 using WebApi.OutputCache.V2;
 
-namespace RiotFrontend.Controllers.WebApi
+namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
     [RoutePrefix("api/static")]
     public class StaticDataController : ApiController
@@ -23,7 +19,7 @@ namespace RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("masteries")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=86000, ServerTimeSpan=86000)]
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
         public HttpResponseMessage GetMasteries()
         {
@@ -34,7 +30,7 @@ namespace RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("summonerSpells")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
         public HttpResponseMessage GetSummonerSpells()
         {
