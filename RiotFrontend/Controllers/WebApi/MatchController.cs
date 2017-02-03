@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using CoffeeCat.RiotCommon.Utils;
 using CoffeeCat.RiotFrontend.Providers;
+using WebApi.OutputCache.V2;
 
 namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
@@ -26,7 +27,7 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
+        [CacheOutput(ClientTimeSpan=1800, ServerTimeSpan=1800)]
 #endif
         public async Task<HttpResponseMessage> GetMatches()
         {
@@ -43,7 +44,7 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("{proName}/{matchId}")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=int.MaxValue, ServerTimeSpan=int.MaxValue)]
+        [CacheOutput(ClientTimeSpan=1800, ServerTimeSpan=1800)]
 #endif
         public async Task<HttpResponseMessage> GetMatch(string proName, long matchId)
         {

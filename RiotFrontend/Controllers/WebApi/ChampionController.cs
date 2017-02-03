@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using CoffeeCat.RiotCommon.Utils;
 using CoffeeCat.RiotFrontend.Providers;
+using WebApi.OutputCache.V2;
 
 namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 {
@@ -26,7 +27,7 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
-        [CacheOutput(ClientTimeSpan=86000, ServerTimeSpan=86000)]
+        [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
         public HttpResponseMessage GetChampions()
         {
