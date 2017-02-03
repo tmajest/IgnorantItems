@@ -19,11 +19,6 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
             this.matchProvider = matchProvider;
         }
 
-        public MatchController()
-        {
-            matchProvider = null;
-        }
-
         [HttpGet]
         [Route("")]
 #if (!DEBUG)
