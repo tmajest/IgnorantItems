@@ -13,7 +13,7 @@ using CoffeeCat.RiotCommon.Settings;
 using CoffeeCat.RiotCommon.Utils;
 using CoffeeCat.RiotFrontend;
 
-namespace RiotFrontend
+namespace CoffeeCat.RiotFrontend
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
