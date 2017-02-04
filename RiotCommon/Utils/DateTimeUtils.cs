@@ -15,7 +15,7 @@ namespace CoffeeCat.RiotCommon.Utils
         public static DateTime FromUnixTimestamp(string timestamp)
         {
             var milliseconds = long.Parse(timestamp);
-            return Epoch.AddMilliseconds(milliseconds);
+            return Epoch.AddMilliseconds(milliseconds).ToUniversalTime();
         }
     }
 }

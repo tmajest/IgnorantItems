@@ -13,7 +13,7 @@
 
         public override string Format()
         {
-            return $"channels/{this.ChannelName}/{this.ChannelResource}";
+            return $"kraken/channels/{this.ChannelName}/{this.ChannelResource}";
         }
     }
 }
