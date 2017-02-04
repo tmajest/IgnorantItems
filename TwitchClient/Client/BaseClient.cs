@@ -10,7 +10,7 @@
         private HttpClient httpClient;
         bool disposed = false;
 
-        public string BaseAddress => "https://api.twitch.tv/kraken";
+        public string BaseAddress => "https://api.twitch.tv";
 
         public BaseClient(string clientId)
         {

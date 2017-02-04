@@ -12,7 +12,7 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
     public class StreamEntity
     {
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [Required]

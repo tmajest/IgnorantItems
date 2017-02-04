@@ -100,6 +100,7 @@
     <Compile Include="Converters\MatchConverter.cs" />
     <Compile Include="Converters\ParticipantConverter.cs" />
     <Compile Include="Converters\SkillOrderConverter.cs" />
+    <Compile Include="Converters\StreamConverter.cs" />
     <Compile Include="MatchUploader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +125,10 @@
     <ProjectReference Include="..\RiotDatabase\RiotDatabase.csproj">
       <Project>{3f57e012-8275-4e62-8b8e-b655dcb8c028}</Project>
       <Name>RiotDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TwitchClient\TwitchClient.csproj">
+      <Project>{4f24e8c5-8dcf-413e-8ff5-e26a74d174f9}</Project>
+      <Name>TwitchClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
