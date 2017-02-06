@@ -72,6 +72,10 @@ namespace CoffeeCat.MatchUploader
 
                 this.matchIds.Add(matchReference.MatchId);
                 var matchDetails = await GetMatchDetail(matchReference, version);
+                if (matchDetails == null)
+                {
+                    continue;
+                }
 
                 var twitchStream = twitchStreams.FirstOrDefault(v => VideoContainsMatch(v, matchDetails));
                 if (twitchStream == null)
@@ -84,6 +88,7 @@ namespace CoffeeCat.MatchUploader
                 context.Matches.Add(matchEntity);
 
                 var streamEntity = StreamConverter.GetStreamEntity(twitchStream, matchDetails, summoner.Streamer);
+                streamEntity.Match = matchEntity;
                 context.Streams.Add(streamEntity);
 
                 // Create participants
@@ -123,9 +128,16 @@ namespace CoffeeCat.MatchUploader
 
             Console.WriteLine("Hit rate limit. Waiting...");
             await Task.Delay(settings.RateLimitDelay);
-            using (var client = new MatchDetailClient(region, versions.MatchVersion, this.settings.RiotApiKey))
+            try
             {
-                return await client.GetMatchDetails(matchReference.MatchId.ToString());
+                using (var client = new MatchDetailClient(region, versions.MatchVersion, this.settings.RiotApiKey))
+                {
+                    return await client.GetMatchDetails(matchReference.MatchId.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

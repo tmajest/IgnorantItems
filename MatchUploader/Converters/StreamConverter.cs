@@ -19,6 +19,7 @@ namespace CoffeeCat.MatchUploader.Converters
         {
             return new StreamEntity
             {
+                StreamId = video.Id,
                 Url = video.Url,
                 Offset = GetVideoOffset(video, match),
                 Streamer = streamer,

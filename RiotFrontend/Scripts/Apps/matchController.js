@@ -105,6 +105,25 @@ angular.module("IgnorantItems", ['ui.bootstrap'])
                         .append("<div class=\"skillRank\">" + (i + 1) + "</div>");
                 }
             });
+
+            var twitchMatchId = $scope.match.TwitchVideoId;
+            var options = {
+                width: 700,
+                height: 400,
+                video: twitchMatchId,
+                autoplay: false
+            };
+            $scope.playing = false;
+            $scope.player = new Twitch.Player("twitchVideoContainer", options);
+            $scope.player.setVolume(0.5);
+            $scope.player.addEventListener(
+                Twitch.Player.PLAY,
+                function () {
+                    if (!$scope.playing) {
+                        $scope.player.seek($scope.match.TwitchOffset);
+                        $scope.playing = true;
+                    }
+                });
         });
 
         $http.get("/api/static/summonerSpells").success(function(data) {

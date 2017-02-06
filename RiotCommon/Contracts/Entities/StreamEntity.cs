@@ -16,6 +16,9 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
         public long Id { get; set; }
 
         [Required]
+        public string StreamId { get; set; }
+
+        [Required]
         [MaxLength(128)]
         public string Url { get; set; }
 
@@ -23,5 +26,7 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
         public int Offset { get; set; }
 
         public virtual StreamerEntity Streamer { get; set; }
+
+        public virtual MatchEntity Match { get; set; }
     }
 }

@@ -245,3 +245,11 @@ h2 {
 .itemsContainer {
     padding-top: 20px;
 }
+
+.twitchVideoContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}

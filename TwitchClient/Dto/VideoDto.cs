@@ -17,5 +17,8 @@
 
         [JsonProperty]
         public string Url { get; set; }
+
+        [JsonProperty("_id")]
+        public string Id { get; set; }
     }
 }

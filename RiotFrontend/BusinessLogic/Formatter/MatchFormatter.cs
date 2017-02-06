@@ -40,9 +40,12 @@ namespace CoffeeCat.RiotFrontend.BusinessLogic.Formatter
 
         private Match FormatMatchDetailed(MatchEntity match, ParticipantEntity participant)
         {
+            var stream = match.Streams.FirstOrDefault(s => s.Streamer.Id == participant.Summoner.Streamer.Id);
             return new Match
             {
                 MatchId = match.Id.ToString(),
+                TwitchVideoId = stream.StreamId,
+                TwitchOffset = stream.Offset,
                 ProName = participant.Summoner.Streamer.ProName,
                 SummonerName = participant.Summoner.Name,
                 SummonerId = participant.Summoner.Id.ToString(),
