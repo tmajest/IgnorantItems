@@ -17,6 +17,10 @@ namespace CoffeeCat.RiotFrontend.Models
 
         public string SummonerId { get; set; }
 
+        public string TwitchVideoId { get; set; }
+
+        public int TwitchOffset { get; set; }
+
         public ChampionDto Champion { get; set; }
 
         public string Region { get; set; }

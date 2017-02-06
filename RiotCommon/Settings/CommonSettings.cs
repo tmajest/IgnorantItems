@@ -29,6 +29,8 @@ namespace CoffeeCat.RiotCommon.Settings
 
         public string SummonerSpellsBlobPath { get; set; }
 
+        public string TwitchClientId { get; set; }
+
         public TimeSpan Timeout { get; set; } 
 
         public TimeSpan MatchDetailRequestDelay { get; set; }

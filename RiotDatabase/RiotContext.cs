@@ -31,6 +31,11 @@ namespace CoffeeCat.RiotDatabase
                 .WithMany(s => s.Streams)
                 .Map(m => m.MapKey("StreamerId"));
 
+            modelBuilder.Entity<StreamEntity>()
+                .HasRequired(s => s.Match)
+                .WithMany(m => m.Streams)
+                .Map(m => m.MapKey("MatchId"));
+
             modelBuilder.Entity<SummonerEntity>()
                 .HasRequired(s => s.Streamer)
                 .WithMany(s => s.Summoners)

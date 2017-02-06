@@ -64,11 +64,12 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
 
         public virtual ICollection<ParticipantEntity> Participants { get; set; }
 
+        public virtual ICollection<StreamEntity> Streams { get; set; }
+
         [NotMapped]
         public List<int> RedSideBans { get; set; }
 
         [NotMapped]
         public List<int> BlueSideBans { get; set; }
-
     }
 }

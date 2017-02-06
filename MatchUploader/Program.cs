@@ -53,6 +53,7 @@ namespace CoffeeCat.MatchUploader
                 DatabaseConnectionString = appSettings["DatabaseConnectionString"],
                 StorageConnectionString = appSettings["StorageConnectionString"],
                 RiotApiKey = appSettings["ApiKey"],
+                TwitchClientId = appSettings["TwitchClientId"],
                 Retries = int.Parse(appSettings["Retries"]),
                 Region = appSettings["Region"],
                 Timeout = TimeSpan.FromSeconds(long.Parse(appSettings["UploadTimeoutInSeconds"])),

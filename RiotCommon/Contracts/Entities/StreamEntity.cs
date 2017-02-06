@@ -12,8 +12,11 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
     public class StreamEntity
     {
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
+
+        [Required]
+        public string StreamId { get; set; }
 
         [Required]
         [MaxLength(128)]
@@ -23,5 +26,7 @@ namespace CoffeeCat.RiotCommon.Contracts.Entities
         public int Offset { get; set; }
 
         public virtual StreamerEntity Streamer { get; set; }
+
+        public virtual MatchEntity Match { get; set; }
     }
 }

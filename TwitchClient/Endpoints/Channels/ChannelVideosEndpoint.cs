@@ -36,7 +36,7 @@
             {
                 ["limit"] = this.Limit?.ToString(),
                 ["offset"] = this.Offset?.ToString(),
-                ["broadcasts"] = this.Broadcasts?.ToString(),
+                ["broadcasts"] = this.Broadcasts?.ToString().ToLower(),
                 ["hls"] = this.Hls?.ToString()
             }; 
         }
