@@ -11,41 +11,56 @@
         </div>
     </div>
 
-    <div class="loadingContainer">
-        <h2><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading recent matches...</h2>
-    </div>
-
-    <div class="homeContent">
-        <div class="recentMatchesHeader">
-            <h2>{{title}}</h2>
+    <div class="loadingOuterContainer">
+        <div class="loadingContainer">
+            <h2><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading recent matches...</h2>
         </div>
-        <div class="allMatches">
-            <div class="matchRow" ng-repeat="match in allMatches">
-                <a ng-href="/matches/{{match.ProName}}/{{match.MatchId}}">
-                    <div class="homeMatchContainer" ng-style=getMatchColor(match)>
-                        <div class="img-container">
-                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
-                            <div class="summoner-spell-container">
-                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell1Id].Image.Full}}" />
-                                <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell2Id].Image.Full}}" />
+    </div>
+    <div class="homeContentContainer">
+        <div class="homeContent">
+            <div class="recentMatchesHeader">
+                <h2>{{title}}</h2>
+            </div>
+            <div class="allMatches">
+                <div class="matchRow" ng-repeat="match in currentMatchList">
+                    <a ng-href="/matches/{{match.ProName}}/{{match.MatchId}}">
+                        <div class="homeMatchContainer" ng-style=getMatchColor(match)>
+                            <div class="img-container">
+                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/{{match.Champion.Image.Full}}" width="50" height="50">
+                                <div class="summoner-spell-container">
+                                    <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell1Id].Image.Full}}" />
+                                    <img class="summoner-spell-img" ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/{{summonerSpells[match.Spell2Id].Image.Full}}" />
+                                </div>
+                            </div>
+                            <div class="proName">
+                                {{match.ProName}}
+                            </div>
+                            <div class="kdaContainer">
+                                {{match.Kills}} / {{match.Deaths}} / {{match.Assists}}
+                            </div>
+                            <div class="matchResults" ng-style="getMatchResultColor(match)">
+                                {{getMatchResultText(match)}}
+                            </div>
+                            <div class="finalItemsContainer">
+                                <div class="finalItem" ng-repeat="item in match.FinalBuild">
+                                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/{{item.Image.Full}}" width="35" height="35" />
+                                </div>
                             </div>
                         </div>
-                        <div class="proName">
-                            {{match.ProName}}
-                        </div>
-                        <div class="kdaContainer">
-                            {{match.Kills}} / {{match.Deaths}} / {{match.Assists}}
-                        </div>
-                        <div class="matchResults" ng-style="getMatchResultColor(match)">
-                            {{getMatchResultText(match)}}
-                        </div>
-                        <div class="finalItemsContainer">
-                            <div class="finalItem" ng-repeat="item in match.FinalBuild">
-                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/{{item.Image.Full}}" width="35" height="35" />
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+            </div>
+            <div class="paginationContainer">
+                <h2>More Matches</h2>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item active page0"><a class="page-link">1</a></li>
+                        <li class="page-item page1"><a class="page-link">2</a></li>
+                        <li class="page-item page2"><a class="page-link">3</a></li>
+                        <li class="page-item page3"><a class="page-link">4</a></li>
+                        <li class="page-item page4"><a class="page-link">5</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

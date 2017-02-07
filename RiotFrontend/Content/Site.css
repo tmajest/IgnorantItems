@@ -31,8 +31,11 @@ h3 {
 }
 
 
+.homeContentContainer {
+    height: 780px;
+}
+
 .homeContent {
-    display: none;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: -60px;
@@ -68,7 +71,7 @@ footer {
     padding: 30px 50px 0px 50px;
     font-size: 10px;
     color: #8F8E75;
-    margin-bottom: -10px;
+    padding-top: 40px;
 }
 
 .kills {
@@ -163,7 +166,6 @@ footer {
 
 .finalItem {
     padding-right: 5px;
-
 }
 
 .matchRow {
@@ -176,4 +178,14 @@ footer {
 
 .matchRow:hover {
     background-color: #081218;
+}
+
+.loadingContainer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paginationContainer {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }

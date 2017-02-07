@@ -6,13 +6,9 @@ namespace CoffeeCat.RiotFrontend.Providers
 {
     public interface IMatchProvider
     {
-        Task<List<Match>> GetMatches();
+        Task<MatchList> GetMatches(int skip, int count);
 
-        Task<List<Match>> GetMatches(int count);
-
-        Task<List<Match>> GetMatchesByChampion(int championId);
-
-        Task<List<Match>> GetMatchesByChampion(int championId, int count);
+        Task<MatchList> GetMatchesByChampion(int championId, int skip, int count);
 
         Task<Match> GetMatch(string summonerName, long matchId);
     }

@@ -40,9 +40,9 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 #if (!DEBUG)
         [CacheOutput(ClientTimeSpan=3600, ServerTimeSpan=3600)]
 #endif
-        public async Task<HttpResponseMessage> GetMatchesByChampion(int championId)
+        public async Task<HttpResponseMessage> GetMatchesByChampion(int championId, int skip = 0, int count = 15)
         {
-            var matches = await this.matchProvider.GetMatchesByChampion(championId);
+            var matches = await this.matchProvider.GetMatchesByChampion(championId, skip, count);
             return Request.CreateResponse(HttpStatusCode.OK, matches);
         }
     }

@@ -279,6 +279,7 @@
     </Compile>
     <Compile Include="Models\Mastery.cs" />
     <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\MatchList.cs" />
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\SummonerSpells.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

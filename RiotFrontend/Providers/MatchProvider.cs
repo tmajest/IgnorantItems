@@ -15,8 +15,6 @@ namespace CoffeeCat.RiotFrontend.Providers
 {
     public class MatchProvider : IMatchProvider
     {
-        private static readonly int DefaultMatchCount = 15;
-
         private ICommonSettings settings;
         private IDtoConverter dtoConverter;
 
@@ -47,17 +45,15 @@ namespace CoffeeCat.RiotFrontend.Providers
             }
         }
 
-        public Task<List<Match>> GetMatches()
-        {
-            return this.GetMatches(DefaultMatchCount);
-        }
-
-        public async Task<List<Match>> GetMatches(int count)
+        public async Task<MatchList> GetMatches(int skip, int count)
         {
             using (var context = new RiotContext(this.settings.DatabaseConnectionString))
             {
+                var total = await context.Matches.CountAsync();
+
                 var matchEntities = await context.Matches
                     .OrderByDescending(m => m.CreationTime)
+                    .Skip(skip)
                     .Take(count)
                     .ToListAsync();
 
@@ -70,31 +66,30 @@ namespace CoffeeCat.RiotFrontend.Providers
                     }
                 }
 
-                return convertedMatches;
+                return new MatchList { Matches = convertedMatches, Total = total };
             }
         }
 
-        public Task<List<Match>> GetMatchesByChampion(int championId)
-        {
-            return this.GetMatchesByChampion(championId, DefaultMatchCount);
-        }
-
-        public async Task<List<Match>> GetMatchesByChampion(int championId, int count)
+        public async Task<MatchList> GetMatchesByChampion(int championId, int skip, int count)
         {
             using (var context = new RiotContext(this.settings.DatabaseConnectionString))
             {
-                var participants = await context.Participants
+                var participants = context.Participants
                     .Where(p => p.ChampionId == championId && p.Summoner != null)
-                    .Select(p => new {Participant = p, Match = p.Match})
+                    .Select(p => new { Participant = p, Match = p.Match });
+
+                var total = await participants.CountAsync();
+                var matches = await participants
                     .OrderByDescending(p => p.Match.CreationTime)
+                    .Skip(skip)
                     .Take(count)
                     .ToListAsync();
 
-                return participants
-                    .Select(p => dtoConverter.GetMatchContract(p.Match, p.Participant, FormatType.Simple))
+                var convertedMatches = matches.Select(p => dtoConverter.GetMatchContract(p.Match, p.Participant, FormatType.Simple))
                     .ToList();
-            }
 
+                return new MatchList { Matches = convertedMatches, Total = total };
+            }
         }
     }
 }

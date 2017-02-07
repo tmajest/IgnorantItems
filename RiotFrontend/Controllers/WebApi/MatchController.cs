@@ -24,16 +24,16 @@ namespace CoffeeCat.RiotFrontend.Controllers.WebApi
 #if (!DEBUG)
         [CacheOutput(ClientTimeSpan=1800, ServerTimeSpan=1800)]
 #endif
-        public async Task<HttpResponseMessage> GetMatches()
+        public async Task<HttpResponseMessage> GetMatches(int skip = 0, int count = 15)
         {
-            var matches = await this.matchProvider.GetMatches();
+            var matchList = await this.matchProvider.GetMatches(skip, count);
 
-            if (matches == null || matches.Count == 0)
+            if (matchList?.Matches == null || matchList?.Matches?.Count == 0)
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, matches);
+            return Request.CreateResponse(HttpStatusCode.OK, matchList);
         }
 
         [HttpGet]
