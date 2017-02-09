@@ -1,59 +1,41 @@
 ﻿angular.module("IgnorantItems", [])
     .controller("homeController", function($scope, $http) {
-        $scope.allMatches = [];
+        $scope.matches = [];
         $scope.title = "Recent Matches";
         
         var MATCHES_TO_REQUEST = 10;
 
-        var setActivePage = function(i) {
-            jQuery(".page" + $scope.matchIndex).removeClass('active');
-            jQuery(".page" + i).addClass('active');
-        }
-
-        var showContent = function () {
-            jQuery(".loadingOuterContainer").hide();
-            jQuery(".glyphicon-refresh-animate")
+        var hideLoadingAnimation = function () {
+            jQuery(".loadingWheel").hide();
+            jQuery(".loadingWheel")
                 .css("-animation: spin .7s infinite linear", "none 0s")
                 .css(".glyphicon-refresh-animate", "none 0s");
-            jQuery(".allMatches").show();
         };
 
-        var hideContent = function () {
-            jQuery(".loadingOuterContainer").show();
-            jQuery(".glyphicon-refresh-animate")
+        var showLoadingAnimation = function () {
+            jQuery(".loadingWheel").show();
+            jQuery(".loadingWheel")
                 .css("-animation: spin .7s infinite linear", "")
                 .css(".glyphicon-refresh-animate", "");
-            jQuery(".allMatches").hide();
         };
 
-        var pageData = function (i) {
-            if ($scope.matchIndex == i) {
-                return;
-            } else if (i in $scope.allMatches) {
-                hideContent();
-                setActivePage(i);
-                $scope.currentMatchList = $scope.allMatches[i];
-                $scope.matchIndex = i;
-                showContent();
-            } else {
-                var skip = MATCHES_TO_REQUEST * i;
-                hideContent();
-                $http.get("/api/matches?skip=" + skip + "&count=" + MATCHES_TO_REQUEST).success(function(data) {
-                    setActivePage(i);
-                    var matches = data.Matches;
-                    $scope.allMatches[i] = matches;
-                    $scope.currentMatchList = matches;
-                    $scope.matchIndex = i;
-                    showContent();
-                });
-            }
-        };
+        var loadMatches = function(skip, count) {
+            jQuery(".loadMatchesButton").prop("disabled", true);
+            showLoadingAnimation();
 
-        var setupPaginationButtons = function(i) {
-            jQuery(".page" + (i)).click(function() {
-                pageData(i);
+            var url = "/api/matches?skip=" + skip + "&count=" + count;
+            $http.get(url).success(function(data) {
+                if (data && data.Matches) {
+                    for (var i = 0; i < data.Matches.length; i++) {
+                        $scope.matches.push(data.Matches[i]);
+                    }
+                }
+
+                jQuery(".loadMatchesButton").prop("disabled", false);
+                hideLoadingAnimation();
             });
-        }
+
+        };
 
         $scope.getMatchResultText = function(match) {
             return match.Won ? "Win" : "Loss";
@@ -71,14 +53,9 @@
             }
         });
 
-        $scope.matchIndex = -1;
-        $scope.allMatches = {};
-        pageData(0);
+        loadMatches(0, MATCHES_TO_REQUEST);
 
-        // Pagination buttons
-        setupPaginationButtons(0);
-        setupPaginationButtons(1);
-        setupPaginationButtons(2);
-        setupPaginationButtons(3);
-        setupPaginationButtons(4);
+        jQuery(".loadMatchesButton").click(function() {
+            loadMatches($scope.matches.length, MATCHES_TO_REQUEST);
+        });
     });

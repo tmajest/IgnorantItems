@@ -15,7 +15,7 @@
             <h2>{{title}}</h2>
         </div>
         <div class="allMatches">
-            <div class="matchRow" ng-repeat="match in allMatches">
+            <div class="matchRow" ng-repeat="match in matches">
                 <a ng-href="/matches/{{match.ProName}}/{{match.MatchId}}">
                     <div class="homeMatchContainer" ng-style=getMatchColor(match)>
                         <div class="img-container">
@@ -42,6 +42,10 @@
                     </div>
                 </a>
             </div>
+        </div>
+        <div class="loadMatchesContainer">
+            <button type="button" class="btn btn-primary btn-sm loadMatchesButton">More matches</button>
+            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate loadingWheel"></span>
         </div>
     </div>
 </div>
